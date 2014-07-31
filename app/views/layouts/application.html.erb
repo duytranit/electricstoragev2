@@ -8,7 +8,72 @@
 </head>
 <body>
 
-<%= yield %>
+<div id="header">
+  <div id="logo">
+    <h1>
+      <a href="#">Electric Storage beta</a>
+    </h1>
+    <h2><a href="#">So Khoa Hoc va Cong Nghe</a></h2>
+  </div>
+  <div id="menu">
+    <ul>
+      <li class="active"><%= link_to "Trang chủ", root_path %></li>   
+      <li><a href="#">Giới thiệu</a></li>
+      <li><a href="#">Liên hệ</a></li>
+    </ul>
+  </div>
+</div>
+<div id="content">
+  <div id="colOne">
+    <%= yield %>
+  </div>
+  <div id="colTwo">
+    <ul>
+      <li>
+        <h2><span>Tiềm kiếm</span></h2>
+        <form method="get" action="#">
+          <div>
+            <input type="text" id="textfield1" name="textfield1" value="" size="18" />
+            <input type="submit" id="submit1" name="submit1" value="Search" />
+          </div>
+        </form>
+      </li>
+
+      <li>
+        <h2><span>Categories</span></h2>
+        <ul>
+          <li><a href="#">Quisque vestibulum</a> (23)</li>
+          <li><a href="#">Sed a nisl a lacus</a> (78)</li>
+          <li><a href="#">Quisque sagittis</a> (11)</li>
+          <li><a href="#">Etiam volutpat</a> (34)</li>
+          <li><a href="#">In aliquet hendrerit</a> (65)</li>
+          <li><a href="#">Suspendisse iaculis</a> (35)</li>
+          <li><a href="#">Nam vel risus at</a> (22)</li>
+          <li><a href="#">Praesent sit amet</a> (54)</li>
+        </ul>
+      </li>
+      <li>
+        <h2><span>Blogroll</span></h2>
+        <ul>
+          <li><a href="#">AnotherFriendlySite.net</a></li>
+          <li><a href="#">CoolSite.com</a></li>
+          <li><a href="#">MyBestFriend.com</a></li>
+        </ul>
+      </li>
+      <li>
+        <h2><span>Meta</span></h2>
+        <ul>
+          <li><a href="#" title="This page validates as XHTML 1.0 Transitional">Valid <abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div style="clear: both;">&nbsp;</div>
+</div>
+<div id="footer">
+  <p>SỞ KHOA HỌC VÀ CÔNG NGHỆ TỈNH BẾN TRE</p>
+  <p>Địa chỉ: Số 280 đường 3/2- Phường 3 - Tp Bến Tre. | Điện thoại : 075.3827358 | Fax : 075.3823179 | Email: banbientap@dost-bentre.gov.vn</p>
+</div>
 
 </body>
 </html>
