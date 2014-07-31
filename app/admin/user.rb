@@ -23,6 +23,7 @@ ActiveAdmin.register User do
         label_tag 'Suspend'
       end
     end
+    column :role
     column 'Actions' do |user|
       link_to('View', admin_user_path(user)) + " | " +     
       link_to('Edit', edit_admin_user_path(user)) + " | " +
