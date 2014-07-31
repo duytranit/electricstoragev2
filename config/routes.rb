@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  
+  namespace :admin do
+    controller :users do
+      get 'change_status' => :change_status
+    end
+  end
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
