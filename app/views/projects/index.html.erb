@@ -3,12 +3,11 @@
 <table>
   <thead>
     <tr>
-      <th>Title</th>
+      <th>Title</th>            
       <th>Description</th>
       <th>Price</th>
       <th>Share</th>
-      <th>Status</th>
-      <th>Email</th>
+      <th>Accepted</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,12 +15,17 @@
   <tbody>
     <% @projects.each do |project| %>
       <tr>
-        <td><%= project.title %></td>
+        <td><%= project.title %></td>                
         <td><%= project.description %></td>
         <td><%= project.price %></td>
         <td><%= project.share %></td>
-        <td><%= project.status %></td>
-        <td><%= project.email %></td>
+        <td>
+          <% if project.status %>
+            <%= image_tag("../assets/yes.png") %>
+          <% else %>
+            <%= image_tag("../assets/no.png") %>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -16,6 +16,11 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
+    <%= f.label :share %>
+    <%= f.check_box :share %>
+    <%= label_tag "I am to publish project for others" %>
+  </div>
+  <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
@@ -23,18 +28,7 @@
     <%= f.label :price %><br>
     <%= f.text_field :price %>
   </div>
-  <div class="field">
-    <%= f.label :share %><br>
-    <%= f.check_box :share %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.check_box :status %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

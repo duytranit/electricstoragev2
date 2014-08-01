@@ -2,16 +2,16 @@
 
 one:
   title: MyString
-  description: MyText
-  price: 9.99
   share: false
   status: false
-  email: MyString
+  description: MyText
+  price: 9.99
+  user_id: 1
 
 two:
   title: MyString
-  description: MyText
-  price: 9.99
   share: false
   status: false
-  email: MyString
+  description: MyText
+  price: 9.99
+  user_id: 1
