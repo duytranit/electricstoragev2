@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :projects
+
   namespace :admin do
     controller :users do
       get 'change_status' => :change_status

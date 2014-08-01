@@ -16,11 +16,11 @@
     <h2><a href="#">So Khoa Hoc va Cong Nghe</a></h2>
   </div>
   <div id="menu">
-    <ul>
-      <li class="active"><%= link_to "Trang chủ", root_path %></li>  
-      <li><a href="#">Giới thiệu</a></li>
-      <li><a href="#">Liên hệ</a></li>
-    </ul>
+    <% if user_signed_in? && current_user.is_staff? %>
+      <%= render '/shared/staff_navigate' %>
+    <% else %>
+      <%= render '/shared/customer_navigate' %>
+    <% end %>
   </div>
 </div>
 <div id="content">
