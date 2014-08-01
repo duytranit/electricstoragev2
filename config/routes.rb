@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :attachments
+
   resources :projects
 
   namespace :admin do
