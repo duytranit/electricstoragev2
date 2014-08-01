@@ -17,12 +17,7 @@
   </div>
   <div id="menu">
     <ul>
-      <li class="active"><%= link_to "Trang chủ", root_path %></li>
-      <% if (current_user) && (current_user.is_staff?) %>
-        <li>
-          <%= link_to "Staff" %>
-        </li>
-      <% end %>   
+      <li class="active"><%= link_to "Trang chủ", root_path %></li>  
       <li><a href="#">Giới thiệu</a></li>
       <li><a href="#">Liên hệ</a></li>
     </ul>
@@ -57,7 +52,8 @@
 
             <div id="user_nav">
               <% if user_signed_in? %>
-                Logged as <strong><%= current_user.email %></strong> <br />
+                <%= image_tag current_user.avatar.url(:small) %>
+                <strong><%= current_user.email %></strong> <br />
                 <%= link_to 'Edit profile', edit_user_registration_path %> |
                 <%= link_to "Logout", destroy_user_session_path, method: :delete %>
               <% else %>
