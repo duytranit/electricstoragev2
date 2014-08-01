@@ -17,7 +17,12 @@
   </div>
   <div id="menu">
     <ul>
-      <li class="active"><%= link_to "Trang chủ", root_path %></li>   
+      <li class="active"><%= link_to "Trang chủ", root_path %></li>
+      <% if (current_user) && (current_user.is_staff?) %>
+        <li>
+          <%= link_to "Staff" %>
+        </li>
+      <% end %>   
       <li><a href="#">Giới thiệu</a></li>
       <li><a href="#">Liên hệ</a></li>
     </ul>

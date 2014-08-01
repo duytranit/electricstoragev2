@@ -7,4 +7,12 @@ class User < ActiveRecord::Base
   def active_for_authentication?
 	  super && status
 	end
+
+	def is_staff?
+		self.role == 'staff'
+	end
+
+	def is_customer?
+		self.role == 'customer'		
+	end
 end
