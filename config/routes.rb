@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :procategories
+
   resources :attachments
 
   resources :projects
