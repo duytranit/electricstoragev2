@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= label_tag "Category" %>
+    <%= f.select :procategory_id, options_for_select(Procategory.where(["status = ?", true]).map{|c| [c.name, c.id]}) %>
+  </div>
+
+  <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>

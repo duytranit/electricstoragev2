@@ -24,7 +24,7 @@ class ProcategoriesController < ApplicationController
   # POST /procategories
   # POST /procategories.json
   def create
-    @procategory = Procategory.new(procategory_params)
+    @procategory = current_user.procategories.new(procategory_params)
 
     respond_to do |format|
       if @procategory.save
