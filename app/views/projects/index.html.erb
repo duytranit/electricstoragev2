@@ -12,7 +12,7 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody>    
     <% @projects.each do |project| %>
       <tr>
         <td>
@@ -41,6 +41,9 @@
     <% end %>
   </tbody>
 </table>
+<div class="digg_pagination">
+  <%= will_paginate @projects, previous_label: h("<"), next_label: h(">") %>
+</div>
 
 <br>
 
