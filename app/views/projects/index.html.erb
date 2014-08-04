@@ -41,9 +41,8 @@
     <% end %>
   </tbody>
 </table>
-<div class="digg_pagination">
-  <%= will_paginate @projects, previous_label: h("<"), next_label: h(">") %>
-</div>
+
+<%= paginate @projects %>
 
 <br>
 

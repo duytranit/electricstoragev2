@@ -48,4 +48,6 @@ gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'formtastic', github: 'justinfrench/formtastic'
 #--------end-------------
 gem "paperclip"
-gem "will_paginate"
+
+#paginate
+gem "kaminari"
