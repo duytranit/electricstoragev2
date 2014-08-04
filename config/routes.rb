@@ -8,11 +8,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     controller :users do
-      get 'change_status' => :change_status
+      get 'change_user_status' => :change_user_status
     end
 
     controller :projects do
-      get 'change_share' => :change_share
+      get 'change_project_share' => :change_project_share
+      get 'change_project_status' => :change_project_status
     end
   end
 

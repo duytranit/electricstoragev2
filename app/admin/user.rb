@@ -19,10 +19,10 @@ ActiveAdmin.register User do
     column :role
     column 'Status' do |staff|
       if staff.status
-        link_to( image_tag("../assets/yes.png"), admin_change_status_path(:id => staff.id),
+        link_to( image_tag("../assets/yes.png"), admin_change_user_status_path(:id => staff.id),
           title: "Click to suspend " + staff.email, rel: "tooltip")
       else
-        link_to( image_tag("../assets/no.png"), admin_change_status_path(:id => staff.id),
+        link_to( image_tag("../assets/no.png"), admin_change_user_status_path(:id => staff.id),
           title: "Click to active " + staff.email, rel: "tooltip")
       end
     end
@@ -44,7 +44,7 @@ ActiveAdmin.register User do
   filter :status  
 
   controller do
-    def change_status
+    def change_user_status
       @user = User.find(params[:id])
       if @user.status
         @user.status = false

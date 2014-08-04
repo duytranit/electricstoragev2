@@ -22,26 +22,49 @@ ActiveAdmin.register Project do
     end
     column "Share" do |p|
       if p.share
-        link_to image_tag('../assets/unlock.png'), admin_change_share_path(:id => p.id),
+        link_to image_tag('../assets/unlock.png'), admin_change_project_share_path(:id => p.id),
           title: "Click to lock " + p.title, rel: 'tooltip'
       else
-        link_to image_tag('../assets/lock.png'), admin_change_share_path(:id => p.id),
+        link_to image_tag('../assets/lock.png'), admin_change_project_share_path(:id => p.id),
           title: "Click to unlock " + p.title, rel: 'tooltip'
       end
     end
-    column :status
+
+    column "Status" do |p|
+      if p.status
+        link_to image_tag('../assets/yes.png'), admin_change_project_status_path(:id => p.id),
+          title: "Click to suspend " + p.title, rel: "tooltip"
+      else
+        link_to image_tag('../assets/no.png'), admin_change_project_status_path(:id => p.id),
+          title: "Click to active " + p.title, rel: "tooltip"
+      end
+    end
 
     actions
 
   end
 
   controller do
-    def change_share
+    def change_project_share
       @project = Project.find(params[:id])
       if @project.share
         @project.share = false
       else
         @project.share = true
+      end
+      @project.save
+
+      respond_to do |format|
+        format.html { redirect_to "/admin/projects" }
+      end
+    end
+
+    def change_project_status
+      @project = Project.find(params[:id])
+      if @project.status
+        @project.status = false
+      else
+        @project.status = true
       end
       @project.save
 
