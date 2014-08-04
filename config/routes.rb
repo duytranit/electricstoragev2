@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     controller :users do
       get 'change_status' => :change_status
     end
+
+    controller :projects do
+      get 'change_share' => :change_share
+    end
   end
 
   devise_for :admin_users, ActiveAdmin::Devise.config
