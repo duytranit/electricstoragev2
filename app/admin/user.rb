@@ -4,7 +4,7 @@ ActiveAdmin.register User do
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  permit_params :email, :status
+  permit_params :email, :status, :first_name, :last_name
   #
   # or
   #
@@ -15,34 +15,33 @@ ActiveAdmin.register User do
   # end
 
   index do
-    column :email
+    column :email    
+    column :role
     column 'Status' do |staff|
       if staff.status
-        label_tag 'Active'
+        link_to( image_tag("../assets/yes.png"), admin_change_status_path(:id => staff.id),
+          title: "Click to suspend " + staff.email, rel: "tooltip")
       else
-        label_tag 'Suspend'
+        link_to( image_tag("../assets/no.png"), admin_change_status_path(:id => staff.id),
+          title: "Click to active " + staff.email, rel: "tooltip")
       end
     end
-    column :role
-    column 'Actions' do |user|
-      link_to('View', admin_user_path(user)) + " | " +     
-      link_to('Edit', edit_admin_user_path(user)) + " | " +
-      link_to('Delete', admin_user_path(user), :confirm => 'Are you sure?', :method => :delete) + " | " +
-      if user.status
-        link_to('Suspend', admin_change_status_path(:id => user.id)) 
-      else
-        link_to('Active', admin_change_status_path(:id => user.id)) 
-      end
-    end
+    actions
   end
 
   form do |f|
     f.inputs "User detail" do
-      f.input :email
-      f.input :status, as: :select, collection: [["Active", 1],["Suspend", 0]]
+      f.input :first_name
+      f.input :last_name
+      f.input :status
     end
     f.actions
   end
+
+  filter :first_name
+  filter :last_name
+  filter :created_at
+  filter :status  
 
   controller do
     def change_status
