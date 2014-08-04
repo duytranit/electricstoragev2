@@ -7,6 +7,7 @@
       <th>Description</th>
       <th>Price</th>
       <th>Share</th>
+      <th>Category</th>
       <th>Accepted</th>
       <th colspan="3"></th>
     </tr>
@@ -19,6 +20,7 @@
         <td><%= project.description %></td>
         <td><%= project.price %></td>
         <td><%= project.share %></td>
+        <td><%= project.procategory.name %></td>
         <td>
           <% if project.status %>
             <%= image_tag("../assets/yes.png") %>
