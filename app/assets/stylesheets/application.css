@@ -101,6 +101,10 @@ a:hover {
 	background: #EFF0EB;
 }
 
+#user_nav {
+	text-align: center;	
+}
+
 /* Content */
 
 #content {
