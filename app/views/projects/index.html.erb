@@ -3,12 +3,11 @@
 <table>
   <thead>
     <tr>
-      <th>Title</th>            
-      <th>Description</th>
-      <th>Price</th>
-      <th>Share</th>
-      <th>Category</th>
-      <th>Accepted</th>
+      <th style="width: 150px; text-align: left; ">Title</th>
+      <th style="width: 50px; text-align: left; ">Price</th>      
+      <th style="width: 100px; text-align: left; ">Category</th>
+      <th style="width: 70px;">Share</th>
+      <th style="width: 70px;">Approved</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,21 +15,28 @@
   <tbody>
     <% @projects.each do |project| %>
       <tr>
-        <td><%= project.title %></td>                
-        <td><%= project.description %></td>
-        <td><%= project.price %></td>
-        <td><%= project.share %></td>
-        <td><%= project.procategory.name %></td>
         <td>
+          <%= link_to project.title, edit_project_path(project), title: "Click to edit and show " + project.title, rel: "tootip" %>
+        </td>
+        <td><%= project.price %></td>        
+        <td><%= project.procategory.name %></td>
+        <td style="text-align: center">
+          <% if project.share %>
+            <%= image_tag("../assets/unlock.png") %>
+          <% else %>
+            <%= image_tag("../assets/lock.png") %>
+          <% end %>
+        </td>
+        <td style="text-align: center">
           <% if project.status %>
             <%= image_tag("../assets/yes.png") %>
           <% else %>
             <%= image_tag("../assets/no.png") %>
           <% end %>
         </td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to image_tag("../assets/delete.png"), project, method: :delete, data: { confirm: 'Are you suren to destroy ' + project.title + ' ?' }, title: "Destroy " + project.title %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -38,4 +44,4 @@
 
 <br>
 
-<%= link_to 'New Project', new_project_path %>
+<%= link_to image_tag("../assets/new_project.png"), new_project_path, title: "Add new project", rel: 'tootltip' %>

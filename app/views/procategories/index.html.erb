@@ -4,8 +4,6 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Status</th>
-      <th>User</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,8 +12,6 @@
     <% @procategories.each do |procategory| %>
       <tr>
         <td><%= procategory.name %></td>
-        <td><%= procategory.status %></td>
-        <td><%= procategory.user_id %></td>
         <td><%= link_to 'Show', procategory %></td>
         <td><%= link_to 'Edit', edit_procategory_path(procategory) %></td>
         <td><%= link_to 'Destroy', procategory, method: :delete, data: { confirm: 'Are you sure?' } %></td>

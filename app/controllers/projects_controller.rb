@@ -17,7 +17,12 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
-    @project = Project.new
+    procategories = Procategory.where(["status = ?", true])
+    if procategories.count > 0
+      @project = Project.new      
+    else
+      redirect_to new_procategory_path, notice: "There are not any Project Category. You need to add new Project Category !"
+    end    
   end
 
   # GET /projects/1/edit
@@ -31,7 +36,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
+        format.html { redirect_to @project, notice: 'Project was successfully created. You need to wait for accepting Project Category' }
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new }
