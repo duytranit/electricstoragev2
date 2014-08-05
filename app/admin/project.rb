@@ -44,6 +44,18 @@ ActiveAdmin.register Project do
 
   end
 
+  filter :user, as: :select, :collection => User.all.map(&:email)
+  filter :procategory
+  filter :attachments
+  filter :title
+  filter :share
+  filter :status
+  filter :price
+  filter :created_at
+  filter :updated_at
+  filter :photo_file_name
+  filter :photo_updated_at
+
   controller do
     def change_project_share
       @project = Project.find(params[:id])
