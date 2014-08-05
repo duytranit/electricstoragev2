@@ -10,6 +10,9 @@ class ProcategoriesController < ApplicationController
   # GET /procategories/1
   # GET /procategories/1.json
   def show
+    if ( !user_signed_in? ) || ( !current_user.is_staff? )
+      @projects = @procategory.projects.where(["status = ? and share = ?", true, true])
+    end    
   end
 
   # GET /procategories/new
