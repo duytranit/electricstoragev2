@@ -10,7 +10,14 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require showdown
+//= require jquery-1.2.6
+//= require jquery-1.2.6.min
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+wmd_options = {
+    output: "Markdown"
+};
