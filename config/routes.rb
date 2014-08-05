@@ -15,6 +15,10 @@ Rails.application.routes.draw do
       get 'change_project_share' => :change_project_share
       get 'change_project_status' => :change_project_status
     end
+
+    controller :procategories do
+      get 'change_procategory_status' => :change_procategory_status
+    end
   end
 
   devise_for :admin_users, ActiveAdmin::Devise.config
