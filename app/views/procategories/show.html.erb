@@ -1,9 +1,13 @@
-<p id="notice"><%= notice %></p>
+<% if ( !user_signed_in? ) || ( !current_user.is_staff? ) %>
+	<%= render 'customer_show' %>
+<% else %>
+	<p id="notice"><%= notice %></p>
+	<p>
+	  <strong>Name:</strong>
+	  <%= @procategory.name %>
+	</p>
+	<%= link_to 'Edit', edit_procategory_path(@procategory) %> |
+	<%= link_to 'Back', procategories_path %>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @procategory.name %>
-</p>
 
-<%= link_to 'Edit', edit_procategory_path(@procategory) %> |
-<%= link_to 'Back', procategories_path %>
