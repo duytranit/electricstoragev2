@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-  	@projects = Project.where(["share = ? and status = ?", true, true])
+  	@projects = Project.joins(:procategory).where(["projects.share = ? and projects.status = ? 
+  		and procategories.status = ? ", true, true, true])
   end
 end
