@@ -1,55 +1,59 @@
-<p id="notice"><%= notice %></p>
+<% if ( !user_signed_in? ) || ( !current_user.is_staff? ) %>
+ <%= render 'customer_show' %>
+<% else %>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
+  <p>
+    <strong>Title:</strong>
+    <%= @project.title %>
+  </p>
 
-<p>
-  <strong>Share:</strong>
-  <%= @project.share %>
-</p>
+  <p>
+    <strong>Share:</strong>
+    <%= @project.share %>
+  </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @project.procategory.name %>
-</p>
+  <p>
+    <strong>Category:</strong>
+    <%= @project.procategory.name %>
+  </p>
 
-<p>
-  <strong>Accepted:</strong>
-  <%= @project.status %>
-</p>
+  <p>
+    <strong>Accepted:</strong>
+    <%= @project.status %>
+  </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @project.price %>
-</p>
+  <p>
+    <strong>Price:</strong>
+    <%= @project.price %>
+  </p>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+  <%= link_to 'Edit', edit_project_path(@project) %> |
+  <%= link_to 'Back', projects_path %>
 
-<% if @attachments.count > 0 %>
-  <h1>Listing attachments</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Attached File</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @attachments.each do |attachment| %>
+  <% if @attachments.count > 0 %>
+    <h1>Listing attachments</h1>
+    <table>
+      <thead>
         <tr>
-          <td><%= attachment.file_file_name %></td>
-          <td><%= link_to 'Destroy', attachment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <th>Attached File</th>
+          <th colspan="3"></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% end %> 
+      </thead>
 
-<br/>
-<br/>
+      <tbody>
+        <% @attachments.each do |attachment| %>
+          <tr>
+            <td><%= attachment.file_file_name %></td>
+            <td><%= link_to 'Destroy', attachment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %> 
 
-<%= link_to 'New Attachment', new_attachment_path(@project) %>
+  <br/>
+  <br/>
+
+  <%= link_to 'New Attachment', new_attachment_path(@project) %>
+<% end %>

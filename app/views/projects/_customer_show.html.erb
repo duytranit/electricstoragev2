@@ -1,0 +1,12 @@
+<div class="post">
+<h2 class="title">
+	<%= label_tag @project.title %>
+</h2>
+<h3 class="posted"><%= @project.created_at %></h3>
+<div class="story">
+	<p>
+		<%= raw(@project.description) %>
+	</p>
+</div>
+
+</div>

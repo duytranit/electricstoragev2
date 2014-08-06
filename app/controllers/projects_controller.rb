@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_filter :check_staff_login
+  before_filter :check_staff_login, except: [:show]
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   # GET /projects
