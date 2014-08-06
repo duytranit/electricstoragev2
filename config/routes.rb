@@ -27,6 +27,10 @@ Rails.application.routes.draw do
     controller :feedbacks do
       get 'change_feedback_status' => :change_feedback_status
     end
+
+    controller :replies do
+      get 'change_reply_status' => :change_reply_status
+    end
   end
 
   devise_for :admin_users, ActiveAdmin::Devise.config
