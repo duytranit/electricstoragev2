@@ -16,7 +16,16 @@
 	    <% @feedbacks.each do |feedback| %>
 	      <li>
 	      	<%= feedback.user.first_name + " " + feedback.user.last_name + ": " %>
-	      	<%= feedback.content %>
+	      	<%= feedback.content %><br />
+	      	<% if feedback.replies.count > 0 %>
+	      		<ul>
+		      		<% feedback.replies.each do |reply| %>
+			      		<li>
+			      			<%= reply.created_at.to_s() + ": " %><%= reply.content %>
+			      		</li>
+			      	<% end %>
+		      	</ul>
+	      	<% end %>
 	      </li>
 	    <% end %>
 	    <br />
