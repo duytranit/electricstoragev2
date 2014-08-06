@@ -7,6 +7,9 @@
 		<p>
 			<%= raw(@project.description) %>
 		</p>
+		<p style="text-align: right">
+			<%= link_to image_tag("../assets/buy.png"), root_path, title: "Click to buy project \""+@project.title+"\"", rel: 'tooltip' %>
+		</p>
 	</div>
 
 	<div>

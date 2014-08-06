@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  resources :invoicedetails
+
+  resources :invoices
+
   resources :replies
 
   resources :feedbacks

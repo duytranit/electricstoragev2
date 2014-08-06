@@ -1,0 +1,33 @@
+<h1>Listing invoicedetails</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Invoice</th>
+      <th>Project</th>
+      <th>Release date</th>
+      <th>End date</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @invoicedetails.each do |invoicedetail| %>
+      <tr>
+        <td><%= invoicedetail.invoice_id %></td>
+        <td><%= invoicedetail.project_id %></td>
+        <td><%= invoicedetail.release_date %></td>
+        <td><%= invoicedetail.end_date %></td>
+        <td><%= invoicedetail.status %></td>
+        <td><%= link_to 'Show', invoicedetail %></td>
+        <td><%= link_to 'Edit', edit_invoicedetail_path(invoicedetail) %></td>
+        <td><%= link_to 'Destroy', invoicedetail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Invoicedetail', new_invoicedetail_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Invoice:</strong>
+  <%= @invoicedetail.invoice_id %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @invoicedetail.project_id %>
+</p>
+
+<p>
+  <strong>Release date:</strong>
+  <%= @invoicedetail.release_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @invoicedetail.end_date %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @invoicedetail.status %>
+</p>
+
+<%= link_to 'Edit', edit_invoicedetail_path(@invoicedetail) %> |
+<%= link_to 'Back', invoicedetails_path %>
