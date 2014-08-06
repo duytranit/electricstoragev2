@@ -21,6 +21,10 @@ Rails.application.routes.draw do
     controller :procategories do
       get 'change_procategory_status' => :change_procategory_status
     end
+
+    controller :feedbacks do
+      get 'change_feedback_status' => :change_feedback_status
+    end
   end
 
   devise_for :admin_users, ActiveAdmin::Devise.config

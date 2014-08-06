@@ -23,13 +23,18 @@ class FeedbacksController < ApplicationController
 
   # POST /feedbacks
   # POST /feedbacks.json
-  def create
-    @feedback = Feedback.new(feedback_params)
+  def create        
+    @feedback = current_user.feedbacks.new(feedback_params)
+
+    if !current_user.is_staff?
+      @feedback.project = Project.find(session[:project_id])
+    end
+    
 
     respond_to do |format|
       if @feedback.save
-        format.html { redirect_to @feedback, notice: 'Feedback was successfully created.' }
-        format.json { render :show, status: :created, location: @feedback }
+        format.html { redirect_to @feedback.project, notice: 'Feedback was successfully created.' }
+        format.json { render :show, status: :created, location: @feedback.project }
       else
         format.html { render :new }
         format.json { render json: @feedback.errors, status: :unprocessable_entity }

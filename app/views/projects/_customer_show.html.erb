@@ -1,12 +1,31 @@
 <div class="post">
-<h2 class="title">
-	<%= label_tag @project.title %>
-</h2>
-<h3 class="posted"><%= @project.created_at %></h3>
-<div class="story">
-	<p>
-		<%= raw(@project.description) %>
-	</p>
-</div>
+	<h2 class="title">
+		<%= label_tag @project.title %>
+	</h2>
+	<h3 class="posted"><%= @project.created_at %></h3>
+	<div class="story">
+		<p>
+			<%= raw(@project.description) %>
+		</p>
+	</div>
+
+	<div>
+		<h3>feedbacks</h3>
+
+		<ul>
+	    <% @feedbacks.each do |feedback| %>
+	      <li>
+	      	<%= feedback.content %>
+	      </li>
+	    <% end %>
+  </ul>
+
+	</div>
+	<br />
+	<div>
+		<% if user_signed_in? && !current_user.is_staff? %>
+			<%= render "/feedbacks/form" %>
+		<% end %>
+	</div>
 
 </div>
