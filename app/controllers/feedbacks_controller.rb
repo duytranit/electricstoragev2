@@ -10,6 +10,8 @@ class FeedbacksController < ApplicationController
   # GET /feedbacks/1
   # GET /feedbacks/1.json
   def show
+    @reply = Reply.new
+    session[:feedback_id] = @feedback.id
   end
 
   # GET /feedbacks/new
