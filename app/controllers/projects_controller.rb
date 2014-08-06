@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
   def show
     session[:project_id] = @project.id
     @attachments = @project.attachments
-    @feedbacks = @project.feedbacks.where(["status = ?", true])
+    @feedbacks = @project.feedbacks.where(["status = ?", true]).page(params[:page]).per(4)
     @feedback = Feedback.new
   end
 

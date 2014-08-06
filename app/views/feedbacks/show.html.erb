@@ -1,23 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @feedback.user_id %>
+  <strong>From:</strong>
+  <%= @feedback.user.first_name + " " + @feedback.user.last_name %>
 </p>
 
 <p>
   <strong>Project:</strong>
-  <%= @feedback.project_id %>
+  <%= @feedback.project.title %>
 </p>
 
 <p>
-  <strong>Content:</strong>
+  <strong>Content:</strong><br />
   <%= @feedback.content %>
 </p>
 
 <p>
-  <strong>Status:</strong>
-  <%= @feedback.status %>
+	<strong>Reply:</strong>
+	<%= render '/replies/form' %>
 </p>
 
 <%= link_to 'Edit', edit_feedback_path(@feedback) %> |

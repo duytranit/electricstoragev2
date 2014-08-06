@@ -5,9 +5,9 @@
     <tr>
       <th style="width: 150px; text-align: left; ">Title</th>
       <th style="width: 50px; text-align: left; ">Price</th>      
-      <th style="width: 100px; text-align: left; ">Category</th>
-      <th style="width: 70px;">Share</th>
-      <th style="width: 70px;">Approved</th>
+      <th style="width: 70px; text-align: left; ">Category</th>
+      <th style="width: 40px;">Share</th>
+      <th style="width: 40px;">Approved</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,7 +16,7 @@
     <% @projects.each do |project| %>
       <tr>
         <td>
-          <%= link_to project.title, edit_project_path(project), title: "Click to edit and show " + project.title, rel: "tootip" %>
+          <%= link_to project.title, project, title: "Click to show " + project.title, rel: "tootip" %>
         </td>
         <td><%= project.price %></td>        
         <td><%= project.procategory.name %></td>
@@ -35,6 +35,7 @@
           <% end %>
         </td>
         <td>
+          <%= link_to image_tag("../assets/edit.png"), edit_project_path(project), title: "Click to edit " + project.title, rel: "tootip" %>
           <%= link_to image_tag("../assets/delete.png"), project, method: :delete, data: { confirm: 'Are you suren to destroy ' + project.title + ' ?' }, title: "Destroy " + project.title %>
         </td>
       </tr>
