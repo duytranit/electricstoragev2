@@ -15,9 +15,12 @@
 		<ul>
 	    <% @feedbacks.each do |feedback| %>
 	      <li>
+	      	<%= feedback.user.first_name + " " + feedback.user.last_name + ": " %>
 	      	<%= feedback.content %>
 	      </li>
 	    <% end %>
+	    <br />
+	    <%= paginate @feedbacks %>
   </ul>
 
 	</div>
