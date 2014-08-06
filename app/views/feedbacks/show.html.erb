@@ -11,8 +11,16 @@
 </p>
 
 <p>
-  <strong>Content:</strong><br />
+  <strong>Feedback:</strong><br />
   <%= @feedback.content %>
+</p>
+
+<p>
+	<ul>
+		<% @replies.each do |reply| %>
+			<li><%= truncate(reply.content, length: 100) %></li>
+		<% end %>
+	</ul>
 </p>
 
 <p>

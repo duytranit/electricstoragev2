@@ -11,7 +11,7 @@ class FeedbacksController < ApplicationController
   # GET /feedbacks/1.json
   def show
     @reply = Reply.new
-    session[:feedback_id] = @feedback.id
+    @replies = @feedback.replies.where(["status = ?", true])
   end
 
   # GET /feedbacks/new
