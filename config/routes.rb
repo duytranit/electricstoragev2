@@ -2,7 +2,14 @@ Rails.application.routes.draw do
   
   resources :invoicedetails
 
-  resources :invoices
+  # resources :invoices do
+  #   post 'remove_project_out_invoice' => :remove_project_out_invoice
+  # end
+  resources :invoices do
+    collection do
+      post :remove_project_out_invoice
+    end
+  end
 
   resources :replies
 
@@ -36,6 +43,8 @@ Rails.application.routes.draw do
       get 'change_reply_status' => :change_reply_status
     end
   end
+
+  # post "invoices/remove_project_out_invoice" => "invoices#remove_project_out_invoice"
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

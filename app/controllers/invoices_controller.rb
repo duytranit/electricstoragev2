@@ -24,11 +24,21 @@ class InvoicesController < ApplicationController
   # POST /invoices
   # POST /invoices.json
   def create
-    @invoice = Invoice.new(invoice_params)
+    @invoice = current_user.invoices.new
+    @invoice.user = current_user
 
     respond_to do |format|
       if @invoice.save
-        format.html { redirect_to @invoice, notice: 'Invoice was successfully created.' }
+
+        session[:storage].each do |id|
+          @invoicedetail = @invoice.invoicedetails.new
+          @invoicedetail.project_id = id
+          @invoicedetail.save
+        end
+
+        session[:storage].clear
+
+        format.html { redirect_to root_path, notice: 'Invoice was successfully created.' }
         format.json { render :show, status: :created, location: @invoice }
       else
         format.html { render :new }
@@ -58,6 +68,15 @@ class InvoicesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to invoices_url, notice: 'Invoice was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def remove_project_out_invoice
+    session[:storage].delete(params[:project_id])
+    if session[:storage].count > 0
+      redirect_to new_invoice_path
+    else
+      redirect_to root_path
     end
   end
 

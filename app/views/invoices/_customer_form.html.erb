@@ -1,0 +1,42 @@
+<%= form_for(@invoice) do |f| %>
+  <% if @invoice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
+
+      <ul>
+      <% @invoice.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table style="width: 100%">
+    <thead>
+      <tr>
+        <th style="text-align: left">Project</th>
+        <th style="text-align: left">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% session[:storage].each do |id| %>
+        <% project = Project.find(id) %>
+        <tr>
+          <td>
+            <%= truncate(project.title, length: 20) %>
+          </td>
+          <td>
+            <%= project.price %>
+          </td>
+          <td>
+            <%= link_to image_tag("../assets/delete.png"), remove_project_out_invoice_invoices_path(project_id: project.id), method: :post, data: { confirm: "Do you really want to remove project \"" + project.title + "\"" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>      
+  </table>    
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

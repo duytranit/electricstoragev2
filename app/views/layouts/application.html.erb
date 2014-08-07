@@ -37,36 +37,6 @@
         </form>
       </li>
 
-      <% if (session[:storage]) && (session[:storage].count > 0) %>
-        <li>
-          <h2>
-            <span>Your storage ( <%= session[:storage].count %> )</span>
-          </h2>
-          <ul>
-            <li>
-              <table style="width: 100%">
-                <tr>
-                  <td>
-                    <ul>
-                      <% session[:storage].each do |id| %>
-                        <li>
-                          <%= truncate(Project.find(id).title, length: 25) %><br />
-                        </li>                        
-                      <% end %>
-                    </ul>                      
-                  </td>
-                </tr>
-                <tr>
-                  <td style="text-align: right;">
-                    <%= link_to image_tag("../assets/payment.png"), root_path %>
-                  </td>
-                </tr>
-              </table>              
-            </li>            
-          </ul>
-        </li>
-      <% end %>
-
       <li>
         <h2>
           <span>Sign in</span>
@@ -96,6 +66,37 @@
           </li>
         </ul>
       </li>
+
+      <% if (session[:storage]) && (session[:storage].count > 0) %>
+        <li>
+          <h2>
+            <span>Your storage ( <%= session[:storage].count %> )</span>
+          </h2>
+          <ul>
+            <li>
+              <table style="width: 100%">
+                <tr>
+                  <td>
+                    <ul>
+                      <% session[:storage].each do |id| %>
+                        <li>
+                          <% project = Project.find(id) %>
+                          <%= link_to truncate(project.title, length: 25), project %><br />
+                        </li>                        
+                      <% end %>
+                    </ul>                      
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: right;">
+                    <%= link_to image_tag("../assets/payment.png"), new_invoice_path %>
+                  </td>
+                </tr>
+              </table>              
+            </li>            
+          </ul>
+        </li>
+      <% end %>
 
       <% procategories = Procategory.where(["status = ?", true]) %>
       <% if ( procategories.count > 0 ) %>

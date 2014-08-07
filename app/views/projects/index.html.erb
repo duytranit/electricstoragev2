@@ -36,7 +36,7 @@
         </td>
         <td>
           <%= link_to image_tag("../assets/edit.png"), edit_project_path(project), title: "Click to edit " + project.title, rel: "tootip" %>
-          <%= link_to image_tag("../assets/delete.png"), project, method: :delete, data: { confirm: 'Are you suren to destroy ' + project.title + ' ?' }, title: "Destroy " + project.title %>
+          <%= link_to image_tag("../assets/delete.png"), project, method: :delete, data: { confirm: 'Are you sure to destroy ' + project.title + ' ?' }, title: "Destroy " + project.title %>
         </td>
       </tr>
     <% end %>
