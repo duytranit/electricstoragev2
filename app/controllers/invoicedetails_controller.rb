@@ -24,17 +24,19 @@ class InvoicedetailsController < ApplicationController
   # POST /invoicedetails
   # POST /invoicedetails.json
   def create
-    @invoicedetail = Invoicedetail.new(invoicedetail_params)
+    (session[:storage] ||= []) << params[:project_id]
+    redirect_to root_path
+    # @invoicedetail = Invoicedetail.new(invoicedetail_params)
 
-    respond_to do |format|
-      if @invoicedetail.save
-        format.html { redirect_to @invoicedetail, notice: 'Invoicedetail was successfully created.' }
-        format.json { render :show, status: :created, location: @invoicedetail }
-      else
-        format.html { render :new }
-        format.json { render json: @invoicedetail.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @invoicedetail.save
+    #     format.html { redirect_to @invoicedetail, notice: 'Invoicedetail was successfully created.' }
+    #     format.json { render :show, status: :created, location: @invoicedetail }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @invoicedetail.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /invoicedetails/1
