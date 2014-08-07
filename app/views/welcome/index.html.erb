@@ -23,6 +23,9 @@
               </tr>
               <tr>
                 <td style="text-align: right">
+                  <% if (user_signed_in?) && ( !current_user.is_staff? ) && ((session[:storage].nil?) || (( session[:storage] )&& !( session[:storage].include? p.id.to_s ))) %>
+                    <%= link_to "Buy", invoicedetails_path(project_id: p.id), method: :post %> |
+                  <% end %>
                   <%= link_to "read more ...", p %>
                 </td>
               </tr>

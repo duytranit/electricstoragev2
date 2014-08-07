@@ -81,7 +81,7 @@
                       <% session[:storage].each do |id| %>
                         <li>
                           <% project = Project.find(id) %>
-                          <%= link_to truncate(project.title, length: 25), project %><br />
+                          <%= link_to truncate(project.title, length: 20), project %><br />
                         </li>                        
                       <% end %>
                     </ul>                      
