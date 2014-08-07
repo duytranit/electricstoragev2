@@ -7,9 +7,12 @@
 		<p>
 			<%= raw(@project.description) %>
 		</p>
-		<p style="text-align: right">
-			<%= link_to image_tag("../assets/buy.png"), root_path, title: "Click to buy project \""+@project.title+"\"", rel: 'tooltip' %>
-		</p>
+		
+		<% if (user_signed_in?) && ( !current_user.is_staff? ) && ((session[:storage].nil?) || (( session[:storage] )&& !( session[:storage].include? @project.id.to_s ))) %>
+			<p style="text-align: right">
+				<%= link_to image_tag("../assets/buy.png"), invoicedetails_path(project_id: @project.id), method: :post, title: "Click to buy project \""+@project.title+"\"", rel: 'tooltip' %>
+			</p>
+		<% end %>
 	</div>
 
 	<div>

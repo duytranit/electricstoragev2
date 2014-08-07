@@ -37,6 +37,21 @@
         </form>
       </li>
 
+      <% if (session[:storage]) && (session[:storage].count > 0) %>
+        <li>
+          <h2>
+            <span>Your storage ( <%= session[:storage].count %> )</span>
+          </h2>
+          <ul>
+            <li>
+              <% session[:storage].each do |id| %>
+                <%= truncate(Project.find(id).title, length: 25) %><br />
+              <% end %>
+            </li>            
+          </ul>
+        </li>
+      <% end %>
+
       <li>
         <h2>
           <span>Sign in</span>
