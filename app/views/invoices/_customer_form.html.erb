@@ -34,7 +34,52 @@
         </tr>
       <% end %>
     </tbody>      
-  </table>    
+  </table>
+
+  <div class="field">
+    <%= f.label :from_date %><br>
+    <%= f.date_select :from_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_date %><br />
+    <%= f.date_select :end_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :download_time %> <br />
+    <table style="width: 100%">
+      <tr>
+        <td style="text-align: center">
+          <%= image_tag("../assets/battery100.png") %>
+        </td>
+        <td style="text-align: center">
+          <%= image_tag("../assets/battery80.png") %>
+        </td>
+        <td style="text-align: center">
+          <%= image_tag("../assets/battery60.png") %>
+        </td>
+        <td style="text-align: center">
+          <%= image_tag("../assets/battery40.png") %>
+        </td>
+        <td style="text-align: center">
+          <%= image_tag("../assets/battery20.png") %>
+        </td>
+      </tr>
+      <tr>
+        <% ['100', '80', '60', '40', '20'].each do |t| %>
+          <td style="text-align: center">
+            <% if t=='100' %>
+              <%= f.radio_button(:download_time, t, checked: true) %>
+            <% else %>
+              <%= f.radio_button(:download_time, t) %>
+            <% end %>            
+            <%= t.humanize %>
+          </td>            
+        <% end %>
+      </tr>
+    </table>        
+  </div>    
 
   <div class="actions">
     <%= f.submit %>

@@ -24,7 +24,7 @@ class InvoicesController < ApplicationController
   # POST /invoices
   # POST /invoices.json
   def create
-    @invoice = current_user.invoices.new
+    @invoice = current_user.invoices.new(invoice_params)
     @invoice.user = current_user
 
     respond_to do |format|
@@ -88,6 +88,6 @@ class InvoicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def invoice_params
-      params.require(:invoice).permit(:user_id, :content, :note, :status)
+      params.require(:invoice).permit(:user_id, :content, :note, :status, :frome_date, :end_date, :download_time)
     end
 end
