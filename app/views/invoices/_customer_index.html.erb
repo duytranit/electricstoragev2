@@ -1,0 +1,35 @@
+<h1>Listing invoices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">From Date</th>
+      <th style="text-align: left">End Date</th>
+      <th>Amount of Projects</th>
+      <th>Download time</th>
+      <th>Contract</th>
+    </tr>
+  </thead>
+
+  <tbody>    
+    <% @invoices.each do |invoice| %>
+      <tr>
+        <td>
+          <%= invoice.from_date %>
+        </td>
+        <td>
+          <%= invoice.end_date %>
+        </td>
+        <td style="text-align: center">
+          <%= invoice.invoicedetails.count %>
+        </td>
+        <td style="text-align: center">
+          <%= invoice.download_time %>
+        </td>
+        <td style="text-align: center">
+          <%= invoice.status %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

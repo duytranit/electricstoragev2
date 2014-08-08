@@ -5,6 +5,11 @@ class InvoicesController < ApplicationController
   # GET /invoices.json
   def index
     @invoices = Invoice.all
+    if ( user_signed_in? ) && ( !current_user.is_staff? )
+      @invoices = current_user.invoices
+    else
+      @invoices = Invoice.joins(:invoicedetails).joins(:projects).where(["projects.user_id = ?", current_user.id])
+    end
   end
 
   # GET /invoices/1
@@ -38,7 +43,7 @@ class InvoicesController < ApplicationController
 
         session[:storage].clear
 
-        format.html { redirect_to root_path, notice: 'Invoice was successfully created.' }
+        format.html { redirect_to invoices_path, notice: 'Invoice was successfully created.' }
         format.json { render :show, status: :created, location: @invoice }
       else
         format.html { render :new }

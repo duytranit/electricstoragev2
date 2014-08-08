@@ -33,6 +33,7 @@ a {
 
 a:hover {
 	text-decoration: underline;
+	background-color: lavender;
 }
 
 /* Header */
