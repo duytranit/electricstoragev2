@@ -37,7 +37,7 @@ ActiveAdmin.register Procategory do
     f.actions
   end
 
-  filter :user, as: :select, :collection => User.all.map(&:email)
+  # filter :user, as: :select, :collection => User.all.map(&:email)
   filter :projects
   filter :name
   filter :status

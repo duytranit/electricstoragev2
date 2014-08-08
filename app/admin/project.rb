@@ -44,7 +44,7 @@ ActiveAdmin.register Project do
 
   end
 
-  filter :user, as: :select, :collection => User.all.map(&:email)
+  # filter :user, as: :select, :collection => User.all.map(&:email)
   filter :procategory
   filter :attachments
   filter :title
