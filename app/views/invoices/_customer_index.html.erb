@@ -15,10 +15,10 @@
     <% @invoices.each do |invoice| %>
       <tr>
         <td>
-          <%= invoice.from_date %>
+          <%= invoice.from_date.strftime("%d/%m/%Y") %>
         </td>
         <td>
-          <%= invoice.end_date %>
+          <%= invoice.end_date.strftime("%d/%m/%Y") %>
         </td>
         <td style="text-align: center">
           <%= invoice.invoicedetails.count %>
