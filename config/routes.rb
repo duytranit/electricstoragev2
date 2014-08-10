@@ -42,6 +42,10 @@ Rails.application.routes.draw do
     controller :replies do
       get 'change_reply_status' => :change_reply_status
     end
+
+    controller :invoices do
+      get 'change_invoice_status' => :change_invoice_status
+    end
   end
 
   # post "invoices/remove_project_out_invoice" => "invoices#remove_project_out_invoice"
