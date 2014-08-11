@@ -14,23 +14,23 @@
 
 				<% case download_time %>
 					<% when 1..19 %>
-						<%= image_tag '../assets/battery0.png', style: 'width: 25px; height:50px;' %>
-						<%= label_tag download_time %>
+						<%= image_tag '../assets/battery0.png', style: 'width: 25px; height:50px;' %> / 
+						<%= label_tag download_time.to_s + " times" %>
 					<% when 20..39 %>
-						<%= image_tag '../assets/battery20.png', style: 'width: 25px; height:50px;' %>
-						<%= label_tag download_time %>
+						<%= image_tag '../assets/battery20.png', style: 'width: 25px; height:50px;' %> / 
+						<%= label_tag download_time.to_s + " times" %>
 					<% when 40..59 %>
-						<%= image_tag '../assets/battery40.png', style: 'width: 25px; height:50px;' %>
-						<%= label_tag download_time %>
+						<%= image_tag '../assets/battery40.png', style: 'width: 25px; height:50px;' %> / 
+						<%= label_tag download_time.to_s + " times" %>
 					<% when 50..79 %>
-						<%= image_tag '../assets/battery60.png', style: 'width: 25px; height:50px;' %>
-						<%= label_tag download_time %>
+						<%= image_tag '../assets/battery60.png', style: 'width: 25px; height:50px;' %> / 
+						<%= label_tag download_time.to_s + " times" %>
 					<% when 80..99 %>
-						<%= image_tag '../assets/battery80.png', style: 'width: 25px; height:50px;' %>
-						<%= label_tag download_time %>
+						<%= image_tag '../assets/battery80.png', style: 'width: 25px; height:50px;' %> / 
+						<%= label_tag download_time.to_s + " times" %>
 					<% when 100 %>
-						<%= image_tag '../assets/battery100.png', style: 'width: 25px; height:50px;' %>
-						<%= label_tag download_time %>
+						<%= image_tag '../assets/battery100.png', style: 'width: 25px; height:50px;' %> / 
+						<%= label_tag download_time.to_s + " times" %>
 				<% end %>
 			</p>		
 
