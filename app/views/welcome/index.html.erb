@@ -9,7 +9,11 @@
         <tr>
           <td>
             <p style="text-align: center">
-              <%=  link_to image_tag(p.photo.url(:panel)), p %>
+              <% if p.photo.url.split('/').last == 'missing.png' %>
+                <%=  link_to image_tag('../assets/missing_panel.png'), p %>
+              <% else %>
+                <%=  link_to image_tag(p.photo.url(:panel)), p %>
+              <% end %>
             </p>
           </td>
           <td>
