@@ -8,4 +8,16 @@ class Project < ActiveRecord::Base
 
 	has_attached_file :photo, :styles => { :small => "150x150>", panel: "470x140>" }
 	validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
+
+
+
+	def self.search(search)
+	  if search
+	  	self.where(["title LIKE ?", "%#{search}%"])
+	  else
+	    self.all
+	  end
+	end
+
+
 end
