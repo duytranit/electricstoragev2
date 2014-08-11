@@ -7,7 +7,7 @@
     <tr>
       <td>
         <%= image_tag "../assets/userAvatar.png" %> <br/>
-        <%= f.file_field :avatar %>
+        <%= f.file_field :avatar, accept: 'image/png, image/gif, image/jpeg, image/jpg' %>
       </td>
       <td>
         <table>
@@ -44,23 +44,28 @@
             </td>
           </tr>
           <tr>
-            <td>
-              <%= f.label :role %>
-            </td>
-            <td>
-              <%= f.select :role, ["customer", "staff"] %>
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <%= f.submit "Sign up" %>
-            </td>
+            <table style="width: 100%; text-align: center; margin-top: 20px">
+              <tr>
+                <td>
+                  <%= image_tag('../assets/customer.png') %>
+                </td>
+                <td>
+                  <%= image_tag('../assets/staff.png') %>
+                </td>
+              </tr>
+              <tr>
+                <% ['customer', 'staff'].each do |role| %>
+                  <td style="width: 50%">
+                    <%= f.radio_button(:role, role) %>
+                    <%= role.humanize %>
+                  </td>
+                <% end %>
+              </tr>
+            </table>                
           </tr>
         </table>
       </td>
     </tr>
   </table>
+  <%= f.submit "Sign up", type: :image, src: '../assets/sign_up_button.png', title: 'Sign up', rel: 'tooltip' %>
 <% end %>
-<br />
-<%= render "devise/shared/links" %>
