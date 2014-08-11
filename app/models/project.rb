@@ -11,9 +11,13 @@ class Project < ActiveRecord::Base
 
 
 
-	def self.search(search)
+	def self.search(search, procategory_id)
 	  if search
-	  	self.where(["title LIKE ?", "%#{search}%"])
+	  	if procategory_id != ''
+	  		self.where(["title LIKE ? and projects.procategory_id = ?", "%#{search}%", procategory_id])
+	  	else
+	  		self.where(["title LIKE ?", "%#{search}%"])
+	  	end	  	
 	  else
 	    self.all
 	  end
