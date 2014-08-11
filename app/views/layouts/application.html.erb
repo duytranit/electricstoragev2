@@ -22,7 +22,7 @@
       <% end %>
     <% else %>
       <ul>
-        <li><%= link_to "Trang chủ", root_path %></li>
+        <li class=<%if controller.controller_name == 'welcome'%> 'active' <%end%> > <%= link_to "Trang chủ", root_path %></li>
         <li><a href="#">Giới thiệu</a></li>
         <li><a href="#">Liên hệ</a></li>
       </ul>
