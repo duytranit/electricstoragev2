@@ -7,38 +7,81 @@
 		<p>
 			<%= raw(@project.description) %>
 		</p>
-		
-		<% if (user_signed_in?) && ( !current_user.is_staff? ) && ((session[:storage].nil?) || (( session[:storage] )&& !( session[:storage].include? @project.id.to_s ))) %>
+
+		<% if @invoice %>
 			<p style="text-align: right">
-				<%= link_to image_tag("../assets/buy.png"), invoicedetails_path(project_id: @project.id), method: :post, title: "Click to buy project \""+@project.title+"\"", rel: 'tooltip' %>
-			</p>
+				<% download_time = @invoice.download_time %>
+
+				<% case download_time %>
+					<% when 1..19 %>
+						<%= image_tag '../assets/battery0.png', style: 'width: 25px; height:50px;' %>
+						<%= label_tag download_time %>
+					<% when 20..39 %>
+						<%= image_tag '../assets/battery20.png', style: 'width: 25px; height:50px;' %>
+						<%= label_tag download_time %>
+					<% when 40..59 %>
+						<%= image_tag '../assets/battery40.png', style: 'width: 25px; height:50px;' %>
+						<%= label_tag download_time %>
+					<% when 50..79 %>
+						<%= image_tag '../assets/battery60.png', style: 'width: 25px; height:50px;' %>
+						<%= label_tag download_time %>
+					<% when 80..99 %>
+						<%= image_tag '../assets/battery80.png', style: 'width: 25px; height:50px;' %>
+						<%= label_tag download_time %>
+					<% when 100 %>
+						<%= image_tag '../assets/battery100.png', style: 'width: 25px; height:50px;' %>
+						<%= label_tag download_time %>
+				<% end %>
+			</p>		
+
+		<% else %>
+			<% if ((session[:storage].nil?) || (( session[:storage] )&& !( session[:storage].include? @project.id.to_s ))) %>
+				<p style="text-align: right">
+					<%= link_to image_tag("../assets/buy.png"), invoicedetails_path(project_id: @project.id), method: :post, title: "Click to buy project \""+@project.title+"\"", rel: 'tooltip' %>
+				</p>
+			<% end %>
 		<% end %>
 	</div>
 
-	<div>
-		<h3>feedbacks</h3>
+	<% if !@attachments.empty? %>
+		<% if @invoice %>			
+			<ul>
+	    	<% @attachments.each do |attachment| %>
+	    		<li><%= link_to truncate(attachment.file_file_name, length: 50), download_attachment_projects_path(attachment_id: attachment.id, invoice_id: @invoice.id), method: :post, data: { confirm: "You have "+@invoice.download_time.to_s+" times to download. Do you want to download ?" }, :target => "_blank" %></li>
+	    	<% end %>
+	    </ul>
+		<% else %>
+			<%= label_tag "This project has "+@attachments.count.to_s+" attached file. You need to buy this project to download them" %>
+		<% end %>
+	<% end %>
+    
+	<% if !@feedbacks.empty? %>
+		<div>
+			<h3>feedbacks</h3>
 
-		<ul>
-	    <% @feedbacks.each do |feedback| %>
-	      <li>
-	      	<%= feedback.user.first_name + " " + feedback.user.last_name + ": " %>
-	      	<%= feedback.content %><br />
-	      	<% if feedback.replies.count > 0 %>
-	      		<ul>
-		      		<% feedback.replies.each do |reply| %>
-			      		<li>
-			      			<%= reply.created_at.to_s() + ": " %><%= reply.content %>
-			      		</li>
-			      	<% end %>
-		      	</ul>
-	      	<% end %>
-	      </li>
-	    <% end %>
-	    <br />
-	    <%= paginate @feedbacks %>
-  </ul>
+			<ul>
+		    <% @feedbacks.each do |feedback| %>
+		      <li>
+		      	<%= feedback.user.first_name + " " + feedback.user.last_name + ": " %>
+		      	<%= feedback.content %><br />
+		      	<% if feedback.replies.count > 0 %>
+		      		<ul>
+			      		<% feedback.replies.each do |reply| %>
+				      		<li>
+				      			<%= reply.created_at.to_s() + ": " %><%= reply.content %>
+				      		</li>
+				      	<% end %>
+			      	</ul>
+		      	<% end %>
+		      </li>
+		    <% end %>
+		    <br />
+		    <%= paginate @feedbacks %>
+		  </ul>
+		</div>
+	<% end %>	
 
-	</div>
+
 	<br />
 	<div>
 		<% if user_signed_in? && !current_user.is_staff? %>

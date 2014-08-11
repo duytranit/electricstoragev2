@@ -19,7 +19,11 @@ Rails.application.routes.draw do
 
   resources :attachments
 
-  resources :projects
+  resources :projects do
+    collection do
+      post :download_attachment
+    end
+  end
 
   namespace :admin do
     controller :users do

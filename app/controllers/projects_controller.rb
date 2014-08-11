@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_filter :check_staff_login, except: [:show]
+  before_filter :check_staff_login, except: [:show, :download_attachment]
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   # GET /projects
@@ -15,6 +15,9 @@ class ProjectsController < ApplicationController
     @attachments = @project.attachments
     @feedbacks = @project.feedbacks.where(["status = ?", true]).page(params[:page]).per(4)
     @feedback = Feedback.new
+    if user_signed_in? && !current_user.is_staff?
+      @invoice = current_user.invoices.joins(:invoicedetails).where(["invoicedetails.project_id = ? and invoices.status = ? and invoices.download_time > ?", @project.id, true, 0]).first
+    end
   end
 
   # GET /projects/new
@@ -68,6 +71,16 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def download_attachment
+    attachment = Attachment.find(params[:attachment_id])
+    invoice = Invoice.find(params[:invoice_id])
+    invoice.download_time -= 1
+    invoice.save
+    respond_to do |format|
+      format.html { redirect_to attachment.file.url}
     end
   end
 
