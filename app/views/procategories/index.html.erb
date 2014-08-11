@@ -1,24 +1,12 @@
 <h1>Listing procategories</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @procategories.each do |procategory| %>
-      <tr>
-        <td><%= procategory.name %></td>
-        <td><%= link_to 'Show', procategory %></td>
-        <td><%= link_to 'Edit', edit_procategory_path(procategory) %></td>
-        <td><%= link_to 'Destroy', procategory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<ul>
+  <% @procategories.each do |procategory| %>
+    <li>
+      <%= link_to procategory.name, procategory %>
+    </li>
+  <% end %>
+</ul>
 
 <br>
 
