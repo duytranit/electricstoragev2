@@ -1,5 +1,5 @@
 class ProcategoriesController < ApplicationController
-  before_filter :check_staff_login
+  before_filter :check_staff_login, except: [:show]
   before_action :set_procategory, only: [:show, :edit, :update, :destroy]
 
   # GET /procategories
@@ -77,7 +77,7 @@ class ProcategoriesController < ApplicationController
     end
 
     def check_staff_login
-      if !current_user.is_staff?
+      if !user_signed_in? || !current_user.is_staff?
         flash[:notice] = "You are not staff so you cannot use this function"
         redirect_to root_path
       end
