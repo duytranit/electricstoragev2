@@ -1,4 +1,5 @@
 class AttachmentsController < ApplicationController
+  before_filter :check_staff_login
   before_action :set_attachment, only: [:show, :edit, :update, :destroy]
 
   # GET /attachments
@@ -74,5 +75,11 @@ class AttachmentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def attachment_params
       params.require(:attachment).permit(:file)
+    end
+
+    def check_staff_login
+      if !(current_user.is_staff? && session[:project_id] != nil)
+        redirect_to root_path
+      end
     end
 end
