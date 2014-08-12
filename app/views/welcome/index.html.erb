@@ -39,7 +39,7 @@
       </table>
     </div>
     <div class="meta">
-      <p>Category: <%= link_to p.procategory.name, p.procategory %> | <a href="#" class="comment">1 Comment &raquo;</a></p>
+      <p>Category: <%= link_to p.procategory.name, p.procategory %> |  <%= link_to(p.feedbacks.count.to_s + " comments", p)  %> </p>
     </div>
   </div>
 <% end %>
