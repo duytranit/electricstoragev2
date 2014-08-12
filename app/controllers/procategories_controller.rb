@@ -12,7 +12,7 @@ class ProcategoriesController < ApplicationController
   # GET /procategories/1.json
   def show
     if ( !user_signed_in? ) || ( !current_user.is_staff? )
-      @projects = @procategory.projects.where(["status = ? and share = ?", true, true])
+      @projects = @procategory.projects.where(["status = ? and share = ?", true, true]).page(params[:page]).per(2)
     end    
   end
 

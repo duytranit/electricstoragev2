@@ -1,18 +1,1 @@
-<% @projects.each do |p| %>
-  <div class="post">
-    <h2 class="title"><%= p.title %></h2>
-    <h3 class="posted"><%= p.created_at %></h3>
-    <div class="story">
-      <p style="text-align: center">
-        <%= image_tag p.photo.url(:panel) %>
-      </p>
-
-      <p>
-        <%= raw(p.description) %>
-      </p>
-    </div>
-    <div class="meta">
-      <p>Category: <%= link_to p.procategory.name, p.procategory %> | <a href="#" class="comment">1 Comment &raquo;</a></p>
-    </div>
-  </div>
-<% end %>
+<%= render '/shared/projects' %>
