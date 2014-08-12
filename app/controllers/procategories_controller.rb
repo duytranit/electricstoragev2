@@ -1,4 +1,5 @@
 class ProcategoriesController < ApplicationController
+  before_filter :check_staff_login
   before_action :set_procategory, only: [:show, :edit, :update, :destroy]
 
   # GET /procategories
@@ -73,5 +74,12 @@ class ProcategoriesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def procategory_params
       params.require(:procategory).permit(:name, :status, :user_id)
+    end
+
+    def check_staff_login
+      if !current_user.is_staff?
+        flash[:notice] = "You are not staff so you cannot use this function"
+        redirect_to root_path
+      end
     end
 end
