@@ -1,4 +1,6 @@
 class InvoicedetailsController < ApplicationController
+  before_filter :authenticate_user!
+  before_filter :redirect, only: [:index, :show]
   before_action :set_invoicedetail, only: [:show, :edit, :update, :destroy]
 
   # GET /invoicedetails
@@ -72,5 +74,9 @@ class InvoicedetailsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def invoicedetail_params
       params.require(:invoicedetail).permit(:invoice_id, :project_id, :release_date, :end_date, :status)
+    end
+
+    def redirect
+      redirect_to invoices_path
     end
 end

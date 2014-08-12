@@ -1,4 +1,6 @@
 class FeedbacksController < ApplicationController
+  before_filter :authenticate_user!, except: [:index]
+  before_filter :check_no_index, only: [:index]
   before_action :set_feedback, only: [:show, :edit, :update, :destroy]
 
   # GET /feedbacks
@@ -77,5 +79,10 @@ class FeedbacksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def feedback_params
       params.require(:feedback).permit(:user_id, :project_id, :content, :status)
+    end
+
+    def check_no_index
+      flash[:notice] = "You cannot use this function"
+      redirect_to root_path
     end
 end
