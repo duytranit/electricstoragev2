@@ -1,11 +1,15 @@
 class ProjectsController < ApplicationController
-  before_filter :check_staff_login, except: [:show, :download_attachment]
+  before_filter :check_staff_login, except: [:show, :index, :download_attachment]
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   # GET /projects
   # GET /projects.json
   def index
-    @projects = current_user.projects.order("title").page(params[:page]).per(2)
+    if current_user.is_staff?
+      @projects = current_user.projects.order("title").page(params[:page]).per(2)
+    else
+      @projects = Project.joins(:procategory).where(["projects.share = ? and projects.status = ? and procategories.status = ?", true, true, true]).page(params[:page]).per(2)
+    end
   end
 
   # GET /projects/1

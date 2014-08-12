@@ -3,7 +3,12 @@
 		<%= link_to "Trang chủ", root_path %>
 	</li>
 
-  <li class=<% if controller.controller_name == 'invoices' %> 'active' <% end %> ><%= link_to "Invoice", invoices_path %></li>
+  <li class=<% if controller.controller_name == 'projects' %>'active'<% end %>>
+    <%= link_to "Project", projects_path %>
+  </li>
+
+  <li class=<% if controller.controller_name == 'invoices' %> 'active' <% end %> >
+  	<%= link_to "Invoice", invoices_path %></li>  
 
   <li><a href="#">Giới thiệu</a></li>
   <li><a href="#">Liên hệ</a></li>

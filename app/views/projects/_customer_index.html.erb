@@ -1,0 +1,47 @@
+<% @projects.each do |p| %>
+  <div class="post">
+    <h2 class="title">
+      <%= link_to p.title, p %>
+    </h2>
+    <h3 class="posted"><%= p.created_at %></h3>
+    <div class="story">
+      <table>
+        <tr>
+          <td>
+            <p style="text-align: center">
+              <% if p.photo.url.split('/').last == 'missing.png' %>
+                <%=  link_to image_tag('../assets/missing_panel.png'), p %>
+              <% else %>
+                <%=  link_to image_tag(p.photo.url(:panel)), p %>
+              <% end %>
+            </p>
+          </td>
+          <td>
+            <table>
+              <tr>
+                <td>
+                  <p>
+                    <%= truncate(strip_tags(p.description), length: 160) %>
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: right">
+                  <% if (user_signed_in?) && ( !current_user.is_staff? ) && ((session[:storage].nil?) || (( session[:storage] )&& !( session[:storage].include? p.id.to_s ))) %>
+                    <%= link_to "Buy", invoicedetails_path(project_id: p.id), method: :post %> |
+                  <% end %>
+                  <%= link_to "read more ...", p %>
+                </td>
+              </tr>
+            </table>                  
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="meta">
+      <p>Category: <%= link_to p.procategory.name, p.procategory %> | <a href="#" class="comment">1 Comment &raquo;</a></p>
+    </div>
+  </div>
+<% end %>
+
+<%= paginate @projects %>
