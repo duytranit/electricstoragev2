@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, :styles => { :small => "150x150>" }
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+
   def active_for_authentication?
 	  super && status
 	end
