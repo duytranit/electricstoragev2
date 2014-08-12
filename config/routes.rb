@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'contact/index'
+
   get 'introduce/index'
 
   resources :invoicedetails
