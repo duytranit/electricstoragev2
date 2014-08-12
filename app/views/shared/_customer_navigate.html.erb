@@ -10,7 +10,9 @@
   <li class=<% if controller.controller_name == 'invoices' %> 'active' <% end %> >
   	<%= link_to "Invoice", invoices_path %></li>  
 
-  <li><a href="#">Giới thiệu</a></li>
+  <li class=<% if controller.controller_name == 'introduce' %> 'active' <% end %>>
+    <%= link_to "Introduce", introduce_index_path %>
+  </li>
   <li><a href="#">Liên hệ</a></li>
   
 </ul>

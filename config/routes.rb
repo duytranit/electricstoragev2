@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'introduce/index'
+
   resources :invoicedetails
 
   # resources :invoices do
