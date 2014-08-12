@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    if current_user.is_staff?
+    if user_signed_in? && current_user.is_staff?
       @projects = current_user.projects.order("title").page(params[:page]).per(2)
     else
       @projects = Project.joins(:procategory).where(["projects.share = ? and projects.status = ? and procategories.status = ?", true, true, true]).page(params[:page]).per(2)
