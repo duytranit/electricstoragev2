@@ -35,7 +35,7 @@
 			</p>		
 
 		<% else %>
-			<% if ((session[:storage].nil?) || (( session[:storage] )&& !( session[:storage].include? @project.id.to_s ))) %>
+			<% if (user_signed_in?) && ((session[:storage].nil?) || (( session[:storage] )&& !( session[:storage].include? @project.id.to_s ))) %>
 				<p style="text-align: right">
 					<%= link_to image_tag("../assets/buy.png"), invoicedetails_path(project_id: @project.id), method: :post, title: "Click to buy project \""+@project.title+"\"", rel: 'tooltip' %>
 				</p>
