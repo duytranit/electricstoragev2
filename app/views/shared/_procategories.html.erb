@@ -16,7 +16,9 @@
 	<% flag = 1 %>
 	<% @procategory.procategories.each do |procategory| %>
 		<td style="text-align: center">
-			<%= link_to image_tag('../assets/folder.png'), procategory %><br />
+			<%= link_to image_tag('../assets/folder.png'), procategory %>
+			<%= link_to image_tag('../assets/delete-small.png', style: "margin-bottom: 35px; width: 10px;"), procategory, method: :delete, data: { confirm: 'Are you sure?' }, title: 'Delete category '+procategory.name, rel: 'tooltip', class: 'delete_small'%>
+			<br />
 			<%= label_tag(procategory.name) %>
 			<% flag += 1 %>
 		</td>
@@ -26,13 +28,10 @@
 		<% end %>		
 	<% end %>
 	<td style="text-align: center">
-		<%= form_tag add_new_procategory_procategories_path, method: :post do %>
+		<%= form_tag add_new_procategory_procategories_path(procategory_id: @procategory.id), method: :post do %>
 			<%= submit_tag "Add", type: :image, src: '../assets/selected_folder.png', title: "Add procategory", rel: 'tooltip' %><br />
-			<%= text_field_tag :name, params[:name], style: "width: 60px" %>			
+			<%= text_field_tag :name, params[:name], style: "width: 60px", placeholder: "New" %>			
 		<% end %>
 	</td>
 </tr>
 </table>
-
-</br>
-<%= link_to 'New Procategory', new_procategory_path %>

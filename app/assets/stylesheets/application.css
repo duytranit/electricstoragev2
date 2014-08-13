@@ -36,6 +36,11 @@ a:hover {
 	background-color: lavender;
 }
 
+.delete_small:hover {
+	text-decoration: underline;
+	background-color: white;
+}
+
 /* Header */
 
 #header {

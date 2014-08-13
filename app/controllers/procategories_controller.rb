@@ -59,15 +59,48 @@ class ProcategoriesController < ApplicationController
   # DELETE /procategories/1
   # DELETE /procategories/1.json
   def destroy
-    @procategory.destroy
+    father_id = @procategory.procategory_id
+    if check_empty?(@procategory.id)
+      @procategory.destroy
+      flash[:notice] = 'Procategory was successfully destroyed.'
+    else
+      flash[:notice] = 'You can only delete the empty project categories.'
+    end
+
+    father = Procategory.find(father_id)
     respond_to do |format|
-      format.html { redirect_to procategories_url, notice: 'Procategory was successfully destroyed.' }
+      if father
+        format.html { redirect_to father}
+      else
+        format.html { redirect_to procategories_path}
+      end
+      
       format.json { head :no_content }
     end
+
   end
 
   def add_new_procategory
-    
+    if params[:procategory_id].to_i == 0
+      @procategory = current_user.procategories.new
+      @procategory.name = params[:name]
+      @procategory.procategory_id = 0
+      @procategory.save
+
+      respond_to do |format|
+        format.html { redirect_to procategories_path}
+      end
+    else
+      father = Procategory.find(params[:procategory_id].to_i)
+      @procategory = current_user.procategories.new
+      @procategory.procategory = father
+      @procategory.name = params[:name]
+      @procategory.save
+      respond_to do |format|
+        format.html { redirect_to father}
+      end
+    end
+            
   end
 
   private
@@ -86,5 +119,14 @@ class ProcategoriesController < ApplicationController
         flash[:notice] = "You are not staff so you cannot use this function"
         redirect_to root_path
       end
+    end
+
+    def check_empty?(id)
+      procategory = Procategory.find(params[:id].to_i)
+      if procategory.procategories.empty? && procategory.projects.empty?
+        return true
+      else
+        return false
+      end      
     end
 end
