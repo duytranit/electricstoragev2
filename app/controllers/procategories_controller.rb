@@ -6,6 +6,7 @@ class ProcategoriesController < ApplicationController
   # GET /procategories.json
   def index
     # @procategories = Procategory.find_by_status(true)
+    @procategory = Procategory.find_by_procategory_id(0)
   end
 
   # GET /procategories/1
@@ -63,6 +64,10 @@ class ProcategoriesController < ApplicationController
       format.html { redirect_to procategories_url, notice: 'Procategory was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def add_new_procategory
+    
   end
 
   private

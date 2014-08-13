@@ -1,0 +1,38 @@
+<h1>Listing procategories</h1>
+
+<table style="width: 100%">
+	<tr>
+		<td style="text-align: center">
+			<% if @procategory.procategory_id == 0 %>
+				<%= link_to image_tag('../assets/home.png'), procategories_path %>
+			<% else %>
+				<% if @procategory.procategory.procategory_id == 0 %>
+					<%= link_to image_tag('../assets/back.png'), procategories_path %>
+				<% else %>
+					<%= link_to image_tag('../assets/back.png'), @procategory.procategory %>
+				<% end %>				
+			<% end %>			
+		</td>
+	<% flag = 1 %>
+	<% @procategory.procategories.each do |procategory| %>
+		<td style="text-align: center">
+			<%= link_to image_tag('../assets/folder.png'), procategory %><br />
+			<%= label_tag(procategory.name) %>
+			<% flag += 1 %>
+		</td>
+		<% if flag == 3 %>
+			</tr><tr>
+			<% flag = 0 %>
+		<% end %>		
+	<% end %>
+	<td style="text-align: center">
+		<%= form_tag add_new_procategory_procategories_path, method: :post do %>
+			<%= submit_tag "Add", type: :image, src: '../assets/selected_folder.png', title: "Add procategory", rel: 'tooltip' %><br />
+			<%= text_field_tag :name, params[:name], style: "width: 60px" %>			
+		<% end %>
+	</td>
+</tr>
+</table>
+
+</br>
+<%= link_to 'New Procategory', new_procategory_path %>

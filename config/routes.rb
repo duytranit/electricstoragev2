@@ -19,7 +19,11 @@ Rails.application.routes.draw do
 
   resources :feedbacks
 
-  resources :procategories
+  resources :procategories do
+    collection do
+      post :add_new_procategory
+    end
+  end
 
   resources :attachments
 
