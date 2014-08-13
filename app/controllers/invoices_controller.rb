@@ -5,7 +5,7 @@ class InvoicesController < ApplicationController
   # GET /invoices
   # GET /invoices.json
   def index
-    @invoices = Invoice.all
+    # @invoices = Invoice.all
     if ( user_signed_in? ) && ( !current_user.is_staff? )
       @invoices = current_user.invoices
     else

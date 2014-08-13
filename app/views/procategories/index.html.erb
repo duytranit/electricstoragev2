@@ -1,13 +1,31 @@
 <h1>Listing procategories</h1>
 
-<ul>
-  <% @procategories.each do |procategory| %>
-    <li>
-      <%= link_to procategory.name, procategory %>
-    </li>
-  <% end %>
-</ul>
+<table style="width: 100%">
+	<tr>
+		<td style="text-align: center">
+			<%= link_to image_tag('../assets/back.png') %>
+		</td>
+	<% fatherest = Procategory.find_by_procategory_id(0) %>
+	<% flag = 1 %>
+	<% fatherest.procategories.each do |procategory| %>
 
-<br>
+		<% if flag == 3 %>
+				<td style="text-align: center">
+					<%= link_to image_tag('../assets/folder.png') %><br />
+					<%= label_tag(procategory.name) %>
+				</td>
+			</tr>
+			<% flag = 0 %>
+		<% else %>
+			<td style="text-align: center">
+				<%= link_to image_tag('../assets/folder.png') %><br />
+				<%= label_tag(procategory.name) %>
+			</td>
+			<% flag += 1 %>
+		<% end %>
 
+	<% end %>
+</table>
+
+</br>
 <%= link_to 'New Procategory', new_procategory_path %>

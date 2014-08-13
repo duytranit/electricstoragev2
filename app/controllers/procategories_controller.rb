@@ -5,7 +5,7 @@ class ProcategoriesController < ApplicationController
   # GET /procategories
   # GET /procategories.json
   def index
-    @procategories = current_user.procategories.where(["status = ?", true])
+    # @procategories = Procategory.find_by_status(true)
   end
 
   # GET /procategories/1
