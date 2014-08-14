@@ -12,8 +12,17 @@
     <h1><%= link_to "Electric Storage", root_path %></h1>
     
     <h2><a href="#">So Khoa Hoc va Cong Nghe</a></h2>
-    <%= link_to_unless_current "English", locale: "en" %> |
-    <%= link_to_unless_current "Tiếng Việt", locale: "vi" %>
+    <table style="width: 100%">
+      <tr>
+        <td>
+          <%= link_to_unless_current image_tag('../assets/england-icon.png'), locale: "en" %>
+        </td>
+        <td>
+          <%= link_to_unless_current image_tag('../assets/vietnam-icon.png'), locale: "vi" %>
+        </td>
+      </tr>
+    </table>  
+    
   </div>
   <div id="menu">
     <% if user_signed_in? %>
