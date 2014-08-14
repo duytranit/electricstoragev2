@@ -49,17 +49,17 @@
   <div id="colTwo">
     <ul>
       <li>
-        <h2><span>Searching</span></h2>
+        <h2><span><%= t(:searching) %></span></h2>
 
         <%= form_tag welcome_index_path, method: :get do %>
           <table style="width: 100%">
             <tr>
               <td>
-                <%= text_field_tag :search, params[:search], placeholder: "project's title", class: "search" %>
-                <%= select_tag :procategory_id, options_from_collection_for_select(Procategory.where(["status = ?", true]), :id, :name, params[:procategory_id]), class: "search", prompt: "All categories" %>
+                <%= text_field_tag :search, params[:search], placeholder: t(:searching_project_placeholder), class: "search" %>
+                <%= select_tag :procategory_id, options_from_collection_for_select(Procategory.where(["status = ?", true]), :id, :name, params[:procategory_id]), class: "search", prompt: t(:searching_all_categories_selection) %>
               <td>
               <td>
-                <%= submit_tag "Search", type: :image, src: '../assets/search.png', title: "Search projects", rel: 'tooltip' %>
+                <%= submit_tag "Search", type: :image, src: '../assets/search.png', title: t(:tooltip_search_button), rel: 'tooltip' %>
               </td>
             </tr>
           </table>
@@ -70,7 +70,7 @@
 
       <li>
         <h2>
-          <span>Sign in</span>
+          <span><%= t(:sign_in) %></span>
         </h2>
         <ul>
           <li>
@@ -87,12 +87,12 @@
                   <%= image_tag "../assets/userAvatar.png" %>
                 <% end %>
                 Welcome <strong><%= current_user.first_name + " " + current_user.last_name %></strong> <br />
-                <%= link_to 'Edit profile', edit_user_registration_path %> |
-                <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+                <%= link_to t(:edit_profile_link), edit_user_registration_path %> |
+                <%= link_to t(:logout_link), destroy_user_session_path, method: :delete %>
               <% else %>
                 <%= link_to image_tag("../assets/register.png"), new_user_registration_path %>
-                <%= link_to "Sign up", new_user_registration_path %> |
-                <%= link_to "Login", new_user_session_path %>
+                <%= link_to t(:sign_up_link), new_user_registration_path %> |
+                <%= link_to t(:login_link), new_user_session_path %>
               <% end %>
             </div>            
           </li>
@@ -154,7 +154,7 @@
       <% procategories = father.procategories %>
       <% if ( procategories.count > 0 ) %>
         <li>
-          <h2><span>Categories</span></h2>        
+          <h2><span><%= t(:categories) %></span></h2>        
           <ul>
             <% procategories.each do |pc| %>
               <li>
