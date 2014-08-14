@@ -12,6 +12,8 @@
     <h1><%= link_to "Electric Storage", root_path %></h1>
     
     <h2><a href="#">So Khoa Hoc va Cong Nghe</a></h2>
+    <%= link_to_unless_current "English", locale: "en" %> |
+    <%= link_to_unless_current "Tiếng Việt", locale: "vi" %>
   </div>
   <div id="menu">
     <% if user_signed_in? %>
@@ -22,7 +24,7 @@
       <% end %>
     <% else %>
       <ul>
-        <li class=<%if controller.controller_name == 'welcome'%> 'active' <%end%> > <%= link_to "Trang chủ", root_path %></li>
+        <li class=<%if controller.controller_name == 'welcome'%> 'active' <%end%> > <%= link_to "Home page", root_path %></li>
         <li class=<% if controller.controller_name == 'projects' %>'active'<% end %>>
           <%= link_to "Project", projects_path %>
         </li>
@@ -45,7 +47,7 @@
   <div id="colTwo">
     <ul>
       <li>
-        <h2><span>Tiềm kiếm</span></h2>
+        <h2><span>Searching</span></h2>
 
         <%= form_tag welcome_index_path, method: :get do %>
           <table style="width: 100%">
