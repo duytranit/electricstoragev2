@@ -26,11 +26,11 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
-    procategories = Procategory.where(["status = ?", true])
+    procategories = Procategory.where(["status = ? and name != ?", true, '...'])
     if procategories.count > 0
       @project = Project.new      
     else
-      redirect_to new_procategory_path, notice: "There are not any Project Category. You need to add new Project Category !"
+      redirect_to procategories_path, notice: "There are not any Project Category. You need to add new Project Category !"
     end    
   end
 
