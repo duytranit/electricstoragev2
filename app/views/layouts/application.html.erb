@@ -11,7 +11,7 @@
   <div id="logo" style="text-align: center">
     <h1><%= link_to "Electric Storage", root_path %></h1>
     
-    <h2><a href="#">So Khoa Hoc va Cong Nghe</a></h2>
+    <h2><a href="http://www.dost-bentre.gov.vn/">So Khoa Hoc va Cong Nghe</a></h2>
     <table style="width: 100%">
       <tr>
         <td>
@@ -21,8 +21,7 @@
           <%= link_to_unless_current image_tag('../assets/vietnam-icon.png'), locale: "vi" %>
         </td>
       </tr>
-    </table>  
-    
+    </table>      
   </div>
   <div id="menu">
     <% if user_signed_in? %>
@@ -58,9 +57,17 @@
   <div id="colTwo">
     <ul>
       <li>
-        <h2><span><%= t(:searching) %></span></h2>
+        <ul>
+          <li>
+            <embed src="<%= asset_path("../assets/banner-new-fix.swf") %>", style="width: 180px; height: 180px"/>
+          </li>
+        </ul>        
+      </li>
 
-        <%= form_tag welcome_index_path, method: :get do %>
+      <li>
+        <h2><span><%= t(:searching) %></span></h2>       
+
+        <%= form_tag welcome_index_path, method: :get do %>          
           <table style="width: 100%">
             <tr>
               <td>
@@ -72,9 +79,8 @@
               </td>
             </tr>
           </table>
+
         <% end %>
-
-
       </li>
 
       <li>
