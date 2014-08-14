@@ -8,7 +8,7 @@
 </head>
 <body>
 <div id="header">
-  <div id="logo">
+  <div id="logo" style="text-align: center">
     <h1><%= link_to "Electric Storage", root_path %></h1>
     
     <h2><a href="#">So Khoa Hoc va Cong Nghe</a></h2>
@@ -28,13 +28,13 @@
           <%= link_to t(:home_nagivate_button), root_path %>
         </li>
         <li class=<% if controller.controller_name == 'projects' %>'active'<% end %>>
-          <%= link_to "Project", projects_path %>
+          <%= link_to t(:project_navigate_button), projects_path %>
         </li>
         <li class=<% if controller.controller_name == 'introduce' %> 'active' <% end %>>
-          <%= link_to "Introduce", introduce_index_path %>
+          <%= link_to t(:introduce_navigate_button), introduce_index_path %>
         </li>
         <li class=<% if controller.controller_name == 'contact' %> 'active' <% end %>>
-          <%= link_to "Contact", contact_index_path %>
+          <%= link_to t(:contact_navigate_button), contact_index_path %>
         </li>
       </ul>
     <% end %>
