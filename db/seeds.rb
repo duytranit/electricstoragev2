@@ -15,7 +15,7 @@ Procategory.delete_all
 User.delete_all
 
 staff = User.create(
-	email: 'staff1@gmail.com',
+	email: 'nhanvien1@gmail.com',
 	password: '123123123',
 	first_name: 'Le Duy',
 	last_name: 'Staff',
@@ -24,7 +24,7 @@ staff = User.create(
 	)
 
 User.create(
-	email: 'customer1@gmail.com',
+	email: 'khachhang1@gmail.com',
 	password: '123123123',
 	first_name: 'Le Duy',
 	last_name: 'Customer',
