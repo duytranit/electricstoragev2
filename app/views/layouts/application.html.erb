@@ -24,7 +24,9 @@
       <% end %>
     <% else %>
       <ul>
-        <li class=<%if controller.controller_name == 'welcome'%> 'active' <%end%> > <%= link_to "Home page", root_path %></li>
+        <li class=<%if controller.controller_name == 'welcome'%> 'active' <%end%> >
+          <%= link_to t(:home_nagivate_button), root_path %>
+        </li>
         <li class=<% if controller.controller_name == 'projects' %>'active'<% end %>>
           <%= link_to "Project", projects_path %>
         </li>
