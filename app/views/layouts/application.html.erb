@@ -14,11 +14,13 @@
     <h2><a href="http://www.dost-bentre.gov.vn/">So Khoa Hoc va Cong Nghe</a></h2>
     <table style="width: 100%">
       <tr>
-        <td>
-          <%= link_to_unless_current image_tag('../assets/england-icon.png'), locale: "en" %>
+        <td style="font-size: 10px;">
+          <%= link_to_unless_current image_tag('../assets/england-icon.png'), locale: "en" %><br />
+          <%= label_tag "English" %>
         </td>
-        <td>
-          <%= link_to_unless_current image_tag('../assets/vietnam-icon.png'), locale: "vi" %>
+        <td style="font-size: 10px;">
+          <%= link_to_unless_current image_tag('../assets/vietnam-icon.png'), locale: "vi" %><br />
+          <%= label_tag "Tiếng Việt" %>
         </td>
       </tr>
     </table>      

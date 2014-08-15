@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   private
   def set_locale
   	if cookies[:locale].nil?
-  		cookies[:locale] = 'en'
+  		cookies[:locale] = 'vi'
   	end
 
   	if params[:locale].present?
