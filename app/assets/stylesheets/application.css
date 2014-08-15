@@ -241,8 +241,6 @@ img {
   top: 10%;
   left: 50%;
   z-index: 1050;
-  width: 350px;
-  height: 350px;
   margin-left: -180px;
   background-color: #ffffff;
   border: 1px solid #999;
@@ -261,6 +259,16 @@ img {
   background-clip: padding-box;
   outline: none;
 }
+#sign-up-form {
+	width: 350px;
+  height: 350px;
+}
+
+#login-form {
+  width: 350px;
+  height: 250px;
+}
+
 .modal.fade {
   -webkit-transition: opacity .3s linear, top .3s ease-out;
   -moz-transition: opacity .3s linear, top .3s ease-out;
@@ -326,4 +334,8 @@ img {
 
 .button:hover {
 	background: #FF9900;
+}
+
+.btn {
+	font-size: 13px;
 }

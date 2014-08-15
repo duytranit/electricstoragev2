@@ -59,14 +59,6 @@
   <div id="colTwo">
     <ul>
       <li>
-        <ul>
-          <li>
-            <embed src="<%= asset_path("../assets/banner-new-fix.swf") %>", style="width: 180px; height: 180px"/>
-          </li>
-        </ul>        
-      </li>
-
-      <li>
         <h2><span><%= t(:searching) %></span></h2>       
 
         <%= form_tag welcome_index_path, method: :get do %>          
@@ -107,9 +99,9 @@
                 <%= link_to t(:edit_profile_link), edit_user_registration_path %> |
                 <%= link_to t(:logout_link), destroy_user_session_path, method: :delete %>
               <% else %>
-                <%= link_to image_tag("../assets/register.png"), new_user_registration_path %>
-                <a type="button" class="btn" href="#test_modal" data-toggle="modal"><%= t(:sign_up_link) %></a> |
-                <%= link_to t(:login_link), new_user_session_path %>
+                <embed src="<%= asset_path("../assets/banner-new-fix.swf") %>", style="width: 180px; height: 180px"/>
+                <a type="button" class="btn" href="#sign-up-form" data-toggle="modal"><%= t(:sign_up_link) %></a> |
+                <a type="button" class="btn" href="#login-form" data-toggle="modal"><%= t(:login_link) %></a>
               <% end %>
             </div>            
           </li>
@@ -191,7 +183,7 @@
 </div>
 
 
-<div class="modal fade" id="test_modal">
+<div class="modal fade" id="sign-up-form">
   <div class="modal-header">
     <a class="close" data-dismiss="modal">&times;</a>
     <h3><%= t("user.registration.signup") %></h3>
@@ -199,6 +191,18 @@
   <div class="modal-body">
     <div class="pop-singup">
       <%= render "/devise/registrations/form", resource: User.new, resource_name: 'user' %>
+    </div>    
+  </div>
+</div>
+
+<div class="modal fade" id="login-form">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">&times;</a>
+    <h3><%= t(:login) %></h3>
+  </div>
+  <div class="modal-body">
+    <div class="pop-singup">
+      <%= render "/devise/sessions/form", resource: User.new, resource_name: 'user' %>
     </div>    
   </div>
 </div>
