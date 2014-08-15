@@ -92,7 +92,20 @@ class ProjectsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
-      @project = Project.find(params[:id])
+      # check_projects = Project.where("id = ?", params[:id])
+      # if check_projects.empty?
+      #   respond_to do |format|
+      #     format.html { redirect_to projects_path }
+      #   end
+      # else
+      #   @project = Project.find(params[:id])
+      # end
+      begin
+        @project = Project.find(params[:id])
+      rescue Exception => ex
+        flash[:notice] = "Project does not exist in database"
+        redirect_to projects_path
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
