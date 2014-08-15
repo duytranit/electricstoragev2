@@ -103,7 +103,7 @@
                 <% else %>
                   <%= image_tag "../assets/userAvatar.png" %>
                 <% end %>
-                Welcome <strong><%= current_user.first_name + " " + current_user.last_name %></strong> <br />
+                <%= t(:welcome) %> <strong><%= current_user.first_name + " " + current_user.last_name %></strong> <br />
                 <%= link_to t(:edit_profile_link), edit_user_registration_path %> |
                 <%= link_to t(:logout_link), destroy_user_session_path, method: :delete %>
               <% else %>

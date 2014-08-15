@@ -24,6 +24,12 @@ vi:
       comments: "phản hồi"
       posted: "Đăng ngày"
 
+  project:
+    show:
+      buy_button: "Mua dự án"
+      this_project_has: "Dự án có"
+      attachments: "tệp tin đính kèm. Bạn cần phải mua dự án để có thể tải những tệp tin này."
+
   home_nagivate_button: "Trang chủ"
   project_navigate_button: "Dự án"
   introduce_navigate_button: "Giới thiệu"
@@ -39,3 +45,4 @@ vi:
   edit_profile_link: "Chỉnh sửa"
   logout_link: "Đăng xuất"
   customer_navigate_invoice: "Hóa đơn"
+  welcome: "Chào"

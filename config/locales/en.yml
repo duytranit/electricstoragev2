@@ -45,6 +45,11 @@ en:
       comments: "comments"
       posted: "Posted at"
 
+  project:
+    show:
+      buy_button: "Click to buy project"
+      this_project_has: "This project has"
+      attachments: "attached file. You need to buy this project to download them."
 
   home_nagivate_button: "Home page"
   project_navigate_button: "Project"
@@ -61,3 +66,4 @@ en:
   edit_profile_link: "Edit profile"
   logout_link: "Logout"
   customer_navigate_invoice: "Invoice"
+  welcome: "Welcome"
