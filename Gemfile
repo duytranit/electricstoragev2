@@ -51,3 +51,5 @@ gem "paperclip"
 
 #paginate
 gem "kaminari"
+gem "less-rails"
+gem "twitter-bootstrap-rails"

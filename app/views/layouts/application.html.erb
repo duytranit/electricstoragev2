@@ -108,7 +108,7 @@
                 <%= link_to t(:logout_link), destroy_user_session_path, method: :delete %>
               <% else %>
                 <%= link_to image_tag("../assets/register.png"), new_user_registration_path %>
-                <%= link_to t(:sign_up_link), new_user_registration_path %> |
+                <a type="button" class="btn" href="#test_modal" data-toggle="modal"><%= t(:sign_up_link) %></a> |
                 <%= link_to t(:login_link), new_user_session_path %>
               <% end %>
             </div>            
@@ -189,5 +189,21 @@
   <p>SỞ KHOA HỌC VÀ CÔNG NGHỆ TỈNH BẾN TRE</p>
   <p>Địa chỉ: Số 280 đường 3/2- Phường 3 - Tp Bến Tre. | Điện thoại : 075.3827358 | Fax : 075.3823179 | Email: banbientap@dost-bentre.gov.vn</p>
 </div>
+
+
+<div class="modal fade" id="test_modal">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">&times;</a>
+    <h3><%= t("user.registration.signup") %></h3>
+  </div>
+  <div class="modal-body">
+    <div class="pop-singup">
+      <%= render "/devise/registrations/form", resource: User.new, resource_name: 'user' %>
+    </div>    
+  </div>
+</div>
+
+
+
 </body>
 </html>
