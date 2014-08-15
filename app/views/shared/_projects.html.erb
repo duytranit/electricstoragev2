@@ -3,7 +3,7 @@
     <h2 class="title">
       <%= link_to p.title, p %>
     </h2>
-    <h3 class="posted"><%= p.created_at %></h3>
+    <h3 class="posted"><%= t("projects.welcome.posted") + ": " + p.created_at.strftime("%d / %m / %Y") %></h3>
     <div class="story">
       <table>
         <tr>
@@ -30,7 +30,7 @@
                   <% if (user_signed_in?) && ( !current_user.is_staff? ) && ((session[:storage].nil?) || (( session[:storage] )&& !( session[:storage].include? p.id.to_s ))) %>
                     <%= link_to "Buy", invoicedetails_path(project_id: p.id), method: :post %> |
                   <% end %>
-                  <%= link_to "read more ...", p %>
+                  <%= link_to t("projects.welcome.project_read_more_link"), p %>
                 </td>
               </tr>
             </table>                  
@@ -39,7 +39,7 @@
       </table>
     </div>
     <div class="meta">
-      <p>Category: <%= link_to p.procategory.name, p.procategory %> |  <%= link_to(p.feedbacks.count.to_s + " comments", p)  %> </p>
+      <p><%= t("projects.welcome.category") %>: <%= link_to p.procategory.name, p.procategory %> |  <%= link_to(p.feedbacks.count.to_s + " " + t("projects.welcome.comments"), p)  %> </p>
     </div>
   </div>
 <% end %>

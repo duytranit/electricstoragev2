@@ -38,6 +38,12 @@ en:
       more_pages:
         display_entries: "Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total"
   # end kaminari
+  projects:
+    welcome:
+      project_read_more_link: "read more ..."
+      category: "Category"
+      comments: "comments"
+      posted: "Posted at"
 
 
   home_nagivate_button: "Home page"

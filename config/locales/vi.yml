@@ -17,7 +17,13 @@ vi:
       more_pages:
         display_entries: "Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total"
   # end kaminari
-  
+  projects:
+    welcome:
+      project_read_more_link: "chi tiết ..."
+      category: "Thể loại"
+      comments: "phản hồi"
+      posted: "Đăng ngày"
+
   home_nagivate_button: "Trang chủ"
   project_navigate_button: "Dự án"
   introduce_navigate_button: "Giới thiệu"
