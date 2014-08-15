@@ -2,7 +2,9 @@
 	<h2 class="title">
 		<%= label_tag @project.title %>
 	</h2>
-	<h3 class="posted"><%= @project.created_at %></h3>
+	<h3 class="posted">
+		<%= t("projects.welcome.posted") + ": " + @project.created_at.strftime("%d / %m / %Y") %>
+	</h3>
 	<div class="story">
 		<p>
 			<%= raw(@project.description) %>
