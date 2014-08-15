@@ -36,6 +36,10 @@ a:hover {
 	background-color: lavender;
 }
 
+img {
+	border: 0px;
+}
+
 .delete_small:hover {
 	text-decoration: underline;
 	background-color: white;
