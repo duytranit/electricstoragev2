@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2><%= t("user.registration.signup") %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -10,26 +10,26 @@
         <%= f.file_field :avatar, accept: 'image/png, image/gif, image/jpeg, image/jpg' %>
       </td>
       <td>
-        <table>
+        <table style="width: 270px">
           <tr>
             <td>
-              <%= label_tag "Full Name" %>
+              <%= label_tag t("user.registration.full_name") %>
             </td>
             <td>
-              <%= f.text_field :first_name, placeholder: "First Name" %><%= f.text_field :last_name, placeholder: "Last Name" %>
+              <%= f.text_field :first_name, placeholder: t("user.registration.first_name"), style: "width: 83px;" %><%= f.text_field :last_name, placeholder: t("user.registration.last_name"), style: "width: 83px;" %>
             </td>
           </tr>
           <tr>
             <td>
-              <%= f.label :email %>
+              <%= label_tag t("user.registration.email") %>
             </td>
             <td>
-              <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
+              <%= f.email_field :email, autofocus: true, placeholder: t("user.registration.email") %>
             </td>
           </tr>
           <tr>
             <td>
-              <%= f.label :password %>
+              <%= label_tag t("user.registration.password") %>
             </td>
             <td>
               <%= f.password_field :password, autocomplete: "off", placeholder: "*********" %>
@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td>
-              <%= label_tag "Confirmation" %>
+              <%= label_tag t("user.registration.confirmation") %>
             </td>
             <td>
               <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "*********" %>
@@ -57,7 +57,11 @@
                 <% ['customer', 'staff'].each do |role| %>
                   <td style="width: 50%">
                     <%= f.radio_button(:role, role) %>
-                    <%= role.humanize %>
+                    <% if role=='customer' %>
+                      <%= t("user.registration.customer") %>
+                    <% else %>
+                      <%= t("user.registration.staff") %>
+                    <% end %>
                   </td>
                 <% end %>
               </tr>
@@ -67,5 +71,5 @@
       </td>
     </tr>
   </table>
-  <%= f.submit "Sign up", type: :image, src: '../assets/sign_up_button.png', title: 'Sign up', rel: 'tooltip' %>
+  <%= f.submit "Sign up", type: :image, src: '../assets/sign_up_button.png', title: t("user.registration.signup"), rel: 'tooltip' %>
 <% end %>

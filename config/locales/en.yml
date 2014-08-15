@@ -51,6 +51,18 @@ en:
       this_project_has: "This project has"
       attachments: "attached file. You need to buy this project to download them."
 
+  user:
+    registration:
+      full_name: "Full Name"
+      first_name: "First Name"
+      last_name: "Last Name"
+      email: Email
+      password: Password
+      confirmation: Confirmation
+      signup: Sign up
+      customer: Customer
+      staff: Staff
+
   home_nagivate_button: "Home page"
   project_navigate_button: "Project"
   introduce_navigate_button: "Introduce"

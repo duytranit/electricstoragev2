@@ -30,6 +30,18 @@ vi:
       this_project_has: "Dự án có"
       attachments: "tệp tin đính kèm. Bạn cần phải mua dự án để có thể tải những tệp tin này."
 
+  user:
+    registration:
+      full_name: "Họ Tên"
+      first_name: "Tên"
+      last_name: "Họ"
+      email: "Thư điện tử"
+      password: Mật khẩu
+      confirmation: "Xác nhận"
+      signup: Đăng ký
+      customer: Khách hàng
+      staff: Nhân viên
+
   home_nagivate_button: "Trang chủ"
   project_navigate_button: "Dự án"
   introduce_navigate_button: "Giới thiệu"
