@@ -43,6 +43,12 @@ vi:
       customer: Khách hàng
       staff: Nhân viên
 
+  invoice:
+    from_date: "Từ Ngày"
+    end_date: "Đến Ngày"
+    amount_of_projects: "Số lượng dự án"
+    download_time: "Số lần tải về"
+
   home_nagivate_button: "Trang chủ"
   project_navigate_button: "Dự án"
   introduce_navigate_button: "Giới thiệu"
@@ -61,3 +67,5 @@ vi:
   welcome: "Chào"
   remember_me: "Ghi nhớ"
   your_storage: "Giỏ hàng"
+  create_feedback_button: "Gởi phản hồi"
+  feedback_content: "Phản hồi"

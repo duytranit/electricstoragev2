@@ -20,7 +20,7 @@
 
   
   <div class="field">
-    <%= f.label :content %><br>
+    <%= t(:feedback_content) %><br>
     <%= f.text_area :content , style: "width: 100%; height: 200px"%>
   </div>
 
@@ -32,6 +32,6 @@
   <% end %>
     
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit t(:create_feedback_button)%>
   </div>
 <% end %>

@@ -1,13 +1,12 @@
 <h1></h1>
 
-<table>
+<table style="width: 100%;">
   <thead>
     <tr>
-      <th style="text-align: left">From Date</th>
-      <th style="text-align: left">End Date</th>
-      <th>Amount of Projects</th>
-      <th>Download time</th>
-      <th>Contract</th>
+      <th style="text-align: left"><%= t("invoice.from_date") %></th>
+      <th style="text-align: left"><%= t("invoice.end_date") %></th>
+      <th><%= t("invoice.amount_of_projects") %></th>
+      <th><%= t("invoice.download_time") %></th>
     </tr>
   </thead>
 
@@ -25,9 +24,6 @@
         </td>
         <td style="text-align: center">
           <%= invoice.download_time %>
-        </td>
-        <td style="text-align: center">
-          <%= invoice.status %>
         </td>
       </tr>
     <% end %>

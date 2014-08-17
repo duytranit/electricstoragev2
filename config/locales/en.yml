@@ -64,6 +64,12 @@ en:
       customer: Customer
       staff: Staff
 
+  invoice:
+    from_date: "From Date"
+    end_date: "End Date"
+    amount_of_projects: "Amount of Projects"
+    download_time: "Download time"
+
   home_nagivate_button: "Home page"
   project_navigate_button: "Project"
   introduce_navigate_button: "Introduce"
@@ -82,3 +88,5 @@ en:
   welcome: "Welcome"
   remember_me: "Remember me"
   your_storage: "Your Storage"
+  create_feedback_button: "Create Feedback"
+  feedback_content: "Feedback"
