@@ -339,3 +339,7 @@ img {
 .btn {
 	font-size: 13px;
 }
+
+.menu {
+	-webkit-box-sizing: content-box;
+}

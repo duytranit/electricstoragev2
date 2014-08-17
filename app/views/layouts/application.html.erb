@@ -35,16 +35,16 @@
     <% else %>
       <ul>
         <li class=<%if controller.controller_name == 'welcome'%> 'active' <%end%> >
-          <%= link_to t(:home_nagivate_button), root_path %>
+          <%= link_to t(:home_nagivate_button), root_path, class: "menu" %>
         </li>
         <li class=<% if controller.controller_name == 'projects' %>'active'<% end %>>
-          <%= link_to t(:project_navigate_button), projects_path %>
+          <%= link_to t(:project_navigate_button), projects_path, class: "menu" %>
         </li>
         <li class=<% if controller.controller_name == 'introduce' %> 'active' <% end %>>
-          <%= link_to t(:introduce_navigate_button), introduce_index_path %>
+          <%= link_to t(:introduce_navigate_button), introduce_index_path, class: "menu" %>
         </li>
         <li class=<% if controller.controller_name == 'contact' %> 'active' <% end %>>
-          <%= link_to t(:contact_navigate_button), contact_index_path %>
+          <%= link_to t(:contact_navigate_button), contact_index_path, class: "menu" %>
         </li>
       </ul>
     <% end %>

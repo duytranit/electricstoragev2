@@ -1,12 +1,12 @@
 <ul>
-  <li class= <% if controller.controller_name == 'welcome' %> 'active' <% end %> ><%= link_to "Trang chủ", root_path %></li>  
+  <li class= <% if controller.controller_name == 'welcome' %> 'active' <% end %> ><%= link_to "Trang chủ", root_path, class: 'menu' %></li>  
   <li class= <% if controller.controller_name == 'projects' %> 'active' <% end %> >
-  	<%= link_to "Project", projects_path %>
+  	<%= link_to "Project", projects_path, class: 'menu' %>
   </li>
   <li class= <% if controller.controller_name == 'procategories' %> 'active' <% end %> >
-  	<%= link_to "Project Category", procategories_path %>
+  	<%= link_to "Project Category", procategories_path, class: 'menu' %>
   </li>
   <li class= <% if controller.controller_name == 'invoices' %> 'active' <% end %> >
-  	<%= link_to "Invoice", invoices_path %>
+  	<%= link_to "Invoice", invoices_path, class: 'menu' %>
   </li>
 </ul>
