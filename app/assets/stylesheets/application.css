@@ -141,6 +141,7 @@ img {
 	padding: 0;
 	border-bottom: 1px solid #C9CCB9;
 	font-size: 1.6em;
+	margin-bottom: 20px;
 }
 
 #colOne .posted, #colOne .meta {
