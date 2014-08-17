@@ -50,6 +50,7 @@ en:
       buy_button: "Click to buy project"
       this_project_has: "This project has"
       attachments: "attached file. You need to buy this project to download them."
+    buy: "Buy"
 
   user:
     registration:
@@ -80,3 +81,4 @@ en:
   customer_navigate_invoice: "Invoice"
   welcome: "Welcome"
   remember_me: "Remember me"
+  your_storage: "Your Storage"

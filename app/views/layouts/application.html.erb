@@ -111,7 +111,7 @@
       <% if (session[:storage]) && (session[:storage].count > 0) %>
         <li>
           <h2>
-            <span>Your storage ( <%= session[:storage].count %> )</span>
+            <span><%= t(:your_storage) + " (" + session[:storage].count.to_s + ")" %></span>
           </h2>
           <ul>
             <li>

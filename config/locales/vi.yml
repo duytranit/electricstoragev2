@@ -29,6 +29,7 @@ vi:
       buy_button: "Mua dự án"
       this_project_has: "Dự án có"
       attachments: "tệp tin đính kèm. Bạn cần phải mua dự án để có thể tải những tệp tin này."
+    buy: "Mua"
 
   user:
     registration:
@@ -59,3 +60,4 @@ vi:
   customer_navigate_invoice: "Hóa đơn"
   welcome: "Chào"
   remember_me: "Ghi nhớ"
+  your_storage: "Giỏ hàng"
