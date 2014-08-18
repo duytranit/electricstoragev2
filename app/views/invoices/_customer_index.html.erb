@@ -3,6 +3,7 @@
 <table style="width: 100%;">
   <thead>
     <tr>
+      <th></th>
       <th style="text-align: left"><%= t("invoice.from_date") %></th>
       <th style="text-align: left"><%= t("invoice.end_date") %></th>
       <th><%= t("invoice.amount_of_projects") %></th>
@@ -14,16 +15,19 @@
     <% @invoices.each do |invoice| %>
       <tr>
         <td>
-          <%= invoice.from_date.strftime("%d/%m/%Y") %>
+          <%= link_to image_tag('../assets/invoice.png'), invoice %>
         </td>
         <td>
-          <%= invoice.end_date.strftime("%d/%m/%Y") %>
+          <%= link_to invoice.from_date.strftime("%d/%m/%Y") %>
+        </td>
+        <td>
+          <%= link_to invoice.end_date.strftime("%d/%m/%Y") %>
         </td>
         <td style="text-align: center">
-          <%= invoice.invoicedetails.count %>
+          <%= link_to invoice.invoicedetails.count %>
         </td>
         <td style="text-align: center">
-          <%= invoice.download_time %>
+          <%= link_to invoice.download_time %>
         </td>
       </tr>
     <% end %>

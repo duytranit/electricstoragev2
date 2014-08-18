@@ -67,6 +67,7 @@ en:
   invoice:
     from_date: "From Date"
     end_date: "End Date"
+    created_at: "Created at"
     amount_of_projects: "Amount of Projects"
     download_time: "Download time"
     new_invoice_lable: New Invoice
@@ -75,6 +76,12 @@ en:
     from_date: "From date"
     end_date: "End date"
     create_invoice_button: "Create Invoice"
+    invoice_show_label: "Invoice"
+    provider: "Provider"
+    provider_address: "Address"
+    provider_phone: "Phone Number"
+    buyer: "Buyer"
+    stt: "No."
 
   home_nagivate_button: "Home page"
   project_navigate_button: "Project"

@@ -46,6 +46,7 @@ vi:
   invoice:
     from_date: "Từ Ngày"
     end_date: "Đến Ngày"
+    created_at: "Tạo ngày"
     amount_of_projects: "Số lượng dự án"
     download_time: "Số lần tải về"
     new_invoice_lable: Hóa đơn
@@ -54,6 +55,12 @@ vi:
     from_date: "Ngày bắt đầu"
     end_date: "Kết thúc ngày"
     create_invoice_button: "Lưu hóa đơn"
+    invoice_show_label: "Hóa đơn"
+    provider: "Nhà cung cấp"
+    provider_address: "Địa chỉ"
+    provider_phone: "Số điệnt thoại"
+    buyer: "Người mua hàng"
+    stt: "STT"
 
   time:
     formats:
