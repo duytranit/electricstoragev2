@@ -30,6 +30,10 @@ vi:
       this_project_has: "Dự án có"
       attachments: "tệp tin đính kèm. Bạn cần phải mua dự án để có thể tải những tệp tin này."
     buy: "Mua"
+    listing_project: "Danh sách dự án"
+    title: "Dự án"
+    category: "Thể loại"
+    share: "Chia sẻ"
 
   user:
     registration:
@@ -94,6 +98,7 @@ vi:
   create_feedback_button: "Gởi phản hồi"
   feedback_content: "Phản hồi"  
   back_button: "Quay lại"
+  project_category_navigate_button: "Thể loại"
 
   # format date
   date:

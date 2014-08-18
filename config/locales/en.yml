@@ -51,6 +51,10 @@ en:
       this_project_has: "This project has"
       attachments: "attached file. You need to buy this project to download them."
     buy: "Buy"
+    listing_project: "Listing Projects"
+    title: "Title"
+    category: "Category"
+    share: "Share"
 
   user:
     registration:
@@ -88,7 +92,7 @@ en:
     total_price: "Total"
     buyer: "Buyer"
     seller: "Seller"
-    invoice_listing: "Invoice Listing"
+    invoice_listing: "Listing Invoice"
 
   home_nagivate_button: "Home page"
   project_navigate_button: "Project"
@@ -111,6 +115,7 @@ en:
   create_feedback_button: "Create Feedback"
   feedback_content: "Feedback"
   back_button: "Back"
+  project_category_navigate_button: "Project Category"
 
   # format date
   date:

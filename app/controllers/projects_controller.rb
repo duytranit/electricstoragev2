@@ -6,9 +6,11 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     if user_signed_in? && current_user.is_staff?
-      @projects = current_user.projects.order("title").page(params[:page]).per(2)
+      @flag = 0
+      @flag += (4*(params[:page].to_i - 1)) if params[:page].to_i > 0
+      @projects = current_user.projects.order("title").page(params[:page]).per(4)
     else
-      @projects = Project.joins(:procategory).where(["projects.share = ? and projects.status = ? and procategories.status = ?", true, true, true]).page(params[:page]).per(2)
+      @projects = Project.joins(:procategory).where(["projects.share = ? and projects.status = ? and procategories.status = ?", true, true, true]).page(params[:page]).per(4)
     end
   end
 
