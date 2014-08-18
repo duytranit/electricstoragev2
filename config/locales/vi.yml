@@ -48,6 +48,12 @@ vi:
     end_date: "Đến Ngày"
     amount_of_projects: "Số lượng dự án"
     download_time: "Số lần tải về"
+    new_invoice_lable: Hóa đơn
+    project: "Dự án"
+    price: "Giá"
+    from_date: "Ngày bắt đầu"
+    end_date: "Kết thúc ngày"
+    create_invoice_button: "Lưu hóa đơn"
 
   time:
     formats:
@@ -72,7 +78,8 @@ vi:
   remember_me: "Ghi nhớ"
   your_storage: "Giỏ hàng"
   create_feedback_button: "Gởi phản hồi"
-  feedback_content: "Phản hồi"
+  feedback_content: "Phản hồi"  
+  back_button: "Quay lại"
 
   # format date
   date:

@@ -1,4 +1,4 @@
-<h1>New invoice</h1>
+<h1><%= t("invoice.new_invoice_lable") %></h1>
 
 <% if user_signed_in? && !current_user.is_staff? %>
 	<%= render 'customer_form' %>
@@ -6,4 +6,4 @@
 	<%= render 'form' %>
 <% end %>
 
-<%= link_to 'Back', invoices_path %>
+<%= link_to t(:back_button), invoices_path %>

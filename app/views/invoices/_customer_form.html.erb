@@ -14,8 +14,8 @@
   <table style="width: 100%">
     <thead>
       <tr>
-        <th style="text-align: left">Project</th>
-        <th style="text-align: left">Price</th>
+        <th style="text-align: left"><%= t("invoice.project") %></th>
+        <th style="text-align: left"><%= t("invoice.price") %></th>
       </tr>
     </thead>
     <tbody>
@@ -37,17 +37,17 @@
   </table>
 
   <div class="field">
-    <%= f.label :from_date %><br>
+    <%= t("invoice.from_date") %><br>
     <%= f.date_select :from_date %>
   </div>
 
   <div class="field">
-    <%= f.label :end_date %><br />
+    <%= t("invoice.end_date") %><br />
     <%= f.date_select :end_date %>
   </div>
 
   <div class="field">
-    <%= f.label :download_time %> <br />
+    <%= t("invoice.download_time") %> <br />
     <table style="width: 100%">
       <tr>
         <td style="text-align: center">
@@ -82,6 +82,6 @@
   </div>    
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit t("invoice.create_invoice_button") %>
   </div>
 <% end %>
