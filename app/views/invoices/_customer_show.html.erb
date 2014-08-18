@@ -1,83 +1,119 @@
-<div style="text-align: center"><h2><%= t("invoice.invoice_show_label") %></h2>
-	<%= t("invoice.created_at") + ":" %>
-	<%= @invoice.created_at.strftime("%d/%m/%Y") %>
-</div>
-
-<br />
-<div>
-	<%= t("invoice.provider") + ": Sở Khoa Học và Công Nghệ Bến Tre" %><br />
-	<%= t("invoice.provider_address") + ": Số 280 đường 3/2- Phường 3 - Tp Bến Tre." %><br />
-	<%= t("invoice.provider_phone") + ": 075.3827358" %>
-</div>
-
-<br />
-<div>
-	<%= t("invoice.buyer") + ": " + @invoice.user.first_name + " " + @invoice.user.last_name %>
-</div>
-<br />
-<br />
-<br />
-
 <table style="width: 100%">
-	<thead>
-    <tr>
-    	<th style="border: 1px solid black; text-align: center"><%= t("invoice.stt") %></th>
-      <th style="border: 1px solid black; text-align: center"><%= t("invoice.project") %></th>
-      <th style="border: 1px solid black; text-align: center"><%= t("invoice.price") %></th>
-    </tr>
-  </thead>
-  <tbody>
-  	<% flag = 0 %>
-  	<% @invoice.projects.each do |project| %>
-  		<tr>
-  			<td style="border: 1px solid black; ; text-align: center">
-  				<%= flag += 1 %>
-  			</td>
-  			<td style="border: 1px solid black;">
-  				<%= link_to truncate(project.title, length: 60), project %>
-  			</td>
-  			<td style="border: 1px solid black; text-align: center">
-  				<%= project.price %>
-  			</td>
-  		</tr>
-  	<% end %>
-  </tbody>
+	<tr>
+		<td style="border: 1px solid black;">
+			<table style="width: 100%;">
+				<tr>
+					<td>
+						<embed src="<%= asset_path("../assets/banner-new-fix.swf") %>", style="margin-left: 5px; margin-top: 5px; margin-bottom: 5px; width: 80px; height: 80px"/>
+					</td>
+					<td>
+						<div style="margin-left: 20px;">
+							<%= t('invoice.provider') %>
+							<%= raw(": <strong>Sở Khoa Học và Công Nghệ Bến Tre</strong>") %> <br />
+							<%= t('invoice.provider_address') %>
+							: Số 280 đường 3/2- Phường 3 - Tp Bến Tre <br />
+							<%= t('invoice.provider_phone') %>
+							: 075.3827358 | Fax : 075.3823179 <br />
+							<%= t('invoice.tax_number') %>
+							: ........... <br />
+							<%= t('invoice.bank_account') %>
+							: ........... - NH BIDV tỉnh Bến Tre
+						</div>							
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid black;">
+			<div style="text-align: center; margin-bottom: 20px;"><h3><strong><%= t("invoice.invoice_show_label") %></strong></h3>
+				<%= t("invoice.created_at") + ":" %>
+				<%= @invoice.created_at.strftime("%d/%m/%Y") %>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid black; height: 40px;">
+			<div style="margin-left: 5px;">
+				<%= t("invoice.buyer") + ": " + @invoice.user.first_name + " " + @invoice.user.last_name %>
+			</div>			
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid black;">
+			<table style="width: 100%">
+				<thead>
+			    <tr>
+			    	<th style="border: 1px solid black; text-align: center"><%= t("invoice.stt") %></th>
+			      <th style="border: 1px solid black; text-align: center"><%= t("invoice.project") %></th>
+			      <td style="border: 1px solid black; text-align: center"><%= t("invoice.expire") %></th>
+			      <th style="border: 1px solid black; text-align: center"><%= t("invoice.price") %></th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	<% flag = 0 %>
+			  	<% price = 0 %>
+			  	<% @invoice.projects.each do |project| %>
+			  		<tr style="height: 30px;">
+			  			<td style="border: 1px solid black; text-align: center">
+			  				<%= flag += 1 %>
+			  				<% price += project.price %>
+			  			</td>
+			  			<td style="border: 1px solid black">
+			  				<%= link_to truncate(project.title, length: 30), project, style: "margin-left: 5px;", title: project.title, rel: 'tooltip' %>
+			  			</td>
+			  			<td style="border: 1px solid black; text-align: center">
+			  				<%= @invoice.from_date.strftime("%d/%m/%Y") + " => " + @invoice.end_date.strftime("%d/%m/%Y")%>
+			  			</td>
+			  			<td style="border: 1px solid black; text-align: center">
+			  				<%= project.price %>
+			  			</td>
+			  		</tr>
+			  	<% end %>
+			  </tbody>
+			</table>
+		</td>
+	</tr>
+	<tr style="height: 30px;">
+		<td style="border: 1px solid black;">
+			<table style="width: 100%">
+				<tr>
+					<td style="text-align: center; width: 70%;">
+						<%= t("invoice.total_price") %>
+					</td>
+					<td>
+						<%= price %>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: 1px solid black;">
+			<div style="margin-top: 10px; margin-bottom: 10px;">
+				<table style="text-align: center; width: 100%;">
+					<tr>
+						<td style="text-align: center">
+							<%= t("invoice.buyer") %>
+							<br />
+							<br />
+							<br />
+							<br />
+							<br />
+							<%= @invoice.user.first_name + " " + @invoice.user.last_name %>
+						</td>
+						<td style="text-align: center">
+							<%= t("invoice.seller") %>
+							<br />
+							<br />
+							<br />
+							<br />
+							<br />
+							Nguyễn Thị A
+						</td>
+					</tr>
+				</table>
+			</div>				
+		</td>
+	</tr>
 </table>
-
-<br />
-<div class="field">
-  <%= t("invoice.from_date") + ":" %>
-  <%= @invoice.from_date %>
-</div>
-<br />
-<div class="field">
-  <%= t("invoice.end_date") + ":" %>
-  <%= @invoice.end_date %>
-</div>
-<br />
-<div class="field">
-  <%= t("invoice.download_time") + ":" %>
-
-	<% download_time = @invoice.download_time %>
-
-	<% case download_time %>
-		<% when 1..19 %>
-			<%= image_tag '../assets/battery0.png', style: 'width: 25px; height:50px;' %> / 
-			<%= label_tag download_time.to_s + " times" %>
-		<% when 20..39 %>
-			<%= image_tag '../assets/battery20.png', style: 'width: 25px; height:50px;' %> / 
-			<%= label_tag download_time.to_s + " times" %>
-		<% when 40..59 %>
-			<%= image_tag '../assets/battery40.png', style: 'width: 25px; height:50px;' %> / 
-			<%= label_tag download_time.to_s + " times" %>
-		<% when 50..79 %>
-			<%= image_tag '../assets/battery60.png', style: 'width: 25px; height:50px;' %> / 
-			<%= label_tag download_time.to_s + " times" %>
-		<% when 80..99 %>
-			<%= image_tag '../assets/battery80.png', style: 'width: 25px; height:50px;' %> / 
-			<%= label_tag download_time.to_s + " times" %>
-		<% when 100 %>
-			<%= image_tag '../assets/battery100.png', style: 'width: 25px; height:50px;' %> / 
-			<%= label_tag download_time.to_s + " times" %>
-	<% end %>     
-</div> 

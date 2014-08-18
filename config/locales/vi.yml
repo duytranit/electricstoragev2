@@ -55,12 +55,18 @@ vi:
     from_date: "Ngày bắt đầu"
     end_date: "Kết thúc ngày"
     create_invoice_button: "Lưu hóa đơn"
-    invoice_show_label: "Hóa đơn"
+    invoice_show_label: "HÓA ĐƠN"
     provider: "Nhà cung cấp"
     provider_address: "Địa chỉ"
     provider_phone: "Số điệnt thoại"
     buyer: "Người mua hàng"
     stt: "STT"
+    tax_number: "Mã số thuế"
+    bank_account: "Số tài khoản"
+    expire: "Thời hạn"
+    total_price: "Cộng tiền hàng"
+    buyer: "Người mua hàng"
+    seller: "Người bán hàng"
 
   time:
     formats:
