@@ -111,6 +111,7 @@ img {
 #menu .active a, #menu a:hover {
 	height: 23px;
 	background: #EFF0EB;
+	font-weight: bold;
 }
 
 #user_nav {
@@ -324,9 +325,10 @@ img {
 	.form-sign-up .controls {margin-bottom:8px;}
 
 
-
 .button {
-	background: #FF6600;
+	background: #EFF0EB url(../assets/img2.gif) repeat-x;
+	border: 1px solid #C9CCB9;
+	color: #878C66;
 	width: 200px;
 	height: 50px;
 	font-weight: bold;
@@ -334,8 +336,22 @@ img {
 }
 
 .button:hover {
-	background: #FF9900;
+	background: #EFF0EB;
 }
+
+.search-button{
+	background: #EFF0EB url(../assets/img2.gif) repeat-x;
+	border: 1px solid #C9CCB9;
+	color: #878C66;
+	width: 65px;
+	height: 30px;
+}
+
+.search-button:hover{
+	font-weight: bold;
+	background: #EFF0EB;
+}
+
 
 .btn {
 	font-size: 13px;

@@ -69,7 +69,7 @@
                 <%= select_tag :procategory_id, options_from_collection_for_select(Procategory.where(["status = ?", true]), :id, :name, params[:procategory_id]), class: "search", prompt: t(:searching_all_categories_selection) %>
               <td>
               <td>
-                <%= submit_tag "Search", type: :image, src: '../assets/search.png', title: t(:tooltip_search_button), rel: 'tooltip' %>
+                <%= submit_tag t(:tooltip_search_button), class: "search-button"%>
               </td>
             </tr>
           </table>
