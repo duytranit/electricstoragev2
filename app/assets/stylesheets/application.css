@@ -355,6 +355,13 @@ img {
 
 .btn {
 	font-size: 13px;
+	background: #EFF0EB url(../assets/img2.gif) repeat-x;
+	border: 1px solid #C9CCB9;
+	color: #878C66;
+}
+
+.btn:hover{
+	background: #EFF0EB;
 }
 
 .menu {

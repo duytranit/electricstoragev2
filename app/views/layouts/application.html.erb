@@ -96,12 +96,11 @@
                   <%= image_tag "../assets/userAvatar.png" %>
                 <% end %>
                 <%= t(:welcome) %> <strong><%= current_user.first_name + " " + current_user.last_name %></strong> <br />
-                <%= link_to t(:edit_profile_link), edit_user_registration_path %> |
-                <%= link_to t(:logout_link), destroy_user_session_path, method: :delete %>
+                <%= link_to t(:edit_profile_link), edit_user_registration_path, class: "btn" %>
+                <%= link_to t(:logout_link), destroy_user_session_path, method: :delete, class: "btn" %>
               <% else %>
                 <embed src="<%= asset_path("../assets/banner-new-fix.swf") %>", style="width: 180px; height: 180px"/>
-                <a type="button" class="btn" href="#sign-up-form" data-toggle="modal"><%= t(:sign_up_link) %></a> |
-                <a type="button" class="btn" href="#login-form" data-toggle="modal"><%= t(:login_link) %></a>
+                <a type="button" class="btn" href="#sign-up-form" data-toggle="modal"><%= t(:sign_up_link) %></a> <a type="button" class="btn" href="#login-form" data-toggle="modal"><%= t(:login_link) %></a>
               <% end %>
             </div>            
           </li>
