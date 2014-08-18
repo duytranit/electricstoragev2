@@ -7,7 +7,7 @@ class InvoicesController < ApplicationController
   def index
     # @invoices = Invoice.all
     if ( user_signed_in? ) && ( !current_user.is_staff? )
-      @invoices = current_user.invoices
+      @invoices = current_user.invoices.where(["status = ?", true])
     else
       @invoices = Invoice.joins(:invoicedetails).joins(:projects).where(["projects.user_id = ?", current_user.id])
     end

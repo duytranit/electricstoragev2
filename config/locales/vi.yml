@@ -67,6 +67,7 @@ vi:
     total_price: "Cộng tiền hàng"
     buyer: "Người mua hàng"
     seller: "Người bán hàng"
+    invoice_listing: "Hóa đơn mua hàng"
 
   time:
     formats:
