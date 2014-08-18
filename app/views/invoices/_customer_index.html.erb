@@ -21,13 +21,13 @@
             <%= link_to image_tag('../assets/invoice.png'), invoice %>
           </td>
           <td>
-            <%= link_to invoice.created_at.strftime("%d/%m/%Y") %>
+            <%= invoice.created_at.strftime("%d/%m/%Y") %>
           </td>
           <td style="text-align: center">
-            <%= link_to invoice.invoicedetails.count %>
+            <%= invoice.invoicedetails.count %>
           </td>
           <td style="text-align: center">
-            <%= link_to invoice.download_time %>
+            <%= invoice.download_time %>
           </td>
         </tr>
       <% end %>
