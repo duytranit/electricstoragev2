@@ -120,6 +120,7 @@ en:
   create_feedback_button: "Create Feedback"
   feedback_content: "Feedback"
   back_button: "Back"
+  edit_button: "Edit"
   project_category_navigate_button: "Project Category"
   update_button: "Update"
 
