@@ -1,77 +1,100 @@
-<div style="text-align: center">
-  <h3><strong><%= t("user.edit_user") %></strong></h3>
-</div> 
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
   <table style="width: 100%;">
     <tr>
       <td>
-        <table style="width: 100%;">
-          <tr>
-            <td>
-              <div>
-                <% if current_user.avatar_file_name %>
-                  <%= image_tag current_user.avatar.url(:small) %>
-                <% else %>
-                  <%= image_tag "../assets/userAvatar.png" %>
-                <% end %>
-                <br />
-                <%= f.file_field :avatar %>
-              </div>
-            </td>
-            <td>
-              <table style="width: 100%;">
-                <tr>
-                  <td>
-                    <%= t("user.registration.full_name") %><br />
-                  </td>
-                  <td>
-                    <%= f.text_field :first_name, title: t("user.registration.first_name"), rel: "tooltip", placeholder: t("user.registration.first_name"), style: "width: 84px;" %>
-                    <%= f.text_field :last_name, title: t("user.registration.last_name"), rel: "tooltip", placeholder: t("user.registration.last_name"), style: "width: 84px;" %>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <%= t("user.registration.email") %>
-                  </td>
-                  <td>
-                    <%= f.email_field :email, autofocus: true, disabled: true %>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <%= t("user.new_password") %>
-                  </td>
-                  <td>
-                    <%= f.password_field :password, autocomplete: "off", placeholder: t("user.new_password"), title: "leave blank if you don't want to change it", rel: "tootip" %>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <%= t("user.password_confirmation") %>
-                  </td>
-                  <td>
-                    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: t("user.password_confirmation") %>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <%= t("user.current_password") %>
-                  </td>
-                  <td>
-                    <%= f.password_field :current_password, autocomplete: "off", placeholder: t("user.current_password"), title: "we need your current password to confirm your changes", rel: "tootip" %>
-                  </td>
-                </tr>
-              </table>
+        <div class="user_table">
+          <table style="width: 100%">
+            <tr>
+              <td>
+                <div style="margin-top: 70px; width: 100%;">
+                  <table style="width: 100%">
+                    <tr>
+                      <td>
+                        <embed src="<%= asset_path("../assets/banner-new-fix.swf") %>", style="width: 50px; height: 50px; margin-left: 40px;"/>
+                      </td>
+                      <td style="text-align: center">
+                        <strong>SỞ KHOA HỌC VÀ CÔNG NGHỆ TỈNH BẾN TRE</strong><br  />
+                        Số 280 đường 3/2- Phường 3 - Tp Bến Tre
+                      </td>
+                    </tr>
+                  </table>   
+                </div>                  
+              </td>              
+            </tr>
+            <tr>
+              <td>
+                <table>
+                  <tr>
+                    <td>
+                      <div style="margin-left: 40px; width: 250px; margin-top: 10px;">
+                        <table style="width: 100%;">
+                          <tr>
+                            <td>
+                              <% if current_user.avatar_file_name %>
+                                <%= image_tag current_user.avatar.url(:small), style: "width: 100px;" %>
+                              <% else %>
+                                <%= image_tag "../assets/userAvatar.png", style: "width: 100px;" %>
+                              <% end %>                              
+                            </td>
+                            <td>
+                              <h4><strong>
+                                <% if current_user.role == 'customer' %>
+                                  <%= t("user.registration.customer") %>
+                                <% else %>
+                                  <%= t("user.registration.staff") %>
+                                <% end %>  
+                              </strong></h4>                            
+                            </td>
+                          </tr>
+                        </table>
+                        <br />
+                        <%= f.file_field :avatar %>                              
+                      </div>
+                    </td>
+                    <td>
+                      <table style="width: 100%;">
+                        <tr>
+                          <td>
+                            <%= f.text_field :first_name, title: t("user.registration.first_name"), rel: "tooltip", placeholder: t("user.registration.first_name"), style: "width: 84px;" %>
+                            <%= f.text_field :last_name, title: t("user.registration.last_name"), rel: "tooltip", placeholder: t("user.registration.last_name"), style: "width: 84px;" %>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <%= f.email_field :email, autofocus: true, disabled: true %>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <%= f.password_field :password, autocomplete: "off", placeholder: t("user.new_password"), title: "leave blank if you don't want to change it", rel: "tootip" %>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: t("user.password_confirmation") %>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <%= f.password_field :current_password, autocomplete: "off", placeholder: t("user.current_password"), title: "we need your current password to confirm your changes", rel: "tootip" %>
+                          </td>
+                        </tr>
+                      </table>
 
-              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-              <% end %>             
+                      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                      <% end %>             
 
-            </td>
-          </tr>
-        </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+                  
+          </table>
+        </div>
+          
       </td>            
     </tr>
     <tr>

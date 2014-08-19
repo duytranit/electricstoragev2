@@ -367,3 +367,14 @@ img {
 .menu {
 	-webkit-box-sizing: content-box;
 }
+
+.user_table{
+	background: #FFFFFF url(../assets/id-card.png);
+	height: 300px;
+	font-size: 14px;
+}
+
+.user_table input {
+	border: 0px;
+	background: transparent;
+}
