@@ -67,6 +67,10 @@ en:
       signup: Sign up
       customer: Customer
       staff: Staff
+    edit_user: "Account"
+    new_password: "New Password"
+    password_confirmation: "Password Confirmation"
+    current_password: "Current Password"
 
   invoice:
     from_date: "From Date"

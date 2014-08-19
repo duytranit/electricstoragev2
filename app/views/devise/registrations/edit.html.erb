@@ -1,52 +1,84 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div style="text-align: center">
+  <h3><strong><%= t("user.edit_user") %></strong></h3>
+</div> 
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
-
-  <table>
+  <table style="width: 100%;">
     <tr>
       <td>
-        <div>
-          <% if current_user.avatar_file_name %>
-            <%= image_tag current_user.avatar.url(:small) %>
-          <% else %>
-            <%= image_tag "../assets/userAvatar.png" %>
-          <% end %>
-          <br />
-          <%= f.file_field :avatar %>
-        </div>
-      </td>
-      <td>
-        <div>
-            <%= label_tag "Full Name" %><br />
-            <%= f.text_field :first_name, title: "First Name", rel: "tooltip" %>
-            <%= f.text_field :last_name, title: "Last Name", rel: "tooltip" %>
-          </div>
+        <table style="width: 100%;">
+          <tr>
+            <td>
+              <div>
+                <% if current_user.avatar_file_name %>
+                  <%= image_tag current_user.avatar.url(:small) %>
+                <% else %>
+                  <%= image_tag "../assets/userAvatar.png" %>
+                <% end %>
+                <br />
+                <%= f.file_field :avatar %>
+              </div>
+            </td>
+            <td>
+              <table style="width: 100%;">
+                <tr>
+                  <td>
+                    <%= t("user.registration.full_name") %><br />
+                  </td>
+                  <td>
+                    <%= f.text_field :first_name, title: t("user.registration.first_name"), rel: "tooltip", placeholder: t("user.registration.first_name"), style: "width: 84px;" %>
+                    <%= f.text_field :last_name, title: t("user.registration.last_name"), rel: "tooltip", placeholder: t("user.registration.last_name"), style: "width: 84px;" %>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <%= t("user.registration.email") %>
+                  </td>
+                  <td>
+                    <%= f.email_field :email, autofocus: true, disabled: true %>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <%= t("user.new_password") %>
+                  </td>
+                  <td>
+                    <%= f.password_field :password, autocomplete: "off", placeholder: t("user.new_password"), title: "leave blank if you don't want to change it", rel: "tootip" %>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <%= t("user.password_confirmation") %>
+                  </td>
+                  <td>
+                    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: t("user.password_confirmation") %>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <%= t("user.current_password") %>
+                  </td>
+                  <td>
+                    <%= f.password_field :current_password, autocomplete: "off", placeholder: t("user.current_password"), title: "we need your current password to confirm your changes", rel: "tootip" %>
+                  </td>
+                </tr>
+              </table>
 
-          <div><%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, disabled: true %></div>
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+              <% end %>             
 
-          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-          <% end %>
-
-          <div><%= label_tag "New Password" %> <br />
-            <%= f.password_field :password, autocomplete: "off", placeholder: "*********",
-              title: "leave blank if you don't want to change it", rel: "tootip" %></div>
-
-          <div><%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "*********" %></div>
-
-          <div><%= f.label :current_password %> <br />
-            <%= f.password_field :current_password, autocomplete: "off", placeholder: "*********",
-              title: "we need your current password to confirm your changes", rel: "tootip" %></div>
-
-          <div><%= f.submit "Update" %></div>
-
+            </td>
+          </tr>
+        </table>
+      </td>            
+    </tr>
+    <tr>
+      <td style="text-align: right">
+        <div><%= f.submit "Update", class: "btn" %></div>
       </td>
     </tr>
   </table>
           
 <% end %>
-
-<%= link_to "Back", :back %>
