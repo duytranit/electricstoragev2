@@ -9,16 +9,23 @@
 		</p>
 	</div>
 
-	<%= link_to t(:edit_button), edit_project_path(@project) %> |
-  <%= link_to 'Back', projects_path %>
+  <div style="text-align: right;">
+    <%= link_to t(:edit_button), edit_project_path(@project) %> |
+    <%= link_to t(:back_button), projects_path %>
+  </div>
+	
+
+  <br />
+  <br />
+  <br />
+  <br />
 
   <% if @attachments.count > 0 %>
-    <h1>Listing attachments</h1>
-    <table>
+    <table style="width: 100%;">
       <thead>
         <tr>
-          <th>Attached File</th>
-          <th colspan="3"></th>
+          <th><%= t("project.attachments") %></th>
+          <th></th>
         </tr>
       </thead>
 
@@ -28,7 +35,7 @@
             <td>
               <%= link_to truncate(attachment.file_file_name, length: 50), attachment.file.url, :target => "_blank" %>
             </td>
-            <td><%= link_to 'Destroy', attachment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td style="text-align: right;"><%= link_to t(:destroy), attachment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>
@@ -38,10 +45,10 @@
   <br/>
   <br/>
 
-  <%= link_to 'New Attachment', new_attachment_path(@project) %>
+  <%= link_to t("attachment.new_attachment"), new_attachment_path(@project), class: "btn" %>
 
 	<div>
-		<h3>feedbacks</h3>
+		<h4><%= t("project.feedbacks") %></h4>
 
 		<ul>
 	    <% @feedbacks.each do |feedback| %>

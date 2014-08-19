@@ -35,6 +35,7 @@ vi:
     category: "Thể loại"
     share: "Chia sẻ"
     feedbacks: "Phản hồi"
+    attachments: "Tệp đính kèm"
 
   user:
     registration:
@@ -82,6 +83,9 @@ vi:
     formats:
       short: "arrrround %H'ish"
 
+  attachment:
+    new_attachment: "Gắn thêm tệp"
+
   home_nagivate_button: "Trang chủ"
   project_navigate_button: "Dự án"
   introduce_navigate_button: "Giới thiệu"
@@ -106,6 +110,7 @@ vi:
   edit_button: "Chỉnh sửa"
   project_category_navigate_button: "Thể loại"
   update_button: "Cập nhật"
+  destroy: "Xóa"
 
   # format date
   date:

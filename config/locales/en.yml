@@ -56,6 +56,7 @@ en:
     category: "Category"
     share: "Share"
     feedbacks: "Feedbacks"
+    attachments: "Attachments"
 
   user:
     registration:
@@ -99,6 +100,9 @@ en:
     seller: "Seller"
     invoice_listing: "Listing Invoice"
 
+  attachment:
+    new_attachment: "New Attachment"
+
   home_nagivate_button: "Home page"
   project_navigate_button: "Project"
   introduce_navigate_button: "Introduce"
@@ -123,6 +127,7 @@ en:
   edit_button: "Edit"
   project_category_navigate_button: "Project Category"
   update_button: "Update"
+  destroy: "Destroy"
 
   # format date
   date:
