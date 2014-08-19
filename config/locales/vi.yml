@@ -103,6 +103,7 @@ vi:
   feedback_content: "Phản hồi"  
   back_button: "Quay lại"
   project_category_navigate_button: "Thể loại"
+  update_button: "Cập nhật"
 
   # format date
   date:

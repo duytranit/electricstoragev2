@@ -120,6 +120,7 @@ en:
   feedback_content: "Feedback"
   back_button: "Back"
   project_category_navigate_button: "Project Category"
+  update_button: "Update"
 
   # format date
   date:
