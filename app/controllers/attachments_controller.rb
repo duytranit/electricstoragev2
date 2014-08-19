@@ -1,5 +1,6 @@
 class AttachmentsController < ApplicationController
   before_filter :check_staff_login
+  before_filter :check_file, only: [:create]
   before_action :set_attachment, only: [:show, :edit, :update, :destroy]
 
   # GET /attachments
@@ -80,6 +81,16 @@ class AttachmentsController < ApplicationController
     def check_staff_login
       if !(current_user.is_staff? && session[:project_id] != nil)
         redirect_to root_path
+      end
+    end
+
+    def check_file
+      if params[:file].nil?
+        flash[:notice] = "Please choose file"
+        project = Project.find(session[:project_id])
+        respond_to do |format|
+          format.html { redirect_to project }
+        end        
       end
     end
 end
