@@ -55,6 +55,7 @@ en:
     title: "Title"
     category: "Category"
     share: "Share"
+    feedbacks: "Feedbacks"
 
   user:
     registration:
