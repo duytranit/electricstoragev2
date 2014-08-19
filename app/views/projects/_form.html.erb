@@ -11,31 +11,52 @@
     </div>
   <% end %>
 
+  <table style="width: 100%">
+    <tr>
+      <td>
+        <%= t(:category) %>
+      </td>
+      <td>
+        <%= f.select :procategory_id, options_for_select(Procategory.where(["status = ? and name != ?", true, '...']).map{|c| [c.name, c.id]}) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= t("project.title") %>
+      </td>
+      <td>
+        <%= f.text_area :title, style: "width: 100%;" %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= t("project.share") %>
+      </td>
+      <td>
+        <%= f.check_box :share %>
+        <%= t("project.public_project") %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= t("project.price") %>
+      </td>
+      <td>
+        <%= f.text_field :price %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= t("project.photo") %>
+      </td>
+      <td>
+        <%= f.file_field :photo %>
+      </td>
+    </tr>
+  </table>
+  <br />
   <div class="field">
-    <%= label_tag "Category" %>
-    <%= f.select :procategory_id, options_for_select(Procategory.where(["status = ? and name != ?", true, '...']).map{|c| [c.name, c.id]}) %>
-  </div>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :share %>
-    <%= f.check_box :share %>
-    <%= label_tag "Yes, I want to publish project for others" %>
-  </div>  
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :photo %>
-    <%= f.file_field :photo %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %><br>
+    <%= t("project.discription") %><br>
     <div id="wmd-button-bar" class="wmd-panel"></div>
     <br/>
     <div>
@@ -47,8 +68,8 @@
 
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions" style="text-align: right; width: 100%;">
+    <%= f.submit t("project.update_project"), class: "btn" %>
   </div>
 <% end %>
 

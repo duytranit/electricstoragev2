@@ -57,6 +57,12 @@ en:
     share: "Share"
     feedbacks: "Feedbacks"
     attachments: "Attachments"
+    editing_project: "Editing Project"
+    public_project: "Yes, I want to publish project for others"
+    price: "Price"
+    photo: "Photo"
+    discription: "Discription"
+    update_project: "Update Project"
 
   user:
     registration:
@@ -129,6 +135,7 @@ en:
   project_category_navigate_button: "Project Category"
   update_button: "Update"
   destroy: "Destroy"
+  category: "Category"
 
   # format date
   date:

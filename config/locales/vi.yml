@@ -36,6 +36,12 @@ vi:
     share: "Chia sẻ"
     feedbacks: "Phản hồi"
     attachments: "Tệp đính kèm"
+    editing_project: "Chỉnh Sửa Dự Án"
+    public_project: "Vâng, Tôi muốn chia sẻ dự án này cho người khác"
+    price: "Giá"
+    photo: "Ảnh đại diện"
+    discription: "Sơ lược"
+    update_project: "Chỉnh sửa Dự Án"
 
   user:
     registration:
@@ -112,6 +118,7 @@ vi:
   project_category_navigate_button: "Thể loại"
   update_button: "Cập nhật"
   destroy: "Xóa"
+  category: "Thể loại"
 
   # format date
   date:
