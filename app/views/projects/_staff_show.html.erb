@@ -41,11 +41,9 @@
       </tbody>
     </table>
   <% end %> 
+  <br />
 
-  <br/>
-  <br/>
-
-  <%= link_to t("attachment.new_attachment"), new_attachment_path(@project), class: "btn" %>
+  <%= render "/attachments/form" %>
 
 	<div>
 		<h4><%= t("project.feedbacks") %></h4>

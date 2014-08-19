@@ -85,6 +85,7 @@ vi:
 
   attachment:
     new_attachment: "Gắn thêm tệp"
+    create_attachment: "Gắn thêm tệp"
 
   home_nagivate_button: "Trang chủ"
   project_navigate_button: "Dự án"

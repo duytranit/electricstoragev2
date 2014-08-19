@@ -21,6 +21,7 @@ class ProjectsController < ApplicationController
     @attachments = @project.attachments
     @feedbacks = @project.feedbacks.where(["status = ?", true]).page(params[:page]).per(4)
     @feedback = Feedback.new
+    @attachment = Attachment.new
     if user_signed_in? && !current_user.is_staff?
       @invoice = current_user.invoices.joins(:invoicedetails).where(["invoicedetails.project_id = ? and invoices.status = ? and invoices.download_time > ?", @project.id, true, 0]).first
     end
