@@ -6,7 +6,7 @@ class ProcategoriesController < ApplicationController
   # GET /procategories.json
   def index
     # @procategories = Procategory.find_by_status(true)
-    @procategory = Procategory.find_by_procategory_id(0)
+    @procategories = Procategory.where(["level = ?", 1])
   end
 
   # GET /procategories/1
@@ -14,23 +14,31 @@ class ProcategoriesController < ApplicationController
   def show
     if ( !user_signed_in? ) || ( !current_user.is_staff? )
       @projects = @procategory.projects.where(["status = ? and share = ?", true, true]).page(params[:page]).per(2)
+    end
+
+    if current_user.is_staff?
+      @cousins = Procategory.where(["level = ? and procategory_id = ?", @procategory.level, @procategory.procategory_id])       
+      
+      @family_tree = []
+
+      procategory = @procategory
+      @family_tree << procategory
+
+      while procategory.level > 1 do
+        procategory = procategory.procategory
+        @family_tree << procategory
+      end
     end     
 
-    if @procategory && current_user.is_staff?
-      @family_tree = []
-      flag = 0
-      @family_tree[flag] = @procategory.id
+    # if current_user.is_staff?
+    #   @family_tree = []
+    #   procategory = @procategory     
 
-      father = @procategory.procategory
-      child = @procategory
-
-      while father.level > 1 do
-        child = father
-        father = child.procategory  
-        flag += 1
-        @family_tree[flag] = father.id      
-      end        
-    end    
+    #   while procategory.level >= 1 do
+    #     @family_tree << procategory
+    #     procategory = procategory.procategory
+    #   end        
+    # end    
   end
 
   # GET /procategories/new

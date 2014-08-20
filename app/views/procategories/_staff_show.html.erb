@@ -1,1 +1,38 @@
-<%= render '/shared/staff_procategories' %>
+<% flag = @family_tree.count - 1 %>
+<%= link_to "...", procategories_path %>
+<% while flag >= 0 %>
+	<% procategory = @family_tree[flag] %>
+	/
+	<% if procategory.id == @procategory.id %>
+		<%= procategory.name %>
+	<% else %>
+		<%= link_to procategory.name, procategory %>
+	<% end %>	
+	<% flag -= 1 %>
+<% end %>
+
+<ul>
+	<% if @procategory.level > 1 %>
+		<li>
+			<%= link_to "...", @procategory.procategory %>
+		</li>
+	<% end %>
+	<% @cousins.each do |procategory| %>			
+		<% if procategory.id == @procategory.id %>
+			<li>
+				<%= procategory.name %>
+			</li>
+			<ul>
+				<% @procategory.procategories.each do |child| %>
+					<li>
+						<%= link_to child.name, child, class: "btn" %>
+					</li>
+				<% end %>
+			</ul>
+		<% else %>
+			<li>
+				<%= link_to procategory.name, procategory, class: "btn" %>
+			</li>
+		<% end %>
+	<% end %>
+</ul>

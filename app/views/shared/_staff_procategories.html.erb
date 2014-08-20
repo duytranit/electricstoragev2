@@ -1,25 +1,11 @@
-<% flag = 0 %>
-<% if @procategory.level >= 1 %>
-	<% @family_tree.each do |id| %>
-		<% procategory = Procategory.find(id) %>
-		<% cousins = Procategory.where(["level = ?", procategory.level]) %>
-		<ul>
-			<% cousins.each do |cousin| %>
-				<li>
-					<%= link_to cousin.ddc + " - " + cousin.name, cousin %>
-				</li>
-			<%end%>
-		</ul>
+<ul>
+	<% @procategories.each do |procategory| %>
+		<li>
+			<%= link_to procategory.name, procategory, class: "btn" %>
+		</li>
 	<% end %>
-
-<% else %>
-	<ul>
-		<% @procategory.procategories.where(["level = ?", @procategory.level + 1]).each do |procategory| %>
-			<li>
-				<%= link_to procategory.ddc + " - " + procategory.name, procategory %>
-			</li>
-		<% end %>
 </ul>
-<% end %>
+	
+
 
 	
