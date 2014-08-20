@@ -14,6 +14,22 @@ class ProcategoriesController < ApplicationController
   def show
     if ( !user_signed_in? ) || ( !current_user.is_staff? )
       @projects = @procategory.projects.where(["status = ? and share = ?", true, true]).page(params[:page]).per(2)
+    end     
+
+    if @procategory && current_user.is_staff?
+      @family_tree = []
+      flag = 0
+      @family_tree[flag] = @procategory.id
+
+      father = @procategory.procategory
+      child = @procategory
+
+      while father.level > 1 do
+        child = father
+        father = child.procategory  
+        flag += 1
+        @family_tree[flag] = father.id      
+      end        
     end    
   end
 

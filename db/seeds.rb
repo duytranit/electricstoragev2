@@ -60,7 +60,7 @@ cn.procategories.create(
 	updated_at: DateTime.now,
 	user_id: staff.id,
 	ddc: "310",
-	level: cn.level += 1
+	level: cn.level + 1
 	)
 
 cn.procategories.create(
@@ -70,7 +70,7 @@ cn.procategories.create(
 	updated_at: DateTime.now,
 	user_id: staff.id,
 	ddc: "320",
-	level: cn.level += 1
+	level: cn.level + 1
 	)
 
 tt = procategory.procategories.create(
@@ -90,7 +90,7 @@ tt.procategories.create(
 	updated_at: DateTime.now,
 	user_id: staff.id,
 	ddc: "410",
-	level: tt.level += 1
+	level: tt.level + 1
 	)
 
 tt.procategories.create(
@@ -100,7 +100,7 @@ tt.procategories.create(
 	updated_at: DateTime.now,
 	user_id: staff.id,
 	ddc: "420",
-	level: tt.level += 1
+	level: tt.level + 1
 	)
 
 da = procategory.procategories.create(
@@ -120,7 +120,7 @@ da.procategories.create(
 	updated_at: DateTime.now,
 	user_id: staff.id,
 	ddc: "510",
-	level: da.level += 1
+	level: da.level + 1
 	)
 
 da.procategories.create(
@@ -130,7 +130,7 @@ da.procategories.create(
 	updated_at: DateTime.now,
 	user_id: staff.id,
 	ddc: "520",
-	level: da.level += 1
+	level: da.level + 1
 	)
 
 cn.projects.create(
