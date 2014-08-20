@@ -17,7 +17,7 @@
         <%= t(:category) %>
       </td>
       <td>
-        <%= f.select :procategory_id, options_for_select(Procategory.where(["status = ? and name != ?", true, '...']).map{|c| [c.name, c.id]}) %>
+        <%= f.select :procategory_id, options_for_select(Procategory.where(["status = ? and name != ?", true, '...']).order(:ddc).map{|c| [c.full_name, c.id]}) %>
       </td>
     </tr>
     <tr>

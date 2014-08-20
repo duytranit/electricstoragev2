@@ -38,7 +38,9 @@ procategory = Procategory.create(
 	created_at: DateTime.now,
 	updated_at: DateTime.now,
 	user_id: nil,
-	procategory_id: 0
+	procategory_id: 0,
+	ddc: "",
+	level: 0
 	)
 
 cn = procategory.procategories.create(
@@ -46,7 +48,29 @@ cn = procategory.procategories.create(
 	status: true,
 	created_at: DateTime.now,
 	updated_at: DateTime.now,
-	user_id: staff.id
+	user_id: staff.id,
+	ddc: "300",
+	level: 1
+	)
+
+cn.procategories.create(
+	name: 'Chăn Nuôi 01',
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "310",
+	level: cn.level += 1
+	)
+
+cn.procategories.create(
+	name: 'Chăn Nuôi 02',
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "320",
+	level: cn.level += 1
 	)
 
 tt = procategory.procategories.create(
@@ -54,14 +78,59 @@ tt = procategory.procategories.create(
 	status: true,
 	created_at: DateTime.now,
 	updated_at: DateTime.now,
-	user_id: staff.id
+	user_id: staff.id,
+	ddc: "400",
+	level: 1
 	)
+
+tt.procategories.create(
+	name: 'Trồng Trọt 01',
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "410",
+	level: tt.level += 1
+	)
+
+tt.procategories.create(
+	name: 'Trồng Trọt 02',
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "420",
+	level: tt.level += 1
+	)
+
 da = procategory.procategories.create(
 	name: 'Dự Án',
 	status: true,
 	created_at: DateTime.now,
 	updated_at: DateTime.now,
-	user_id: staff.id
+	user_id: staff.id,
+	ddc: "500",
+	level: 1
+	)
+
+da.procategories.create(
+	name: 'Dự Án 01',
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "510",
+	level: da.level += 1
+	)
+
+da.procategories.create(
+	name: 'Dự Án 02',
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "520",
+	level: da.level += 1
 	)
 
 cn.projects.create(

@@ -111,7 +111,7 @@ class ProcategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def procategory_params
-      params.require(:procategory).permit(:name, :status, :user_id)
+      params.require(:procategory).permit(:name, :status, :user_id, :ddc)
     end
 
     def check_staff_login

@@ -14,4 +14,15 @@ class Procategory < ActiveRecord::Base
 			errors.add(:name, 'cannot start with a space')
 		end
 	end
+
+	def full_name
+    flag = self.level.to_i
+    name = self.ddc + " - "
+    while flag > 1 do
+      flag -= 1
+      name = " - " + name
+    end
+    name = name + self.name
+    return name
+  end
 end
