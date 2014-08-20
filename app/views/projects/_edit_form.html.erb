@@ -1,0 +1,70 @@
+<%= form_for(@project) do |f| %>
+  <div class="post">
+    <h2 class="title">
+      <%= f.text_area :title, style: "width: 100%;" %>
+    </h2>
+    <h3 class="posted"><%= t("projects.welcome.posted") + ": " + @project.created_at.strftime("%d / %m / %Y") %></h3>
+    <div class="story">
+      <table>
+        <tr>
+          <td>
+            <p style="text-align: center">
+              <% if @project.photo.url.split('/').last == 'missing.png' %>
+                <%=  link_to image_tag('../assets/missing_panel.png'), p %>
+              <% else %>
+                <%=  link_to image_tag(@project.photo.url(:panel)), p %>
+              <% end %>
+              <br />
+              <%= f.file_field :photo %>
+            </p>
+          </td>
+          <td>
+            <table>
+              <tr>
+                <td>
+                  <p>
+                    <table style="width: 100%">                      
+                      <tr>
+                        <td>
+                          <%= t("project.price") %> <%= f.text_field :price , style: "margin-left: 10px; border: 0px;"%>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <%= f.check_box :share %>
+                          <%= t("project.public_project") %>
+                        </td>
+                      </tr>
+                    </table>
+                  </p>
+                </td>
+              </tr>
+            </table>                  
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <br />
+
+    <div id="wmd-preview" class="wmd-panel"></div>
+    <div id="wmd-button-bar" class="wmd-panel"></div>
+    <br/>
+    <div>
+      <%= f.text_area :description, :id => "wmd-input", :class => "wmd-panel" %>
+    </div>
+    
+
+    <div class="meta">
+      <p><%= t("projects.welcome.category") %>: <%= f.select :procategory_id, options_for_select(Procategory.where(["status = ? and name != ?", true, '...']).order(:ddc).map{|c| [c.full_name, c.id]}) %> </p>
+    </div>
+  </div>                   
+
+  <div class="actions" style="text-align: right; width: 100%;">
+    <%= f.submit t("project.update_project"), class: "btn" %>
+  </div>
+<% end %>
+
+<script type="text/javascript" src="wmd.js"></script>
+
+  
