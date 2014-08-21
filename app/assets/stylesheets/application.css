@@ -276,6 +276,11 @@ img {
   height: 400px;
 }
 
+#searching-form {
+	width: 350px;
+  height: 600px;
+}
+
 .modal.fade {
   -webkit-transition: opacity .3s linear, top .3s ease-out;
   -moz-transition: opacity .3s linear, top .3s ease-out;
