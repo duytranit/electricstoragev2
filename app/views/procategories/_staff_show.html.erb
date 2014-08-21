@@ -28,7 +28,14 @@
 				</li>
 				<% @procategory.procategories.each do |child| %>
 					<li>
-						<%= link_to child.name_with_no_projects_ddc, child, class: "btn", title: child.description, rel: 'tooltip' %>
+						<% if child.status %>
+							<%= link_to child.name_with_no_projects_ddc, child, class: "btn", title: child.description, rel: 'tooltip' %>
+						<% else %>
+							<%= link_to child.name_with_no_projects_ddc, child, class: "btn", title: child.description, rel: 'tooltip', disabled: true, style: "background: #EFF0EB;" %>
+							<% if child.user.id == current_user.id %>
+								<%= link_to image_tag("../assets/delete-small.png"), child, method: :delete, data: { confirm: 'Are you sure?' } %>
+							<% end %>
+						<% end %>
 					</li>
 				<% end %>
 			</ul>

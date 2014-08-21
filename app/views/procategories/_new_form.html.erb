@@ -1,4 +1,7 @@
-<%= form_tag add_new_procategory_procategories_path(procategory_id: @procategory.id), method: :post do %>
-  <%= submit_tag "Add", type: :image, src: '../assets/selected_folder.png', title: "Add procategory", rel: 'tooltip' %><br />
-  <%= text_field_tag :name, params[:name], style: "width: 60px", placeholder: "New" %>      
+<%= form_tag add_new_procategory_procategories_path(procategory_id: @procategory.id), method: :post do %>  
+  <%= text_field_tag :ddc, params[:ddc], style: "width: 30%;", placeholder: "DDC" %> 
+  <%= text_field_tag :name, params[:name], style: "width: 68.3%;", placeholder: "New" %>  
+  <%= text_area_tag :description, params[:description], placeholder: "Description", style: "width: 100%; height: 200px;" %> 
+
+  <%= submit_tag "Add Category", class: "button", style: "margin-top: 20px;" %>
 <% end %>

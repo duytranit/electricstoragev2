@@ -108,7 +108,10 @@ class ProcategoriesController < ApplicationController
     if params[:procategory_id].to_i == 0
       @procategory = current_user.procategories.new
       @procategory.name = params[:name]
+      @procategory.ddc = params[:ddc]
+      @procategory.description = params[:description]
       @procategory.procategory_id = 0
+      @procategory.level = 1
       @procategory.save
 
       respond_to do |format|
@@ -119,6 +122,8 @@ class ProcategoriesController < ApplicationController
       @procategory = current_user.procategories.new
       @procategory.procategory = father
       @procategory.name = params[:name]
+      @procategory.ddc = params[:ddc]
+      @procategory.description = params[:description]
       @procategory.level = father.level + 1
       @procategory.save
       respond_to do |format|
@@ -136,7 +141,7 @@ class ProcategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def procategory_params
-      params.require(:procategory).permit(:name, :status, :user_id, :ddc)
+      params.require(:procategory).permit(:name, :status, :user_id, :ddc, :description)
     end
 
     def check_staff_login
