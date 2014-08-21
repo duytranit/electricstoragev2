@@ -1,0 +1,4 @@
+<%= form_tag add_new_procategory_procategories_path(procategory_id: @procategory.id), method: :post do %>
+  <%= submit_tag "Add", type: :image, src: '../assets/selected_folder.png', title: "Add procategory", rel: 'tooltip' %><br />
+  <%= text_field_tag :name, params[:name], style: "width: 60px", placeholder: "New" %>      
+<% end %>

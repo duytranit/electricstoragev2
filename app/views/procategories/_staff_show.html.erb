@@ -20,19 +20,34 @@
 	<% @cousins.each do |procategory| %>			
 		<% if procategory.id == @procategory.id %>
 			<li>
-				<%= procategory.name %>
+				<%= link_to procategory.name_with_no_projects_ddc, procategory, class: "btn", style: "background: #EFF0EB; font-weight: bold; font-size: 14px; color: black;", title: procategory.description, rel: 'tooltip' %>
 			</li>
 			<ul>
+				<li>
+					<a type="button" class="btn" href="#new-procategory-form" data-toggle="modal"><strong style="color: #0066FF;"><%= t("procategory.add_procategory") %></strong></a>
+				</li>
 				<% @procategory.procategories.each do |child| %>
 					<li>
-						<%= link_to child.name, child, class: "btn" %>
+						<%= link_to child.name_with_no_projects_ddc, child, class: "btn", title: child.description, rel: 'tooltip' %>
 					</li>
 				<% end %>
 			</ul>
 		<% else %>
 			<li>
-				<%= link_to procategory.name, procategory, class: "btn" %>
+				<%= link_to procategory.name_with_no_projects_ddc, procategory, class: "btn", title: procategory.description, rel: 'tooltip' %>
 			</li>
 		<% end %>
 	<% end %>
 </ul>
+
+<div class="modal fade" id="new-procategory-form">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">&times;</a>
+    <h3>New Project Category</h3>
+  </div>
+  <div class="modal-body">
+    <div class="pop-singup">
+      <%= render "new_form" %>
+    </div>    
+  </div>
+</div>

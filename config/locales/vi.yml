@@ -93,6 +93,9 @@ vi:
     new_attachment: "Gắn thêm tệp"
     create_attachment: "Gắn thêm tệp"
 
+  procategory:
+    add_procategory: "Tạo Thể Loại Mới"
+
   home_nagivate_button: "Trang chủ"
   project_navigate_button: "Dự án"
   introduce_navigate_button: "Giới thiệu"

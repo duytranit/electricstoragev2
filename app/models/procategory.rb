@@ -25,4 +25,9 @@ class Procategory < ActiveRecord::Base
     name = name + self.name
     return name
   end
+
+  def name_with_no_projects_ddc
+  	no_projects = self.projects.where(["status = ?", true]).count.to_s
+  	return self.name + " (" + no_projects + ")"
+  end
 end

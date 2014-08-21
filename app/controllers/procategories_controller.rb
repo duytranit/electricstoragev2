@@ -119,6 +119,7 @@ class ProcategoriesController < ApplicationController
       @procategory = current_user.procategories.new
       @procategory.procategory = father
       @procategory.name = params[:name]
+      @procategory.level = father.level + 1
       @procategory.save
       respond_to do |format|
         format.html { redirect_to father}

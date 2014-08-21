@@ -271,6 +271,11 @@ img {
   height: 250px;
 }
 
+#new-procategory-form {
+	width: 350px;
+  height: 250px;
+}
+
 .modal.fade {
   -webkit-transition: opacity .3s linear, top .3s ease-out;
   -moz-transition: opacity .3s linear, top .3s ease-out;

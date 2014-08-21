@@ -50,7 +50,8 @@ cn = procategory.procategories.create(
 	updated_at: DateTime.now,
 	user_id: staff.id,
 	ddc: "300",
-	level: 1
+	level: 1,
+	description: "Bao gồm cả mức đọ tìm được, mức độ chính xác, mức độ tìm phù hợp. Xếp vào đây tìm kiếm và tìm lại trong hệ thống lưu trữ và tìm tin; hế thống trung gian (front-end); Internet (mạng toàn cầu) được xem như là một hệ thống lưu trữ và tìm tin; thư mục các website; thư viện số; tác phẩm tổng hợp về mục lục trực tuyến được tích hợp vào hệ thống lưu trử và tìm tin, về lưu trữ, tìm kiếm, tìm lại thông tin tự động; tác phẩm liên ngành về cơ sở dữ liệu."
 	)
 
 cn.procategories.create(
@@ -60,7 +61,8 @@ cn.procategories.create(
 	updated_at: DateTime.now,
 	user_id: staff.id,
 	ddc: "310",
-	level: cn.level + 1
+	level: cn.level + 1,
+	description: "Bao gồm cả mức đọ tìm được, mức độ chính xác, mức độ tìm phù hợp. Xếp vào đây tìm kiếm và tìm lại trong hệ thống lưu trữ và tìm tin; hế thống trung gian (front-end); Internet (mạng toàn cầu) được xem như là một hệ thống lưu trữ và tìm tin; thư mục các website; thư viện số; tác phẩm tổng hợp về mục lục trực tuyến được tích hợp vào hệ thống lưu trử và tìm tin, về lưu trữ, tìm kiếm, tìm lại thông tin tự động; tác phẩm liên ngành về cơ sở dữ liệu."
 	)
 
 cn.procategories.create(
@@ -70,7 +72,8 @@ cn.procategories.create(
 	updated_at: DateTime.now,
 	user_id: staff.id,
 	ddc: "320",
-	level: cn.level + 1
+	level: cn.level + 1,
+	description: "Bao gồm cả mức đọ tìm được, mức độ chính xác, mức độ tìm phù hợp. Xếp vào đây tìm kiếm và tìm lại trong hệ thống lưu trữ và tìm tin; hế thống trung gian (front-end); Internet (mạng toàn cầu) được xem như là một hệ thống lưu trữ và tìm tin; thư mục các website; thư viện số; tác phẩm tổng hợp về mục lục trực tuyến được tích hợp vào hệ thống lưu trử và tìm tin, về lưu trữ, tìm kiếm, tìm lại thông tin tự động; tác phẩm liên ngành về cơ sở dữ liệu."
 	)
 
 tt = procategory.procategories.create(
@@ -80,7 +83,8 @@ tt = procategory.procategories.create(
 	updated_at: DateTime.now,
 	user_id: staff.id,
 	ddc: "400",
-	level: 1
+	level: 1,
+	description: "Bao gồm cả mức đọ tìm được, mức độ chính xác, mức độ tìm phù hợp. Xếp vào đây tìm kiếm và tìm lại trong hệ thống lưu trữ và tìm tin; hế thống trung gian (front-end); Internet (mạng toàn cầu) được xem như là một hệ thống lưu trữ và tìm tin; thư mục các website; thư viện số; tác phẩm tổng hợp về mục lục trực tuyến được tích hợp vào hệ thống lưu trử và tìm tin, về lưu trữ, tìm kiếm, tìm lại thông tin tự động; tác phẩm liên ngành về cơ sở dữ liệu."
 	)
 
 tt.procategories.create(
@@ -90,7 +94,8 @@ tt.procategories.create(
 	updated_at: DateTime.now,
 	user_id: staff.id,
 	ddc: "410",
-	level: tt.level + 1
+	level: tt.level + 1,
+	description: "Bao gồm cả mức đọ tìm được, mức độ chính xác, mức độ tìm phù hợp. Xếp vào đây tìm kiếm và tìm lại trong hệ thống lưu trữ và tìm tin; hế thống trung gian (front-end); Internet (mạng toàn cầu) được xem như là một hệ thống lưu trữ và tìm tin; thư mục các website; thư viện số; tác phẩm tổng hợp về mục lục trực tuyến được tích hợp vào hệ thống lưu trử và tìm tin, về lưu trữ, tìm kiếm, tìm lại thông tin tự động; tác phẩm liên ngành về cơ sở dữ liệu."
 	)
 
 tt.procategories.create(
@@ -100,7 +105,8 @@ tt.procategories.create(
 	updated_at: DateTime.now,
 	user_id: staff.id,
 	ddc: "420",
-	level: tt.level + 1
+	level: tt.level + 1,
+	description: "Bao gồm cả mức đọ tìm được, mức độ chính xác, mức độ tìm phù hợp. Xếp vào đây tìm kiếm và tìm lại trong hệ thống lưu trữ và tìm tin; hế thống trung gian (front-end); Internet (mạng toàn cầu) được xem như là một hệ thống lưu trữ và tìm tin; thư mục các website; thư viện số; tác phẩm tổng hợp về mục lục trực tuyến được tích hợp vào hệ thống lưu trử và tìm tin, về lưu trữ, tìm kiếm, tìm lại thông tin tự động; tác phẩm liên ngành về cơ sở dữ liệu."
 	)
 
 da = procategory.procategories.create(
@@ -110,7 +116,8 @@ da = procategory.procategories.create(
 	updated_at: DateTime.now,
 	user_id: staff.id,
 	ddc: "500",
-	level: 1
+	level: 1,
+	description: "Bao gồm cả mức đọ tìm được, mức độ chính xác, mức độ tìm phù hợp. Xếp vào đây tìm kiếm và tìm lại trong hệ thống lưu trữ và tìm tin; hế thống trung gian (front-end); Internet (mạng toàn cầu) được xem như là một hệ thống lưu trữ và tìm tin; thư mục các website; thư viện số; tác phẩm tổng hợp về mục lục trực tuyến được tích hợp vào hệ thống lưu trử và tìm tin, về lưu trữ, tìm kiếm, tìm lại thông tin tự động; tác phẩm liên ngành về cơ sở dữ liệu."
 	)
 
 da.procategories.create(
@@ -120,7 +127,8 @@ da.procategories.create(
 	updated_at: DateTime.now,
 	user_id: staff.id,
 	ddc: "510",
-	level: da.level + 1
+	level: da.level + 1,
+	description: "Bao gồm cả mức đọ tìm được, mức độ chính xác, mức độ tìm phù hợp. Xếp vào đây tìm kiếm và tìm lại trong hệ thống lưu trữ và tìm tin; hế thống trung gian (front-end); Internet (mạng toàn cầu) được xem như là một hệ thống lưu trữ và tìm tin; thư mục các website; thư viện số; tác phẩm tổng hợp về mục lục trực tuyến được tích hợp vào hệ thống lưu trử và tìm tin, về lưu trữ, tìm kiếm, tìm lại thông tin tự động; tác phẩm liên ngành về cơ sở dữ liệu."
 	)
 
 da.procategories.create(
@@ -130,7 +138,8 @@ da.procategories.create(
 	updated_at: DateTime.now,
 	user_id: staff.id,
 	ddc: "520",
-	level: da.level + 1
+	level: da.level + 1,
+	description: "Bao gồm cả mức đọ tìm được, mức độ chính xác, mức độ tìm phù hợp. Xếp vào đây tìm kiếm và tìm lại trong hệ thống lưu trữ và tìm tin; hế thống trung gian (front-end); Internet (mạng toàn cầu) được xem như là một hệ thống lưu trữ và tìm tin; thư mục các website; thư viện số; tác phẩm tổng hợp về mục lục trực tuyến được tích hợp vào hệ thống lưu trử và tìm tin, về lưu trữ, tìm kiếm, tìm lại thông tin tự động; tác phẩm liên ngành về cơ sở dữ liệu."
 	)
 
 cn.projects.create(
