@@ -1,5 +1,6 @@
 class ProcategoriesController < ApplicationController
   before_filter :check_staff_login, except: [:show]
+  before_filter :validate, only: [:add_new_procategory]
   before_action :set_procategory, only: [:show, :edit, :update, :destroy]
 
   # GET /procategories
@@ -112,7 +113,12 @@ class ProcategoriesController < ApplicationController
       @procategory.description = params[:description]
       @procategory.procategory_id = 0
       @procategory.level = 1
-      @procategory.save
+
+      if @procategory.validate?
+        @procategory.save
+      else
+        flash[:notice] = @procategory.validate?  
+      end
 
       respond_to do |format|
         format.html { redirect_to procategories_path}
@@ -125,7 +131,13 @@ class ProcategoriesController < ApplicationController
       @procategory.ddc = params[:ddc]
       @procategory.description = params[:description]
       @procategory.level = father.level + 1
-      @procategory.save
+
+      if @procategory.validate?
+        @procategory.save
+      else
+        flash[:notice] = @procategory.validate?  
+      end
+
       respond_to do |format|
         format.html { redirect_to father}
       end
@@ -158,5 +170,41 @@ class ProcategoriesController < ApplicationController
       else
         return false
       end      
+    end
+
+    def validate
+      if params[:name] == ""
+        flash[:name] = "Please input name"
+      else
+        if params[:name][0] == " " 
+          flash[:name] = "Name cannot start with a space"
+        end
+      end
+
+      if params[:ddc] == ""
+        flash[:ddc] = "Please input DDC"
+      elsif params[:ddc][0] == " "
+        flash[:ddc] = "DDC cannot start with a space"
+      elsif Procategory.find_by_ddc(params[:ddc])
+        flash[:ddc] = "DDC must be unique"          
+      end
+
+      if params[:description] = ""
+        flash[:description] = "Please input description"
+      end
+
+      if flash[:name] || flash[:ddc] 
+        if params[:procategory_id].to_i == 0
+          respond_to do |format|
+            format.html { redirect_to procategories_path}
+          end
+        else
+          father = Procategory.find(params[:procategory_id].to_i)
+          respond_to do |format|
+            format.html { redirect_to father}
+          end
+        end
+      end       
+
     end
 end
