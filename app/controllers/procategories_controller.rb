@@ -18,6 +18,10 @@ class ProcategoriesController < ApplicationController
     end
 
     if current_user.is_staff?
+      @projects = @procategory.projects.where(["user_id = ? ", current_user.id]).page(params[:page]).per(4)
+      @flag = 0
+      @flag += (4*(params[:page].to_i - 1)) if params[:page].to_i > 0
+
       @cousins = Procategory.where(["level = ? and procategory_id = ?", @procategory.level, @procategory.procategory_id])       
       
       @family_tree = []

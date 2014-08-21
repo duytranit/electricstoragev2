@@ -1,58 +1,100 @@
-<% flag = @family_tree.count - 1 %>
-<%= link_to "...", procategories_path %>
-<% while flag >= 0 %>
-	<% procategory = @family_tree[flag] %>
-	/
-	<% if procategory.id == @procategory.id %>
-		<%= procategory.name %>
-	<% else %>
-		<%= link_to procategory.name, procategory %>
-	<% end %>	
-	<% flag -= 1 %>
-<% end %>
-
-<ul>
-	<% if @procategory.level > 1 %>
-		<li>
-			<%= link_to "...", @procategory.procategory %>
-		</li>
-	<% end %>
-	<% @cousins.each do |procategory| %>			
-		<% if procategory.id == @procategory.id %>
-			<li>
-				<%= link_to procategory.name_with_no_projects_ddc, procategory, class: "btn", style: "background: #EFF0EB; font-weight: bold; font-size: 14px; color: black;", title: procategory.description, rel: 'tooltip' %>			
-			</li>
-			<ul>
+<div class="post">
+  <h4 class="title">
+    <% flag = @family_tree.count - 1 %>
+		<%= link_to "...", procategories_path %>
+		<% while flag >= 0 %>
+			<% procategory = @family_tree[flag] %>
+			/
+			<% if procategory.id == @procategory.id %>
+				<%= procategory.name %>
+			<% else %>
+				<%= link_to procategory.name, procategory %>
+			<% end %>	
+			<% flag -= 1 %>
+		<% end %>
+  </h4>
+  <div class="story">
+		<ul>
+			<% if @procategory.level > 1 %>
 				<li>
-					<a type="button" class="btn" href="#new-procategory-form" data-toggle="modal"><strong style="color: #0066FF;"><%= t("procategory.add_procategory") %></strong></a>
+					<%= link_to "...", @procategory.procategory %>
 				</li>
-				<% @procategory.procategories.each do |child| %>
+			<% end %>
+			<% @cousins.each do |procategory| %>			
+				<% if procategory.id == @procategory.id %>
 					<li>
-						<% if child.status %>
-							<%= link_to child.name_with_no_projects_ddc, child, class: "btn", title: child.description, rel: 'tooltip' %>
+						<%= link_to procategory.name_with_no_projects_ddc, procategory, class: "btn", style: "background: #EFF0EB; font-weight: bold; font-size: 14px; color: black;", title: procategory.description, rel: 'tooltip' %>			
+					</li>
+					<ul>
+						<li>
+							<a type="button" class="btn" href="#new-procategory-form" data-toggle="modal"><strong style="color: #0066FF;"><%= t("procategory.add_procategory") %></strong></a>
+						</li>
+						<% @procategory.procategories.each do |child| %>
+							<li>
+								<% if child.status %>
+									<%= link_to child.name_with_no_projects_ddc, child, class: "btn", title: child.description, rel: 'tooltip' %>
+								<% else %>
+									<%= link_to child.name_with_no_projects_ddc, child, class: "btn", title: child.description, rel: 'tooltip', disabled: true, style: "background: #EFF0EB;" %>
+									<% if child.user.id == current_user.id %>
+										<%= link_to image_tag("../assets/delete-small.png"), child, method: :delete, data: { confirm: 'Are you sure?' } %>
+									<% end %>
+								<% end %>
+							</li>
+						<% end %>
+					</ul>
+				<% else %>
+					<li>
+						<% if procategory.status %>
+							<%= link_to procategory.name_with_no_projects_ddc, procategory, class: "btn", title: procategory.description, rel: 'tooltip' %>
 						<% else %>
-							<%= link_to child.name_with_no_projects_ddc, child, class: "btn", title: child.description, rel: 'tooltip', disabled: true, style: "background: #EFF0EB;" %>
-							<% if child.user.id == current_user.id %>
-								<%= link_to image_tag("../assets/delete-small.png"), child, method: :delete, data: { confirm: 'Are you sure?' } %>
+							<%= link_to procategory.name_with_no_projects_ddc, procategory, class: "btn", title: procategory.description, rel: 'tooltip', disabled: true %>
+							<% if procategory.user.id == current_user.id %>
+								<%= link_to image_tag("../assets/delete-small.png"), procategory, method: :delete, data: { confirm: 'Are you sure?' } %>
 							<% end %>
 						<% end %>
 					</li>
 				<% end %>
-			</ul>
-		<% else %>
-			<li>
-				<% if procategory.status %>
-					<%= link_to procategory.name_with_no_projects_ddc, procategory, class: "btn", title: procategory.description, rel: 'tooltip' %>
-				<% else %>
-					<%= link_to procategory.name_with_no_projects_ddc, procategory, class: "btn", title: procategory.description, rel: 'tooltip', disabled: true %>
-					<% if procategory.user.id == current_user.id %>
-						<%= link_to image_tag("../assets/delete-small.png"), procategory, method: :delete, data: { confirm: 'Are you sure?' } %>
-					<% end %>
-				<% end %>
-			</li>
-		<% end %>
-	<% end %>
-</ul>
+			<% end %>
+		</ul>
+  </div>
+  <% if @projects.count > 0 %>
+  	<br />
+	  <div class="story">
+			<table style="width: 100%;">
+			  <thead>
+			    <tr>
+			      <th style="width: 50px; text-align: center; border: 1px solid black; "> <%= t("invoice.stt") %> </th>
+			      <th style="text-align: center; border: 1px solid black; "><%= t("project.title") %></th>
+			      <th style="width: 70px; border: 1px solid black; text-align: center"><%= t("project.share") %></th>
+			    </tr>
+			  </thead>
+
+			  <tbody>
+			    <% @projects.each do |project| %>
+			      <tr>
+			        <td style="border: 1px solid black; text-align: center">
+			          <%= @flag += 1%>
+			        </td>
+			        <td style="border: 1px solid black;">
+			          <div style="margin-left: 5px;">
+			            <%= link_to truncate(project.title, length: 55), project, title: project.title, rel: "tootip" %>
+			          </div>          
+			        </td>  
+			        <td style="text-align: center; border: 1px solid black;">
+			          <% if project.share %>
+			            <%= image_tag("../assets/unlock.png") %>
+			          <% else %>
+			            <%= image_tag("../assets/lock.png") %>
+			          <% end %>
+			        </td>
+			      </tr>
+			    <% end %>
+			  </tbody>
+			</table>
+	  </div>
+	  <%= paginate @projects %>
+  <% end %>	  
+</div>
 
 <div class="modal fade" id="new-procategory-form">
   <div class="modal-header">
