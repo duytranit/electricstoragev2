@@ -66,7 +66,7 @@
             <tr>
               <td>
                 <%= text_field_tag :title, params[:title], placeholder: t(:searching_project_placeholder), class: "search" %>
-                <%= select_tag :procategory_id, options_from_collection_for_select(Procategory.where(["status = ?", true]), :id, :name, params[:procategory_id]), class: "search", prompt: t(:searching_all_categories_selection) %>
+                <%= select_tag :procategory_id, options_from_collection_for_select(Procategory.where(["procategories.status = ? and procategories.level != ?", true, 0]), :id, :name, params[:procategory_id]), class: "search", prompt: t(:searching_all_categories_selection) %>
               <td>
               <td>
                 <%= submit_tag t(:tooltip_search_button), class: "search-button"%>
