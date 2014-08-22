@@ -53,8 +53,8 @@ Attacklab.wmdBase = function(){
 	var pastePollInterval = 100;
 	
 	// The link and title for the help button
-	var helpLink = "http://electricstoragev2.heroku.com/";
-	var helpHoverTitle = "electricstoragev2";
+	var helpLink = "http://wmd-editor.com/";
+	var helpHoverTitle = "WMD website";
 	var helpTarget = "_blank";
 	
 	// -------------------------------------------------------------------
