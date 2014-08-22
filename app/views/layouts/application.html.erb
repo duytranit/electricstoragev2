@@ -73,7 +73,7 @@
               </td>
             </tr>
           </table>
-          <a type="button" class="btn" href="#searching-form" data-toggle="modal", style="width: 100%; margin-top: 10px;">Deep Searching</a>
+          <a type="button" class="btn" href="#searching-form" data-toggle="modal", style="width: 100%; margin-top: 10px;"><%= t("views.home.deep_search") %></a>
         <% end %>        
       </li>
 
@@ -209,7 +209,7 @@
 <div class="modal fade" id="searching-form">
   <div class="modal-header">
     <a class="close" data-dismiss="modal">&times;</a>
-    <h3>Projects Searching</h3>
+    <h3><%= t("views.home.project_search") %></h3>
   </div>
   <div>
     <div class="pop-singup">
@@ -217,9 +217,9 @@
 
       <%= form_tag welcome_index_path, method: :get do %>    
 
-        <%= text_field_tag :title, params[:title], class: "search", style: "width: 100%;", placeholder: "Project's title" %><br />
-        <%= text_area_tag :description, params[:description], style: "width: 100%; height: 200px;", placeholder: "Project's description" %><br />
-        <%= text_field_tag :min_price, params[:min_price], style: "width: 49%;", placeholder: "Min Price" %> <%= text_field_tag :max_price, params[:max_price], style: "width: 49%;", placeholder: "Max Price" %><br />
+        <%= text_field_tag :title, params[:title], class: "search", style: "width: 100%;", placeholder: t("views.home.project_title") %><br />
+        <%= text_area_tag :description, params[:description], style: "width: 100%; height: 200px;", placeholder: t("views.home.project_description") %><br />
+        <%= text_field_tag :min_price, params[:min_price], style: "width: 49%;", placeholder: t("views.home.min_price") %> <%= text_field_tag :max_price, params[:max_price], style: "width: 49%;", placeholder: t("views.home.max_price") %><br />
         <%= select_tag :procategory_id, options_from_collection_for_select(Procategory.where(["status = ? and level != ?", true, 0]).order(:ddc), :id, :full_name, params[:procategory_id]), class: "search", prompt: t(:searching_all_categories_selection), style: "width: 100%;" %>
 
         <%= submit_tag t(:tooltip_search_button), class: "button", style: "margin-top: 20px;"%>

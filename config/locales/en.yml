@@ -28,6 +28,13 @@ en:
       previous: "&lsaquo; Prev"
       next: "Next &rsaquo;"
       truncate: "&hellip;"
+    home:
+      deep_search: "Advanced Searching"
+      project_search: "Search Projects"
+      project_title: "Project's title"
+      project_description: "Project's description"
+      min_price: "Min Price"
+      max_price: "Max Price"
   helpers:
     page_entries_info:
       one_page:

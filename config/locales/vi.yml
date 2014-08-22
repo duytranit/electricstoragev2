@@ -7,6 +7,13 @@ vi:
       previous: "&lsaquo; Quay lại"
       next: "Sang trang &rsaquo;"
       truncate: "&hellip;"
+    home:
+      deep_search: "Tìm kiếm chi tiết"
+      project_search: "Tìm kiếm dự án"
+      project_title: "Tên dự án"
+      project_description: "Nội dung tổng quát"
+      min_price: "Min Price"
+      max_price: "Max Price"
   helpers:
     page_entries_info:
       one_page:
