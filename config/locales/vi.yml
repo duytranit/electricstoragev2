@@ -12,8 +12,8 @@ vi:
       project_search: "Tìm kiếm dự án"
       project_title: "Tên dự án"
       project_description: "Nội dung tổng quát"
-      min_price: "Min Price"
-      max_price: "Max Price"
+      min_price: "Từ giá"
+      max_price: "Đến giá"
   helpers:
     page_entries_info:
       one_page:
