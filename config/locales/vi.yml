@@ -102,6 +102,11 @@ vi:
 
   procategory:
     add_procategory: "Tạo Thể Loại Mới"
+    new_procategory: "Thể loại dự án"
+    ddc: "Mã số"
+    name: "Tên thể loại"
+    description: "Tóm tắt nội dung"
+    add_category: "Tạo thể loại"
 
   home_nagivate_button: "Trang chủ"
   project_navigate_button: "Dự án"

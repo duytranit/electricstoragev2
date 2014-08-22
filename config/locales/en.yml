@@ -119,6 +119,11 @@ en:
 
   procategory:
     add_procategory: "Add New Category"
+    new_procategory: "New Project Category"
+    ddc: "DDC"
+    name: "Category's name"
+    description: "Description"
+    add_category: "Add Category"
 
   home_nagivate_button: "Home page"
   project_navigate_button: "Project"
