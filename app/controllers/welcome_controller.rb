@@ -1,10 +1,21 @@
 class WelcomeController < ApplicationController
+	before_filter :check_price, only: [:index]
   def index
   	if params[:title] || params[:description] || params[:procategory_id]
   		@projects = Project.search(params[:title], params[:description], params[:min_price], params[:max_price], params[:procategory_id]).joins(:procategory).where(["projects.share = ? and projects.status = ? 
   		and procategories.status = ? ", true, true, true]).page(params[:page]).per(2)
   	else
   		@projects = Project.joins(:procategory).where(["projects.share = ? and projects.status = ? and procategories.status = ? ", true, true, true]).page(params[:page]).per(2)
+  	end
+  end
+
+  private
+  def check_price
+  	if !params[:min_price].nil? || !params[:max_price].nil?
+  		if (!params[:min_price].is_a? Numeric) || (!params[:max_price].is_a? Numeric)
+  			flash[:notice] = "Inputted Price is incorrect"
+  			redirect_to root_path
+  		end
   	end
   end
 end
