@@ -1,6 +1,6 @@
 class AttachmentsController < ApplicationController
   before_filter :check_staff_login
-  before_filter :check_file, only: [:create]
+  # before_filter :check_file, only: [:create]
   before_action :set_attachment, only: [:show, :edit, :update, :destroy]
 
   # GET /attachments
@@ -30,17 +30,27 @@ class AttachmentsController < ApplicationController
   # POST /attachments.json
   def create
     project = Project.find(session[:project_id])
-    @attachment = project.attachments.new(attachment_params)
 
-    respond_to do |format|
-      if @attachment.save
-        format.html { redirect_to project, notice: 'Attachment was successfully created.' }
-        format.json { render :show, status: :created, location: @attachment }
-      else
-        format.html { render :new }
-        format.json { render json: @attachment.errors, status: :unprocessable_entity }
-      end
+    if params[:attachment] && !params[:attachment][:file].nil?
+      @attachment = project.attachments.new(attachment_params)
+
+      respond_to do |format|
+        if @attachment.save
+          format.html { redirect_to project, notice: 'Attachment was successfully created.' }
+          format.json { render :show, status: :created, location: @attachment }
+        else
+          format.html { render :new }
+          format.json { render json: @attachment.errors, status: :unprocessable_entity }
+        end
+      end      
+    else
+      flash[:notice] = "Please choose file"
+      project = Project.find(session[:project_id])
+      respond_to do |format|
+        format.html { redirect_to project }
+      end 
     end
+      
   end
 
   # PATCH/PUT /attachments/1
@@ -84,13 +94,13 @@ class AttachmentsController < ApplicationController
       end
     end
 
-    def check_file
-      if params[:file].nil?
-        flash[:notice] = "Please choose file"
-        project = Project.find(session[:project_id])
-        respond_to do |format|
-          format.html { redirect_to project }
-        end        
-      end
-    end
+    # def check_file
+    #   if @attachment.file.nil?
+    #     flash[:notice] = "Please choose file"
+    #     project = Project.find(session[:project_id])
+    #     respond_to do |format|
+    #       format.html { redirect_to project }
+    #     end        
+    #   end
+    # end
 end
