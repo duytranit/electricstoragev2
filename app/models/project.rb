@@ -10,18 +10,12 @@ class Project < ActiveRecord::Base
 	has_attached_file :photo, :styles => { :small => "150x150>", panel: "470x140>" }
 	validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 
-
-
-	def self.search(search, procategory_id)
-	  if search
-	  	if procategory_id != ''
-	  		self.where(["title LIKE ? and projects.procategory_id = ?", "%#{search}%", procategory_id])
-	  	else
-	  		self.where(["title LIKE ?", "%#{search}%"])
-	  	end	  	
-	  else
-	    self.all
-	  end
+	def self.search(title, description, min_price, max_price, procategory_id)
+		if procategory_id != ''
+  		self.where(["projects.title LIKE ? and projects.description LIKE ? and projects.procategory_id = ? and projects.price >= ? and projects.price <= ?", "%#{title}%", "%#{description}%", procategory_id, min_price, max_price])
+  	else
+  		self.where(["projects.title LIKE ? and projects.description LIKE ? and projects.price >= ? and projects.price <= ?", "%#{title}%", "%#{description}%", min_price, max_price])
+  	end	
 	end
 
 
