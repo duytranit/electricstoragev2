@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require wmd
 //= require showdown
 //= require jquery-1.2.6
 //= require jquery-1.2.6.min

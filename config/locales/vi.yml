@@ -49,6 +49,7 @@ vi:
     photo: "Ảnh đại diện"
     discription: "Sơ lược"
     update_project: "Chỉnh sửa Dự Án"
+    new_project: "Tạo dự án mới"
 
   user:
     registration:
