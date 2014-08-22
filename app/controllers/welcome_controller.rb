@@ -13,11 +13,16 @@ class WelcomeController < ApplicationController
 
   private
   def check_price
-  	if ( !params[:min_price].nil? || !params[:max_price].nil? ) && ( params[:min_price] != '' || params[:max_price] != '' )
-  		if (!params[:min_price].is_a? Numeric) || (!params[:max_price].is_a? Numeric)
-  			flash[:notice] = "Inputted Price is incorrect"
-  			redirect_to root_path
-  		end
-  	end
+  	# if ( !params[:min_price].nil? || !params[:max_price].nil? ) && ( params[:min_price] != '' || params[:max_price] != '' )
+  	# 	if !(( params[:min_price].to_f.is_a? Numeric ) && ( params[:max_price].to_f.is_a? Numeric ))
+  	# 		flash[:notice] = "Inputted Price is incorrect"
+  	# 		redirect_to root_path
+  	# 	end
+  	# end
+
+    if ( ( !params[:min_price].nil? ) && ( params[:min_price] != '' ) && !( (params[:min_price].to_i.to_s == params[:min_price]) || (params[:min_price].to_f.to_s == params[:min_price]) ) ) && ( ( !params[:max_price].nil? ) && ( params[:max_price] != '' ) && !( (params[:max_price].to_i.to_s == params[:max_price]) || (params[:max_price].to_f.to_s == params[:max_price]) ) )
+      flash[:notice] = "Inputted Price is incorrect"
+      redirect_to root_path
+    end
   end
 end
