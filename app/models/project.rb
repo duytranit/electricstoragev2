@@ -20,5 +20,10 @@ class Project < ActiveRecord::Base
   	end	
 	end
 
+	def find_invoice_of_user(user_id)
+		current_user = User.find(user_id)
+		return invoice = current_user.invoices.joins(:invoicedetails).where(["invoicedetails.project_id = ? and invoices.status = ? and invoices.download_time > ?", self.id, true, 0]).first
+	end
+
 
 end

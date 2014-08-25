@@ -37,11 +37,12 @@
 			</p>		
 
 		<% else %>
-			<% if (user_signed_in?) && ((session[:storage].nil?) || (( session[:storage] )&& !( session[:storage].include? @project.id.to_s ))) %>
-				<p style="text-align: right">
-					<%= link_to image_tag("../assets/buy.png"), invoicedetails_path(project_id: @project.id), method: :post, title: t("project.show.buy_button") + " \""+@project.title+"\"", rel: 'tooltip' %>
-				</p>
-			<% end %>
+			<p style="text-align: right">
+				<% if (user_signed_in?) && ((session[:storage].nil?) || (( session[:storage] )&& !( session[:storage].include? @project.id.to_s ))) %>
+					<%= link_to image_tag("../assets/buy.png"), invoicedetails_path(project_id: @project.id), method: :post, title: t("project.show.buy_button") + " \""+@project.title+"\"", rel: 'tooltip' %> |
+				<% end %>
+				<%= @project.price %>
+			</p>
 		<% end %>
 	</div>
 

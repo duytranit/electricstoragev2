@@ -27,9 +27,15 @@
               </tr>
               <tr>
                 <td style="text-align: right">
-                  <% if (user_signed_in?) && ( !current_user.is_staff? ) && ((session[:storage].nil?) || (( session[:storage] )&& !( session[:storage].include? p.id.to_s ))) %>
-                    <%= link_to t("project.buy"), invoicedetails_path(project_id: p.id), method: :post %> |
+                  <% invoice = p.find_invoice_of_user(current_user.id) %>
+                  <% if invoice %>
+                    <%= link_to invoice.download_time.to_s + " downloadings", p %> |
+                  <% else %>
+                    <% if (user_signed_in?) && ( !current_user.is_staff? ) && ((session[:storage].nil?) || (( session[:storage] )&& !( session[:storage].include? p.id.to_s ))) %>
+                      <%= link_to t("project.buy"), invoicedetails_path(project_id: p.id), method: :post %> |
+                    <% end %>
                   <% end %>
+
                   <%= link_to t("projects.welcome.project_read_more_link"), p %>
                 </td>
               </tr>
