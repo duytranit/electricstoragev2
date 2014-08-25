@@ -27,9 +27,14 @@
               </tr>
               <tr>
                 <td style="text-align: right">
-                  <% invoice = p.find_invoice_of_user(current_user.id) %>
+                  <% invoice = p.find_invoice_of_user(current_user.id) if current_user %>
                   <% if invoice %>
-                    <%= link_to invoice.download_time.to_s + " downloadings", p %> |
+                    <% if I18n.locale.to_s == 'vi' %>
+                      <%= link_to invoice.download_time.to_s + " " + t("views.home.downloading"), p %> |
+                    <% else %>
+                      <%= link_to pluralize(invoice.download_time, t("views.home.downloading")), p %> |
+                    <% end %>                   
+                    
                   <% else %>
                     <% if (user_signed_in?) && ( !current_user.is_staff? ) && ((session[:storage].nil?) || (( session[:storage] )&& !( session[:storage].include? p.id.to_s ))) %>
                       <%= link_to t("project.buy"), invoicedetails_path(project_id: p.id), method: :post %> |

@@ -14,6 +14,7 @@ vi:
       project_description: "Nội dung tổng quát"
       min_price: "Từ giá"
       max_price: "Đến giá"
+      downloading: "số lần tải"
   helpers:
     page_entries_info:
       one_page:
