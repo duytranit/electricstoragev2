@@ -208,7 +208,6 @@ class ProcategoriesController < ApplicationController
             format.html { redirect_to father}
           end
         end
-      end       
-
+      end 
     end
 end

@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
 	before_filter :check_price, only: [:index]
   def index
-  	if params[:title] || params[:description] || params[:procategory_id] || params[:min_price] || params[:max_price]
+    if params[:title] || params[:description] || params[:procategory_id] || params[:min_price] || params[:max_price]
   		@projects = Project.search(params[:title], params[:description], params[:min_price], params[:max_price], params[:procategory_id]).joins(:procategory).where(["projects.share = ? and projects.status = ? 
   		and procategories.status = ? ", true, true, true])
       flash[:notice] = "There are " + @projects.count.to_s + " projects"

@@ -71,6 +71,7 @@ en:
     photo: "Photo"
     discription: "Discription"
     update_project: "Update Project"
+    new_project: "New Project"
 
   user:
     registration:
