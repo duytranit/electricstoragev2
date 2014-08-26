@@ -44,7 +44,7 @@ class InvoicesController < ApplicationController
 
         session[:storage].clear
 
-        format.html { redirect_to invoices_path, notice: 'Invoice was successfully created.' }
+        format.html { redirect_to invoices_path, notice: t("controllers.invoice.success_created") }
         format.json { render :show, status: :created, location: @invoice }
       else
         format.html { render :new }

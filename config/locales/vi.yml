@@ -30,6 +30,8 @@ vi:
     feedback:
       success_created: "Phản hồi đã được gởi thành công"
       check_no_index: "Bạn không thể sử dụng chức năng này"
+    invoice:
+      success_created: "Hóa đơn đã được tạo thành công"
   helpers:
     page_entries_info:
       one_page:

@@ -51,6 +51,8 @@ en:
     feedback:
       success_created: "Feedback was successfully created."
       check_no_index: "You cannot use this function"
+    invoice:
+      success_created: "Invoice was successfully created."
   helpers:
     page_entries_info:
       one_page:
