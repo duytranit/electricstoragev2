@@ -27,6 +27,9 @@ vi:
       success_created: "Tệp đính kèm đã được tạo thành công"
       choose_file: "Chọn tệp đính kèm"
       success_destroyed: "Tệp đính kèm đã được xóa thành công"
+    feedback:
+      success_created: "Phản hồi đã được gởi thành công"
+      check_no_index: "Bạn không thể sử dụng chức năng này"
   helpers:
     page_entries_info:
       one_page:

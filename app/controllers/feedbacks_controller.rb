@@ -37,7 +37,7 @@ class FeedbacksController < ApplicationController
 
     respond_to do |format|
       if @feedback.save
-        format.html { redirect_to @feedback.project, notice: 'Feedback was successfully created.' }
+        format.html { redirect_to @feedback.project, notice: t("controllers.feedback.success_created") }
         format.json { render :show, status: :created, location: @feedback.project }
       else
         format.html { render :new }
@@ -82,7 +82,7 @@ class FeedbacksController < ApplicationController
     end
 
     def check_no_index
-      flash[:notice] = "You cannot use this function"
+      flash[:notice] = t("controllers.feedback.check_no_index")
       redirect_to root_path
     end
 end

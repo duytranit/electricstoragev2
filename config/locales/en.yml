@@ -48,6 +48,9 @@ en:
       success_created: "Attachment was successfully created."
       choose_file: "Please choose file"
       success_destroyed: "Attachment was successfully destroyed."
+    feedback:
+      success_created: "Feedback was successfully created."
+      check_no_index: "You cannot use this function"
   helpers:
     page_entries_info:
       one_page:
