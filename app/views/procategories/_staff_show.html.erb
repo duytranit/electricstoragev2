@@ -14,7 +14,8 @@
 		<% end %>
   </h4>
   <div class="story">
-		<ul>
+  	<%= raw(@procategory.description) %>
+		<ul style="margin-top: 20px;">
 			<% if @procategory.level > 1 %>
 				<li>
 					<%= link_to "...", @procategory.procategory %>
@@ -23,7 +24,7 @@
 			<% @cousins.each do |procategory| %>			
 				<% if procategory.id == @procategory.id %>
 					<li>
-						<%= link_to procategory.name_with_no_projects_ddc, procategory, class: "btn", style: "background: #EFF0EB; font-weight: bold; font-size: 14px; color: black;", title: procategory.description, rel: 'tooltip' %>			
+						<%= link_to procategory.name_with_no_projects_ddc, procategory, class: "btn", style: "background: #EFF0EB; font-weight: bold; font-size: 14px; color: black;"%>			
 					</li>
 					<ul>
 						<li>
@@ -32,9 +33,9 @@
 						<% @procategory.procategories.each do |child| %>
 							<li>
 								<% if child.status %>
-									<%= link_to child.name_with_no_projects_ddc, child, class: "btn", title: child.description, rel: 'tooltip' %>
+									<%= link_to child.name_with_no_projects_ddc, child, class: "btn"%>
 								<% else %>
-									<%= link_to child.name_with_no_projects_ddc, child, class: "btn", title: child.description, rel: 'tooltip', disabled: true, style: "background: #EFF0EB;" %>
+									<%= link_to child.name_with_no_projects_ddc, child, class: "btn", disabled: true, style: "background: #EFF0EB;" %>
 									<% if child.user.id == current_user.id %>
 										<%= link_to image_tag("../assets/delete-small.png"), child, method: :delete, data: { confirm: 'Are you sure?' } %>
 									<% end %>
@@ -45,9 +46,9 @@
 				<% else %>
 					<li>
 						<% if procategory.status %>
-							<%= link_to procategory.name_with_no_projects_ddc, procategory, class: "btn", title: procategory.description, rel: 'tooltip' %>
+							<%= link_to procategory.name_with_no_projects_ddc, procategory, class: "btn" %>
 						<% else %>
-							<%= link_to procategory.name_with_no_projects_ddc, procategory, class: "btn", title: procategory.description, rel: 'tooltip', disabled: true %>
+							<%= link_to procategory.name_with_no_projects_ddc, procategory, class: "btn", disabled: true %>
 							<% if procategory.user.id == current_user.id %>
 								<%= link_to image_tag("../assets/delete-small.png"), procategory, method: :delete, data: { confirm: 'Are you sure?' } %>
 							<% end %>
@@ -107,3 +108,21 @@
     </div>    
   </div>
 </div>
+
+<!-- refresh page one time -->
+<script type='text/javascript'>
+(function()
+{
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem( 'firstLoad' ) )
+    {
+      localStorage[ 'firstLoad' ] = true;
+      window.location.reload();
+    }  
+    else
+      localStorage.removeItem( 'firstLoad' );
+  }
+})();
+
+</script>

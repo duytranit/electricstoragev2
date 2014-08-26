@@ -272,8 +272,8 @@ img {
 }
 
 #new-procategory-form {
-	width: 350px;
-  height: 400px;
+	width: 600px;
+  height: 450px;
 }
 
 #searching-form {
@@ -329,7 +329,7 @@ img {
 /*.modal{width: auto;}*/
 .modal h3 {font-size:15px; line-height:normal;}
 /*.modal-body{ max-height: 550px;}*/
-.pop-singup {background-color:#fff; width:300px; padding:10px 30px; margin:0px auto; position:relative; text-align:center}
+.pop-singup {background-color:#fff; width:100%; padding:10px 30px; margin:0px auto; position:relative; text-align:center}
 	.pop-singup  h2 {font-size:15px; line-height:normal; margin-bottom:15px;}
 	.form-sign-up input[type="text"], .form-sign-up input[type="password"] {width:280px; height:28px; line-height:28px; font-size:11px; font-weight:bold; color:#a19f99; background-color:#f4f3f1; border-bottom:#d8d4ce 1px solid}
 	.form-sign-up .controls {margin-bottom:8px;}

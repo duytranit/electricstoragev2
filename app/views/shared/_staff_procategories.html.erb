@@ -1,10 +1,51 @@
 <ul>
 	<% @procategories.each do |procategory| %>
 		<li>
-			<%= link_to procategory.name, procategory, class: "btn" %>
+			<% if procategory.status %>
+				<%= link_to procategory.name, procategory, class: "btn" %>
+			<% else %>
+				<%= link_to procategory.name_with_no_projects_ddc, procategory, class: "btn", title: procategory.description, rel: 'tooltip', disabled: true %>
+				<% if procategory.user.id == current_user.id %>
+					<%= link_to image_tag("../assets/delete-small.png"), procategory, method: :delete, data: { confirm: 'Are you sure?' } %>
+				<% end %>
+			<% end %>
+			
 		</li>
 	<% end %>
+	<li>
+		<a type="button" class="btn" href="#new-procategory-form" data-toggle="modal"><strong style="color: #0066FF;"><%= t("procategory.add_procategory") %></strong></a>
+	</li>
 </ul>
+
+<div class="modal fade" id="new-procategory-form">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">&times;</a>
+    <h3><%= t("procategory.new_procategory") %></h3>
+  </div>
+  <div class="modal-body">
+    <div class="pop-singup">
+      <%= render "new_form" %>
+    </div>    
+  </div>
+</div>
+
+<!-- refresh page one time -->
+<script type='text/javascript'>
+(function()
+{
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem( 'firstLoad' ) )
+    {
+      localStorage[ 'firstLoad' ] = true;
+      window.location.reload();
+    }  
+    else
+      localStorage.removeItem( 'firstLoad' );
+  }
+})();
+
+</script>
 	
 
 

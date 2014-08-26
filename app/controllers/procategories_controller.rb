@@ -8,6 +8,7 @@ class ProcategoriesController < ApplicationController
   def index
     # @procategories = Procategory.find_by_status(true)
     @procategories = Procategory.where(["level = ?", 1])
+    @procategory = Procategory.find_by_level(0)
   end
 
   # GET /procategories/1
@@ -99,7 +100,11 @@ class ProcategoriesController < ApplicationController
     father = Procategory.find(father_id)
     respond_to do |format|
       if father
-        format.html { redirect_to father}
+        if father.level == 0
+          format.html { redirect_to procategories_path}
+        else
+          format.html { redirect_to father}
+        end        
       else
         format.html { redirect_to procategories_path}
       end
@@ -118,11 +123,13 @@ class ProcategoriesController < ApplicationController
       @procategory.procategory_id = 0
       @procategory.level = 1
 
-      if @procategory.validate?
-        @procategory.save
-      else
-        flash[:notice] = @procategory.validate?  
-      end
+      @procategory.save
+
+      # if @procategory.validate?
+      #   @procategory.save
+      # else
+      #   flash[:notice] = @procategory.validate?  
+      # end
 
       respond_to do |format|
         format.html { redirect_to procategories_path}
@@ -136,14 +143,21 @@ class ProcategoriesController < ApplicationController
       @procategory.description = params[:description]
       @procategory.level = father.level + 1
 
-      if @procategory.validate?
-        @procategory.save
-      else
-        flash[:notice] = @procategory.validate?  
-      end
+      @procategory.save
+
+      # if @procategory.validate?
+      #   @procategory.save
+      # else
+      #   flash[:notice] = @procategory.validate?  
+      # end
 
       respond_to do |format|
-        format.html { redirect_to father}
+        if father.level == 0
+          format.html { redirect_to procategories_path}
+        else
+          format.html { redirect_to father}
+        end
+        
       end
     end
             
