@@ -33,7 +33,7 @@ class ProjectsController < ApplicationController
     if procategories.count > 0
       @project = Project.new      
     else
-      redirect_to procategories_path, notice: "There are not any Project Category. You need to add new Project Category !"
+      redirect_to procategories_path, notice: t("controllers.project.no_category")
     end    
   end
 
@@ -48,7 +48,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created. You need to wait for accepting Project Category' }
+        format.html { redirect_to @project, notice: t("controllers.project.success_created") }
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new }
@@ -62,7 +62,7 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+        format.html { redirect_to @project, notice: t("controllers.project.success_updated") }
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit }
@@ -74,10 +74,10 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
-    File.delete(@project.photo.url)
+    File.delete(@project.photo.url) if @project.photo_file_name
     @project.destroy
     respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
+      format.html { redirect_to projects_url, notice: t("controllers.project.success_destroyed") }
       format.json { head :no_content }
     end
   end
@@ -106,7 +106,7 @@ class ProjectsController < ApplicationController
       begin
         @project = Project.find(params[:id])
       rescue Exception => ex
-        flash[:notice] = "Project does not exist in database"
+        flash[:notice] = t("controllers.project.not_exist")
         redirect_to projects_path
       end
     end
@@ -120,7 +120,7 @@ class ProjectsController < ApplicationController
 
     def check_staff_login
       if ( !current_user ) || ( !current_user.is_staff? )
-        redirect_to root_path, notice: "You must to login as a staff to use this function"  
+        redirect_to root_path, notice: t("controllers.project.staff_must_login")
       end
     end
 end

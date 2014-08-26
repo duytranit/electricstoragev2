@@ -36,6 +36,14 @@ en:
       min_price: "Min Price"
       max_price: "Max Price"
       downloading: "downloading"
+  controllers:
+    project:
+      no_category: "There are not any Project Category. You need to add new Project Category !"
+      success_created: "Project was successfully created. You need to wait for accepting Project Category"
+      success_updated: "roject was successfully updated."
+      success_destroyed: "Project was successfully destroyed."
+      not_exist: "Project does not exist in database"
+      staff_must_login: "You must to login as a staff to use this function"
   helpers:
     page_entries_info:
       one_page:

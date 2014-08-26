@@ -15,6 +15,14 @@ vi:
       min_price: "Từ giá"
       max_price: "Đến giá"
       downloading: "số lần tải"
+  controllers:
+    project:
+      no_category: "Hiện tại chưa có bất kỳ thể loại dự án nào. Bạn cần tạo mới một thể loại !"
+      success_created: "Dự án đã được tạo thành công. Bạn cần phải đợi quá trình chấp nhận dự án"
+      success_updated: "Dự án đã được cập nhật thành công"
+      success_destroyed: "Dự án đã được xóa bỏ"
+      not_exist: "Dự án không tồn tại"
+      staff_must_login: "Bạn phải là nhân viên mới sử dụng được chức năng này"
   helpers:
     page_entries_info:
       one_page:
