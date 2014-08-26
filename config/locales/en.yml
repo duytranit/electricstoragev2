@@ -44,6 +44,10 @@ en:
       success_destroyed: "Project was successfully destroyed."
       not_exist: "Project does not exist in database"
       staff_must_login: "You must to login as a staff to use this function"
+    attachment:
+      success_created: "Attachment was successfully created."
+      choose_file: "Please choose file"
+      success_destroyed: "Attachment was successfully destroyed."
   helpers:
     page_entries_info:
       one_page:

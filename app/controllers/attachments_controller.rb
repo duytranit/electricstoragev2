@@ -36,7 +36,7 @@ class AttachmentsController < ApplicationController
 
       respond_to do |format|
         if @attachment.save
-          format.html { redirect_to project, notice: 'Attachment was successfully created.' }
+          format.html { redirect_to project, notice: t("controllers.attachment.success_created") }
           format.json { render :show, status: :created, location: @attachment }
         else
           format.html { render :new }
@@ -44,7 +44,7 @@ class AttachmentsController < ApplicationController
         end
       end      
     else
-      flash[:notice] = "Please choose file"
+      flash[:notice] = t("controllers.attachment.choose_file")
       project = Project.find(session[:project_id])
       respond_to do |format|
         format.html { redirect_to project }
@@ -72,7 +72,7 @@ class AttachmentsController < ApplicationController
   def destroy
     @attachment.destroy
     respond_to do |format|
-      format.html { redirect_to attachments_url, notice: 'Attachment was successfully destroyed.' }
+      format.html { redirect_to attachments_url, notice: t("controllers.attachment.success_destroyed") }
       format.json { head :no_content }
     end
   end

@@ -23,6 +23,10 @@ vi:
       success_destroyed: "Dự án đã được xóa bỏ"
       not_exist: "Dự án không tồn tại"
       staff_must_login: "Bạn phải là nhân viên mới sử dụng được chức năng này"
+    attachment:
+      success_created: "Tệp đính kèm đã được tạo thành công"
+      choose_file: "Chọn tệp đính kèm"
+      success_destroyed: "Tệp đính kèm đã được xóa thành công"
   helpers:
     page_entries_info:
       one_page:
