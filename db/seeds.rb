@@ -54,29 +54,17 @@ congnghe = procategory.procategories.create(
 	description: "<p><em>Xem thêm 303.48 về công nghệ như là nguyên nhân của sự thay đổi văn hóa; cũng xem 306.4 về xã hội học của công nghệ; cũng xem 338.1-338.4 về khía cạnh kinh tế của công nghiệp dựa trên các công nghệ cụ thể; cũng xem 338.9 về công nghệ thích hợp; chuyển giao công nghệ.<em></p>
 
 							<p><em>Xem Phần hướng dẫn ở 300 so với 600; cũng xem ở 363 so với 302-307, 333.7, 570-590, 600; vũng xem ở 363.1 so với 600; cũng xem ở 583-585 so với 600</em></p>
-
 							<strong><p>TÓM LƯỢT</p>
-
 							<p>601-609 : Tiểu phân mục chung và vẽ kỹ thuật, công nghệ vật liệu nguy hiểm</p>
-
 							<p>610: Y học và sức khỏe</p>
-
 							<p>620: Kỹ thuật và các hoạt dộng liên quan</p>
-
 							<p>630: Nông nghiệp và các công nghệ liên quan</p>
-
 							<p>640: Quản lý nhà cửa và gia đình</p>
-
 							<p>650: Quản lý và các dịch vụ phụ trợ</p>
-
 							<p>660: Kỹ thuật hóa học và các  công nghệ liên quan</p>
-
 							<p>670: Công nghệ sản xuất</p>
-
 							<p>680: Sản xuất sản phẩm chuyên dựng</p>
-
-							<p>690: Nhà &amp; Xây dựng</p><strong>"
-	)
+							<p>690: Nhà &amp; Xây dựng</p><strong>"	)
 
 nongnghiep = congnghe.procategories.create(
 	name: "Nông nghiệp và các công nghệ liên quan",
@@ -91,9 +79,7 @@ nongnghiep = congnghe.procategories.create(
 							<p>Xếp xã hội học nông nghiệp vào 306.3; xếp kinh tế nông nghiệp vào 338.1</p>
 							<em><p>Xem thêm 307.72 về xã hội học nông thôn; cũng xem 333.76 về kinh tế đất nông nghiệp; cũng xem 909 về tác phẩm tổng quát về điều kiện và văn minh nông thôn; cũng xem 930-990 về điều kiện và văn minh nông thôn các khu vực cụ thể.</p>
 							<p>Xem phần hướng dẫn ở 571-575 so với 630; cũng xem ở 630 so với 579-590, 641.3</p><em/>
-
 							<strong><p>TÓM LƯỢC</p>
-
 							<p>630.1-.9: Tiểu phân mục chung</p>
 							<p>631: Kỹ thuật cụ thể; máy móc, thiết bị, vật liệu</p>
 							<p>632: Xâm hại, bệnh, sâu hại cây trồng</p>
@@ -118,6 +104,430 @@ kythuat = nongnghiep.procategories.create(
 								<p>Xếp tác phẩm tổng hợp về máy móc, thiết bị, vật liệu sử dụng cho kỹ thuật hoặc quy trình phụ trợ cụ thể, vd., máy tính, vào 630.2</p>
 								<p><em>Về thiệt hại, bênh, sau hại cây trồng, xem 632; về kỹ thuật, máy móc, thiết bị, vật liệu cho các cây trồng cụ thể, xem 633-635; về kỹ thuật, máy móc, thiết bị, vật liệu cụ thể cho các ngành chăn nuôi, xem 636</em></p>"
 	)
+
+caytrong = nongnghiep.procategories.create(
+	name: "Cây trồng ngoài đồng và trong đồn điền",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "633",
+	level: nongnghiep.level + 1,
+	description: "<p>Cây trồng sản xuất trên quy mo lớn phục vụ cho nông nghiệp và công nghiệp chế biến không phải cho mục đích bảo tồn.</p>
+								<p>Tiểu phân mục chung được thêm vào cho một hoặc cả hai đề tài có trong đề mục</p>
+								<p>Xếp sản xuất rau tươi vào 635</p>
+								<p><em>Về một cây trồng ngoài đồng hoặc cây trồng trong đồn điền cụ thể khoong được quy định ở đây xem cây trồng đó, vd., cây ăn quả trồng trong đồn điền 634.</em></p>
+								<p>Kỹ thuật và quy trình phụ trợ; máy móc, thiết bị, vật liệu</p>
+								<p>Không dùng cho kỹ thuật và quy trình phụ trợ; xếp vào 630.2. Không dùng cho máy móc, thiết bị, vật liệu, xếp vào 631</p>"
+	)
+
+vuoncay = nongnghiep.procategories.create(
+	name: "Vườn cây ăn quả, quả, lâm nghiệp",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "634",
+	level: nongnghiep.level + 1,
+	description: "<p>Quả: phần sinh sản cua các cây có hạt co sphần thịt ngọt it hay nhiều cung với hạt, có thể ăn được</p>
+								<p>Tiểu phân mục chung được thêm vào cho chung vườn cây ăn quả, quả, lâm nghiệp; cho riêng vườn cây ăn quả; cho riêng quả</p>
+								<p>Bao gồm cả quả mọng, quả hạch, ôliu</p>
+								<p>Xếp vào đây tác phẩm tổng hợp về cây thân gỗ</p>
+								<p><em>Về cây trồng trong đồn điền, xem 635; về dưa, xem 635; về cây cảnh, xem 635.9</em></p>"
+	)
+
+caytrongvuon = nongnghiep.procategories.create(
+	name: "Cây trồng trong vườn (Nghề làm vườn) Rau",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "635",
+	level: nongnghiep.level + 1,
+	description: "<p>Rau: cây trồng chủ yếu dành cho con người tiêu thụ không qua chế biến trung gian trừ nấu nướng và bảo quản</p>
+								<p>Bao gồm cả cây thuốc, nấm; nhà kính và làm vườn hữu cơ</p>
+								<p>Xếp vào đây nghề làm vườn trong nhà, sản xuất rau đem bán chợ xa</p>
+								<p>Xếp vườn cây ăn quả vào 634</p>
+								<p><em>Về sắn, khoai sọ, xem 633.6</em></p>"
+	)
+
+channuoi = nongnghiep.procategories.create(
+	name: "Chăn nuôi",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "636",
+	level: nongnghiep.level + 1,
+	description: "<p>Bao gồm cả trang trại, chuồng trại, gia súc non</p>
+								<p>Xếp vào đây tác phẩm liên ngành về các loài gia súc</p>
+								<p>Xếp trại chăn nuôi và chuồng trại dành cho các loại vật nuôi cụ thể, cho gia súc non của các loại vật nuôi cụ thể vào 636.1-636.9</p>
+								<p><em>Về nuôi các loại động vật chưa thuần hóa, xem 639. Về một khia cạnh phi nông nghiệp cụ thể của các loại vật nuôi có vú, xem kía canh đó, vd., sinh học vật nuôi có vú 599</em></p>
+								<p><em>Xem Phần hướng dẫn ở 800 so với 398.24, 590, 636</em></p>
+								<strong><p>TÓM LƯỢC</p>
+								<p>.1 Họ Ngựa: Ngựa</p>
+								<p>.2 Động vật nhai lại và họ lạc đà: Bò, Gia súc lớn có sừng</p>
+								<p>.3 Động vật nhai lại nhỏ: Cừu</p>
+								<p>.4 Lợn</p>
+								<p>.5 Gia cầm: Gà</p>
+								<p>.6 Chim không phải gia cầm</p>
+								<p>.7 Chó</p>
+								<p>.8 Mèo</p>
+								<p>.9 Động vật có vú khác</p></strong>"
+	)
+
+sua = nongnghiep.procategories.create(
+	name: "Chế biến sữa và các sản phẩm liên quan",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "637",
+	level: nongnghiep.level + 1,
+	description: "<p>Bao gồm cả sữa, bơ, phó mát, chế biến trứng; sản xuất đồ tráng miệng ướp lạnh, vd., kem</p>
+								<p>Xếp chăn nuôi gia cầm lấy trứng vào 636.5; xếp tác phẩm tổng hợp về chăn nuôi lấy sữa vào 636.2</p>"
+	)
+
+contrung = nongnghiep.procategories.create(
+	name: "Nuôi côn trùng",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "638",
+	level: nongnghiep.level + 1,
+	description: "<p>Bao gồm cả nuôi ong (nghề nuôi ong), chế biến mật ong, làm vườn nuôi bướm; nuôi tầm</p>"
+	)
+
+ngheca = nongnghiep.procategories.create(
+	name: "Săn bắn, nghề cá, bảo tồn, các kỹ thuật liên quan",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "639",
+	level: nongnghiep.level + 1,
+	description: "<p>Bao gồm cả nuôi và đanh bắt động vật không xương sống, vd., động vật có vỏ cứng (tôm, cua), động vật thân mềm</p>
+								<p>Xếp tác phẩm tổng hợp về săn bắn thương mại và thể thao vào 799.2</p>
+								<p><em>Về nuôi côn trùng, xem 638; về săn bắn và câu cá thể thao, xem 799</em></p>
+								<p><em>Xem thêm 636.97 về chăn nuôi lấy lông</em></p>"
+	)
+
+danhbat = ngheca.procategories.create(
+	name: "Đánh bắt cá, săn cá voi, săn hải cẩu thương mại",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "639.2",
+	level: ngheca.level + 1,
+	description: "<p>Tiểu phân mục chung được thêm vào cho chung đánh bắt cá, săn cá voi, săn hải cẩu thương mại, cho riêng đánh bắt cá thương mại</p>
+								<p>Xếp vào đay tác phẩm về nghề cá bao hàm cả nuôi lẫn đanh bắt, về nghề cá bao hàm cả động vật không xương sống lẫn cá có xương sống</p>
+								<p>Xếp nghề nuôi các động vật không xương sống vào 639; xếp tác phẩm tổng hợp về nuôi thủy sản vào 639.8</p>
+								<p><em>Về nuôi cá, xem 639.3</em></p>"
+	)
+
+nuoi = ngheca.procategories.create(
+	name: "Nuôi các động vật có xương sống máu lạnh: Nuôi cá",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "639.3",
+	level: ngheca.level + 1,
+	description: "<p>Bao gồm cả nuôi động vật lưỡng cư, vd., nuôi ếch; trại ương cá; nuôi động vật bò sát</p>
+								<p>Xếp  vào đây động vật có xương sống máu lạnh làm vật yêu quý</p>"
+	)
+
+nuoitrongbe = nuoi.procategories.create(
+	name: "Nuôi ca trong bể",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "639.34",
+	level: nuoi.level + 1,
+	description: "<p>Bao gồm cả bể cá biển</p>
+								<p>Xếp vào đay bể ca nước ngọt, bể cá trong nhà</p>
+								<p>Xếp tác phẩm liên ngành về bể cá vào 597.073</p>"
+	)
+
+nuoithuysan = ngheca.procategories.create(
+	name: "Nuôi trồng thủy sản",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "639.8",
+	level: ngheca.level + 1,
+	description: "<p>Bao gồm cả trồng thực vật dưới nước</p>
+								<p>Xếp vào đay nuôi hải sản</p>
+								<p>Xếp thủy canh vào 631.5. Xếp nuôi một loai thủy sản cụ thể theo loài đó, vd., nuôi cá 639.3</p>"
+	)
+
+baoton = ngheca.procategories.create(
+	name: "Bảo tồn tài nguyên sinh học",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "639.9",
+	level: ngheca.level + 1,
+	description: "<p>Bao gồm cả chồng dịch bệnh, sau hại, thú dữ; cải thiện môi trường sống, khu bảo tồn và nơi ẩn náu; bảo tồn thực vật</p>
+								<p>Xếp vào đây việc bảo tồn các loài động vật, thú rừng, động vật có vú, động vật có xương sống, động vật hoang dã; bảo vệ thú rừng</p>
+								<p>Xếp tác phẩm tổng hợp về chống sâu bệnh trong nông nghiệp vào 632; xếp tác phẩm tổng hợp về chống thú dữ trong nông nghiệp vào 636.08; xếp tác phẩm liên ngành về bảo tồn tài nguyên sinh hoc vào 333.95</p>
+								<p><em>Xem thêm 636.088 về nuôi thú rừng máu nóng</em></p>
+								<p><em>Xem Phần hướng dẫn ở 333.95 so với 639.9</em></p>"
+	)
+
+baotoncovu = baoton.procategories.create(
+	name: "Các loài động vật có vú cụ thể",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "639.97",
+	level: baoton.level + 1,
+	description: "<p>Xếp tác phẩm tổng hợp về bảo tồn các loài động vật có vú cụ thể vào 639.9</p>"
+	)
+
+ngua = channuoi.procategories.create(
+	name: "Họ Ngựa: Ngựa",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "636.1",
+	level: channuoi.level + 1,
+	description: "<p>Bao gồm cả lừa, la, ngựa nhỏ, ngựa vằn</p>
+								<p>Xếp đào tạo người cưỡi ngựa và đánh xe, tác phẩm tổng hợp về huấn luyện ngựa và người cuỗi ngựa và đánh xe vào 798</p>"
+	)
+
+bo = channuoi.procategories.create(
+	name: "Động vật nhai lại và họ lạc đà: Bò, Gia súc lớn có sừng",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "636.2",
+	level: channuoi.level + 1,
+	description: "<p>Bao gồm cả bò Bison, hươu, Ilamas; sản xuất sữa, chăn nuôi gia súc lớn lấy thịt</p>
+								<p>Xếp vắt sữa và chế biến sữa vào 637</p>
+								<p><em>Về động vật nhai lại nhỏ, xem 636.3</em></p>"
+	)
+
+cuu = channuoi.procategories.create(
+	name: "Động vật nhai lại nhỏ: Cừu",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "636.3",
+	level: channuoi.level + 1,
+	description: "<p>Bao gồm cả dê</p>
+								<p>Xếp hươu chuột vào 636.963</p>"
+	)
+
+lon = channuoi.procategories.create(
+	name: "Lợn",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "636.4",
+	level: channuoi.level + 1
+	)
+
+ga = channuoi.procategories.create(
+	name: "Gia cầm: Gà",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "636.5",
+	level: channuoi.level + 1,
+	description: "<p>Bao gồm cả vịt, ngỗng, chim công, gà lôi, gà tây</p>
+								<p>Xếp vào đây tác phẩm tổng hợp về nuôi chim, tác phẩm liên ngành về gia cầm</p>
+								<p><em>Về chim khôn gphải gia cầm, xem 636.6. Về khía cạnh phi nông nghiệp cụ thể của gia cầm, xem khia cạnh đó, vd., sinh hoc gia cầm 598</em></p>"
+	)
+
+chim = channuoi.procategories.create(
+	name: "Chim không phải gia cầm",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "636.6",
+	level: channuoi.level + 1,
+	description: "<p>Bao gồm cả chim săn,. chim cảnh; chim biết hót</p>
+								<p>Xếp tác phẩm tổng hợp về chim vào 636.5</p>
+								<p><em>Về chim công, xem 636.5</em></p>"
+	)
+
+cho = channuoi.procategories.create(
+	name: "Chó",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "636.7",
+	level: channuoi.level + 1
+	)
+
+meo = channuoi.procategories.create(
+	name: "Mèo",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "636.8",
+	level: channuoi.level + 1,
+	description: "<p>Bao gồm cả các loại không phải mèo nhà, vd., mèo gấm Mỹ</p>"
+	)
+
+covu = channuoi.procategories.create(
+	name: "Động vật có vú khác",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "636.9",
+	level: channuoi.level + 1,
+	description: "<p>Thêm vào chỉ số cơ bản 636.9 các số tiếp sau 599 trong 599.2-599.8, vd., loài găm nhắm 636.935, động vật co da lông 636.97; tuy nhiên, về ngựa, xem 636.1; về họ lạc đà, động vật nhai ljai không phải hươu chuột, xem 636.2; về họ mèo, xem 636.8</p>"
+	)
+
+caycanh = caytrongvuon.procategories.create(
+	name: "Hoa và cây cảnh",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "635.9",
+	level: caytrongvuon.level + 1,
+	description: "<p>Tiểu phân mục chung được thêm vào cho một hoặc cả hai đề tài có trong đề mục</p>
+								<p>Bao gồm cả bonsai, cây hàng rào, cây trồng trong nhà, bãi cỏ, cây bóng mát</p>
+								<p>Xếp vào đây nghề trồng hoa</p>
+								<p>Xếp cây được sử dụng làm hàng rào vào 631.2; xếp kiến trúc vường hoa cảnh vào 712; xếp săp xếp hoa vào 745.92</p>
+								<p><em>Về trồng và chăm sóc cây ven đường, xem 625.7</em></p>
+								<p><em>Xem phần hướng dẫn ở 635.9 so với 625.7</em></p>
+								<p>Kỹ thuật và quy trình phụ trợ không dùng cho máy móc, thiết bị, vật liệu; xếp vào 635.9</p>"
+	)
+
+nho = vuoncay.procategories.create(
+	name: "Nho",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "634.8",
+	level: vuoncay.level + 1,
+	description: "<p>Xếp vào đây nghề trồng nho</p>"
+	)
+
+lamnghiep = vuoncay.procategories.create(
+	name: "Lâm nghiệp",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "634.9",
+	level: vuoncay.level + 1,
+	description: "<p>Bao gồm cả nông lâm nghiệp; kỹ thuật chống cháy rừng; lâm học, vd., trồng rừng, phục hồi rừng; lâm sản, vd., bột gỗ; đốn gỗ, tác phẩm tổng hợp về xẻ gỗ</p>
+								<p>Xếp cây không có gỗ trồng làm bột giấy vào 633.8; xếp gỗ xẻ vào 674; xếp tác phẩm liên ngành về trồng rừng và trồng lại rừng vào 333.75. Xếp các cây trồng cho sản phẩm không phải gỗ xẻ hoặc bột gỗ theo sản phẩm đó, vd., cây cao su 633.8, cây hồ đào 634</p>
+								<p><em>Về vận hành nhà máy cưa, xem 674</em></p>
+								<p>Quản lý sản xuất không dùng cho quản lý sản xuất, xếp vào 634.9</p>"
+	)
+
+ngucoc = caytrong.procategories.create(
+	name: "Ngũ cốc",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "633.1",
+	level: caytrong.level + 1,
+	description: "<p>Bao gồm cả lúa mjach, kiều mạch, ngô, yến mạch, lúa, lúa mạch đen, lúa mì</p>
+								<p>Về cây ngũ cốc làm thức ăn gia súc, xem 633.2; về ngô vườn (pop corn), xem 635</p>"
+	)
+
+thucan = caytrong.procategories.create(
+	name: "Cây thức ăn gia súc",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "633.2",
+	level: caytrong.level + 1,
+	description: "<p>Bao gồm cả bãi chăn thả và cỏ, cỏ hòa thảo</p>
+								<p>Xếp vào đây cỏ làm thức ăn gia súc</p>
+								<p>Xếp sử dụng rừng làm nơi chăn thả vào 634.9; xếp tác phẩm tổng hợp về trại chăn nuôi và nông trại dành cho vật nuôi vào 636</p>
+								<p><em>Về cây làm thức ăn gia súc không phải là cỏ, xem 633.3</em></p>"
+	)
+
+hodau = caytrong.procategories.create(
+	name: "Cây họ đậu, cây thức ăn gia súc không phải cỏ và cây họ đậu",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "633.3",
+	level: caytrong.level + 1,
+	description: "<p>Tiểu phân mục chung được thêm vào cho chung cây họ đầu và cây thức ăn gia súc không phải cây họ đậu, cho riêng cây họ đậu</p>
+								<p>Bao gồm cỏ linh lăng, đạu tương, cỏ ba lá, cây lac, đậu</p>
+								<p>Xếp vào đây cây họ đạu làm thức ăn gia súc, cây họ đạu lấy hạt</p>
+								<p>Xếp tác phẩm liên ngành về cây họ đạu làm thực phẩm vào 641.3</p>
+								<p><em>Về các loại quả thuộc cây họ đậu, xem 634; về cây họ đạu trồng ở vườn, xem 635</em></p>"
+	)
+
+laysoi = caytrong.procategories.create(
+	name: "Cây lấy sợi",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "633.5",
+	level: caytrong.level + 1,
+	description: "<p>Bao gồm cả bông, lanh, đay; cây mây tre</p>
+								<p>Xếp vào đây cây sợi mềm</p>
+								<p>Xếp cây láy sợi trồng làm bột giấy vào 633.8</p>"
+	)
+
+layduong = caytrong.procategories.create(
+	name: "Cây lấy đường, cây có nước đường, cây lấy bột",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "633.6",
+	level: caytrong.level + 1,
+	description: "<p>Tiểu phân mục chung được thêm vào cho chung cây lấy đường, cây có nước đường, cây lấy bột; cho riêng cây lấy đường; cho riêng cây có nước đường</p>
+								<p>Bao gồm cả củ cải đường, cây gỗ thích có đường, mia, cây lúa miến ngọt; sắn, khoai sọ</p>
+								<p>Xếp cây trồng lấy bột và sản phẩm khác theo sản phẩm khác đó, vd., khoai tây 635</p>"
+	)
+
+ancaloit = caytrong.procategories.create(
+	name: "Cây có ancaloit",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "633.7",
+	level: caytrong.level + 1,
+	description: "<p>Bao gồm cả cacao, cà phê, chè, thuốc lá</p>"
+	)
+
+caycongnghiep = caytrong.procategories.create(
+	name: "Các loại cây trồng khác dùng cho chế biến công nghiệp",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "633.8",
+	level: caytrong.level + 1,
+	description: "<p>Bao gồm cả cây có dầu; cây gia vị; cây làm thuôc nhuộm, hương liệu, cây thuốc, nước hoa, cao su</p>
+								<p><em>Về cây dừa, cây ôliu, xem 634; về hành và cây gia vị khác, rau thom và ngọt, xem 635. Về cây trồng sản sinh ra thuốc như là một sản phẩm phụ, xem sản phẩm chính, vd., cây thuốc phiện 633.7</em></p>"
+	)
+
 
 xaydung = kythuat.procategories.create(
 	name: "Công trình xây dựng trong nông nghiệp",
@@ -169,13 +579,9 @@ trongtrot = kythuat.procategories.create(
 	ddc: "631.5",
 	level: kythuat.level + 1,
 	description: "<p>Bao gồm cả di truyền học nông nghiệp, vườn ươm, nhân giống cây trồng, hạt giống và danh muc hạt giống, các giống cây trồng, năng suất; các công đoạn sau thu hoạch, vd., phân loại, bảo quản trong kho; các phương pháp trồng trọt đặc biệt, vd., luân canh, trồng trọt khô, nông nghiệp nhà kính, tưới tiêu, trồng trọt hữu cơ, nông nghiệp không cần đất (thủy canh)</p>
-
 								<p>Chỉ sử dụng chỉ số này cho tưới tiêu khi tác phẩm mô tả liên quan tới công việc trong trang trại, vd., lắp đặt và sử dụng hệ thống tưới phun</p>
-
 								<p>Xếp các phương pháp trồng trọt đặc biệt như là đề tài trong kinh tế đất đai vào 333.76; xếp các phương pháp trồng trọt đặc biệt như là đề tài trong kinh tế nông nghiệp vào 338.1; xếp sinh họcc cây nông nghiệp vào 580; xếp đào giếng vào 628.1; xếp tác phẩm liên ngành về tưới tiêu vào 333.91; xếp tác phẩm liên ngành về khía cạnh kỹ thuật của tưới tiêu, các công rình nhận nước tưới từ nguồi ngoài trang trại vào 627</p>
-
 								<p><em>Về thoát nước thải, xem 628.3; về trồng trọt dể bảo tồn đất, luân canh cây trồng chống xói mòn, xem 631.4; về nhà kính, làm vườn hữu cơ, xem 635. Về từng khía cạnh của trồng trọt hữu cơ, xem khía cạnh đó, vd., phân vi sinh 631.8</em></p>
-
 								<p><em>Xem phần hướng dẫn ở 338.1 so với 631.5</em></p>"
 	)
 
