@@ -66,6 +66,181 @@ congnghe = procategory.procategories.create(
 							<p>680: Sản xuất sản phẩm chuyên dựng</p>
 							<p>690: Nhà &amp; Xây dựng</p><strong>"	)
 
+sanxuat = congnghe.procategories.create(
+	name: "Công nghệ sản xuất",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "670",
+	level: congnghe.level + 1,
+	description: "<p>Bao gồm cả lập kế hoạch và thiết kế chế phẩm</p>
+								<p>Xếp vào đây các chế phẩm</p>
+								<p>Xếp các ứng dụng trong quân sự vào 623; xếp lập kế hoạch và thiết kế các loại sản phẩm cụ thê vào 671-679; xếp nghệ thuật vào 700. Xếp tác phẩm tổng hợp về sản phẩm được chế tạo theo một quá trình cụ thể vào quá trình đó, vd., gỗ đã ngâm tẩm 674</p>
+								<p><em>Về sản xuất sản phẩm dựa trên ngành kỹ thuật cụ thể, xem 620; về sản xuất sản phẩm dựa trên côngnghe hóa học, xem 660; về sản xuất thành phẩm cho các công dụng cụ thể không quy định ở chỗ khác, xem 680</em></p>
+								<strong><p>TÓM LƯỢC</p>
+								<p>671 Quá trình gia công kim loại và sản phẩm kim loại sơ chế</p>
+								<p>672 Sắt, thép, hợp kim sắt khác</p>
+								<p>673 Kim loại màu</p>
+								<p>674 Gia công gỗ, sản phẩm gỗ, lie (bấc)</p>
+								<p>675 Gia công da và da lông</p>
+								<p>676 Công nghệ bột giấy và giấy</p>
+								<p>677 Dệt may</p>
+								<p>678 Chất đàn hồi và sản phẩm đàn hồi</p>
+								<p>679 Sản phẩm khác bàng các loại vật liệu cụ thể</p></strong>"
+	)
+
+sanxuatdacbiet = sanxuat.procategories.create(
+	name: "Đề tài sản xuất đặc biệt",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "670.4",
+	level: sanxuat.level + 1
+	)
+
+kythuatvanhanh = sanxuatdacbiet.procategories.create(
+	name: "Kỹ thuật vận hành nhà máy",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "670.42",
+	level: sanxuatdacbiet.level + 1,
+	description: "<p>Bao gồm cả quy trình kiểm tra, quy trình kỹ thuật của phân xưởng cơ khí; cơ khí hóa và tự dộng hóa vận hành nhà máy, thí dụ, sản xuất với sự trợ giúp của máy tính (CAM), hệ thống sản xuất linh hoạt nếu giới hạn cho vận hành nhà máy, rôbôt (người máy)</p>
+								<p>Xếp vào đây công nghệ phân xưởng và công nghệ lắp ráp dây chuyền</p>
+								<p>Xếp thiết kế dựa trên may tính (CAD) vào 620; xếp thiết kế với sự trợ giúp của máy tính/sản xuất với sự trợ giúp của máy tính (CAD/CAM), hệ thống sản xuất tích hợp với máy tính (CIM), sản xuất với sụ trợ giúp của máy tính (CAM), hệ thống sản xuất linh hoạt nếu áp dụng cho thiết kế và sản xuất thành phẩm vào 670.285; xếp tác phẩm tổng hợp về kiểm tra bằng máy tính vào 629.8</p>
+								<p><em>Về công cụ và thiết bị chế tạo, xem 621.9; về công nghệ bao bì, xem 688.8</em></p>"
+	)
+
+giacongkimloai = sanxuat.procategories.create(
+	name: "Quá trình gia công kim loại và sản phẩm kim loại sơ chế",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "671",
+	level: sanxuat.level + 1,
+	description: "<p>Tiểu phân mục chụng được thêm vào cho chung quá trình gia công kim loại và sản phẩm kim loại sơ chế, cho riêng quá trình gia công kim loại</p>
+								<p>Xếp luyện kim và tác phẩm liên ngành về kim loại vào 669</p>
+								<p><em>Về quá trình gia công kim loại và sản phẩm kim loại sơ chế bằng sắt, thép, các hợp kim sắt khác như là kim loại chính, xem 672; về quá trình gia công kim loại và sản phẩm kim loại sơ chế bằng kim loại màu như là kim loại chính, xem 673</em></p>"
+	)
+
+hopkimkhac = sanxuat.procategories.create(
+	name: "Sắt, thép, hợp kim sắt khác",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "672",
+	level: sanxuat.level + 1,
+	description: "<p>Quá trình gia công kim loại và sản phẩm sơ cấp</p>
+								<p>Thêm vào chỉ số co bản 672 các số tiếp sau 671 ở 671.2-671.8, vd., hàn 672.5</p>
+								<p>Tiểu phân mục được htêm cho bất kỳ hoặc toàn bộ đề tài trong đề mục</p>
+								<p><em>Về gia công rèn nhỏ, xem 682</em></p>"
+	)
+
+kimloaimau = sanxuat.procategories.create(
+	name: "Kim loại màu",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "673",
+	level: sanxuat.level + 1,
+	description: "<p>Quá trình gia công kim loại và sản phẩm sơ cấp</p>
+								<p>Xếp vào đây hợp kim kim loại màu</p>
+								<p>Xếp quá trình gia công kim loại và sản phẩm sơ cấp mà trong đó kim loại màu không phải là kim loại chính của thành phẩm vào quá trình đó hoặc kim koại chính đó, vd., mạ ních ken cho các kim loại khác nhau 671.17, phủ kẽm cho thép 672.7</p>"
+	)
+
+giaconggo = sanxuat.procategories.create(
+	name: "Gia công gỗ, sản phẩm gỗ, lie (bấc)",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "674",
+	level: sanxuat.level + 1,
+	description: "<p>Bao gồm cả thùng, thùng gỗ thưa, khây/mâm gỗ, lõi quấn, tăm; tấm ván ép mạt cưa, gỗ dán, gỗ ốp, gỗ bóc tấm; các sản phẩm từ gỗ phế thải và gỗ vụn; tác phẩm tổng hợp về các công nghệ sử dụng gỗ<p>
+								<p><em>Về một sản phẩm cụ thể hoặc công nghệ sử dụng gỗ cụ thể không được quy định ở đay, xem sản phẩm hoặc công nghệ đó, vd., gỗ như là một nhiện liệu 662, công nghệ bột giấy và giấy 676, đồ đạc bằng gỗ 684.1, nghề mộc 694</em><p>"
+	)
+
+duc = giacongkimloai.procategories.create(
+	name: "Đúc",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "671.2",
+	level: giacongkimloai.level + 1,
+	description: "<p>Bao gồm cả chế tạo khuôn, chế tạo mẫu</p>
+								<p><em>Xem thêm 671.3 về thao tác gia công nóng</em></p>"
+	)
+
+giacong = giacongkimloai.procategories.create(
+	name: "Gia công cơ khí và quá trình liên quan",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "671.3",
+	level: giacongkimloai.level + 1,
+	description: "<p>Tiểu phân mục chung được them vào cho chung gia công cơ khí và quá trình liên quan, cho riêng gia công cơ khí</p>
+								<p>Bao gồm cả rèn, cắt gọt, dập, cán, rèn khuôn; luyện kim bột</p>
+								<p>Xếp vào đay thao tác gia công nóng, thao tác gia công nguội, gia công định hinh năng lượng cao</p>
+								<p><em>Về gia công rèn nhỏ, xem 682</em></p>"
+	)
+
+ducdien = giacongkimloai.procategories.create(
+	name: "Đúc kim loại bằng điện",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "671.4",
+	level: giacongkimloai.level + 1
+	)
+
+catnoi = giacongkimloai.procategories.create(
+	name: "Nối và cắt kim loại",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "671.5",
+	level: giacongkimloai.level + 1,
+	description: "<p>Tiểu phân mục chung được thêm vào cho chung nối và cắt kim loại, cho riêng nối kim loại</p>
+								<p>Bao gồm cả tán đinh, hàn (chì, thiếc), hàn</p>
+								<p>Xếp liên kết gốm-kim loại và 666; xếp cát như là một quá trình gia công cơ khí vào 671.3</p>"
+	)
+
+xulybemat = giacongkimloai.procategories.create(
+	name: "Gia công tinh và xử lý bề mặt kim loại; phủ kim loại cho vật liệu phi kim loại",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "671.7",
+	level: giacongkimloai.level + 1,
+	description: "<p>Bao gồm cả đẽp ba via, mạ điện, đánh bóng</p>
+								<p>Xếp tráng men vào 666; xếp tác phẩm tổng hợp về phủ kim loại vào 667. Xếp phru kim loại cho một vật liệu cụ thể theo vật liệu đó, vd., phủ kim loại cho nhựa 668.4, phu kim loại cho kim loại chứa sắt 672.7</p>"
+	)
+
+sanphamsocap = giacongkimloai.procategories.create(
+	name: "Sản phẩm sơ cấp",
+	status: true,
+	created_at: DateTime.now,
+	updated_at: DateTime.now,
+	user_id: staff.id,
+	ddc: "671.8",
+	level: giacongkimloai.level + 1,
+	description: "<p>Bao gồm cả dây cap, ống dẫn, tấm kim loại mỏng, dây thép</p>
+								<p>Xếp vào đây tác phẩm tổng hợp về công nghệ chế tạo sản phẩm kim loại</p>
+								<p><em>Về một sản phẩm kim loại cụ thể không được quy định ở đây, xem sản phẩm đó, vd., đồ đạc bằng kim loại 684.1</em></p>"
+	)
+
+
 nongnghiep = congnghe.procategories.create(
 	name: "Nông nghiệp và các công nghệ liên quan",
 	status: true,
