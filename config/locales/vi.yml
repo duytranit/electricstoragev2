@@ -405,10 +405,10 @@ vi:
         filter: "Lọc"
         clear: "Xóa dữ liệu lọc"
       predicates:
-        contains: "Thông tin"
-        equals: "Bằng"
+        contains: "Tìm kiếm tương đối"
+        equals: "Tìm kiếm chính xác"
         starts_with: "Bắt đầu với"
-        ends_with: "Kết thúc với việc"
+        ends_with: "Kết thúc với"
         greater_than: "Lớn hơn"
         less_than: "Nhỏ hơn"
     main_content: "Xin bổ sung %{model}#main_content để hiển thị nội dung."
