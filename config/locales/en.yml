@@ -380,6 +380,24 @@ en:
 
 
   active_admin:
+    user:
+      email: EMAIL
+      password: PASSWORD
+      password_confirmation: PASSWORD CONFIRMATION
+      sign_in_count: SIGN IN COUNT
+      current_sign_in_at: SIGN IN AT
+      current_sign_in_ip: SIGN IN FROM IP
+      created_at: CREATED AT
+      updated_at: UPDATED AT
+      status: STATUS
+      role: ROLE
+      full_name: FULL NAME
+      first_name: FIRST NAME
+      last_name: LAST NAME
+      active: active
+      customer: customer
+      staff: staff
+      details: User details
     dashboard: Dashboard
     dashboard_welcome:
       welcome: "Welcome to Active Admin. This is the default dashboard page."

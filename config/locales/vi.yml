@@ -362,6 +362,8 @@ vi:
   active_admin:
     user:
       email: THƯ ĐIỆN TỬ
+      password: MẬT KHẨU
+      password_confirmation: XÁC NHẬN MẬT KHẨU
       sign_in_count: SỐ LẦN ĐĂNG NHẬP
       current_sign_in_at: ĐĂNG NHẬP NGÀY
       current_sign_in_ip: ĐĂNG NHẬP TỪ IP
@@ -370,8 +372,12 @@ vi:
       status: TRẠNG THÁI
       role: CHỨC NĂNG
       full_name: HỌ VÀ TÊN
+      first_name: TÊN
+      last_name: HỌ
+      active: kích hoạt
       customer: khách hàng
       staff: nhân viên
+      details: Thông tin tài khoản
     dashboard: Dashboard
     dashboard_welcome:
       welcome: "Chào mừng bạn đến với Active Admin. Đây là trang Dashboard mặc định."

@@ -1,0 +1,36 @@
+<%= semantic_form_for [:admin, @user] do |f| %>
+  <% if @user.persisted? %>
+  	<%= f.inputs t("active_admin.user.details") do %>
+      <%= f.input :email, label: t("active_admin.user.email"), :input_html => { :disabled => true } %>
+      <% if @user.role == 'customer' %>
+        <%= f.input :role, label: t("active_admin.user.role"), :input_html => { :disabled => true, value: t("active_admin.user.customer") } %>
+      <% else %>
+        <%= f.input :role, label: t("active_admin.user.role"), :input_html => { :disabled => true, value: t("active_admin.user.staff") } %>
+      <% end %>
+      <%= f.input :first_name, label: t("active_admin.user.first_name") %>
+      <%= f.input :last_name, label: t("active_admin.user.last_name") %>
+      <%= f.input :status, label: t("active_admin.user.active") %>
+    <% end %>
+
+    <%= f.actions do %>
+      <%= f.action :submit, :as => :button, label: t(:update_button) %>
+      <%= f.action :cancel, :as => :link, label: t(:back_button) %>
+    <% end %>
+  <% else %>
+    <%= f.inputs t("active_admin.user.details") do %>
+      <%= f.input :email, label: t("active_admin.user.email") %>
+      <%= f.input :password, as: :password, label: t("active_admin.user.password") %>
+      <%= f.input :password_confirmation, as: :password, label: t("active_admin.user.password_confirmation") %>
+      <%= f.input :first_name, label: t("active_admin.user.first_name") %>
+      <%= f.input :last_name, label: t("active_admin.user.last_name") %>
+      <% role = [t("active_admin.user.customer"), t("active_admin.user.staff")] %>
+      <%= f.input :role, label: t("active_admin.user.role"), collection: role, as: :radio %>
+      <%= f.input :status, label: t("active_admin.user.active") %>
+    <% end %>
+
+    <%= f.actions do %>
+      <%= f.action :submit, :as => :button, label: t(:update_button) %>
+      <%= f.action :cancel, :as => :link, label: t(:back_button) %>
+    <% end %>
+  <% end %>
+<% end %>

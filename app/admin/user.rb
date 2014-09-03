@@ -15,9 +15,13 @@ ActiveAdmin.register User do
   # end
 
   index do
-    column :email    
-    column :role
-    column 'Status' do |staff|
+    column t("active_admin.user.email") do |user|
+      user.email
+    end    
+    column t("active_admin.user.role") do |user|
+      t("active_admin.user."+user.role)
+    end
+    column t("active_admin.user.status") do |staff|
       if staff.status
         link_to( image_tag("../assets/yes.png"), admin_change_user_status_path(:id => staff.id),
           title: "Click to suspend " + staff.email, rel: "tooltip")
@@ -69,14 +73,7 @@ ActiveAdmin.register User do
     end
   end
 
-  form do |f|
-    f.inputs "User detail" do
-      f.input :first_name
-      f.input :last_name
-      f.input :status
-    end
-    f.actions
-  end
+  form :partial => "form"
 
   filter :first_name
   filter :last_name
@@ -95,6 +92,10 @@ ActiveAdmin.register User do
       respond_to do |format|
         format.html { redirect_to "/admin/users" }
       end
+    end
+
+    def permitted_params
+      params.permit user: [:email, :password, :password_confirmation, :first_name, :last_name, :role, :status]
     end
   end
 
