@@ -360,6 +360,18 @@ vi:
     pm: pm
 
   active_admin:
+    user:
+      email: THƯ ĐIỆN TỬ
+      sign_in_count: SỐ LẦN ĐĂNG NHẬP
+      current_sign_in_at: ĐĂNG NHẬP NGÀY
+      current_sign_in_ip: ĐĂNG NHẬP TỪ IP
+      created_at: NGÀY TẠO
+      updated_at: NGÀY CHỈNH SỬA
+      status: TRẠNG THÁI
+      role: CHỨC NĂNG
+      full_name: HỌ VÀ TÊN
+      customer: khách hàng
+      staff: nhân viên
     dashboard: Dashboard
     dashboard_welcome:
       welcome: "Chào mừng bạn đến với Active Admin. Đây là trang Dashboard mặc định."

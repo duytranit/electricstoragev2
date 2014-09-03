@@ -29,6 +29,46 @@ ActiveAdmin.register User do
     actions
   end
 
+  show do
+    attributes_table do
+      row t("active_admin.user.full_name") do |user|
+        user.first_name + " " + user.last_name
+      end
+      row t("active_admin.user.email") do |user|
+        user.email
+      end
+      row t("active_admin.user.sign_in_count") do |user|
+        user.sign_in_count
+      end
+      row t("active_admin.user.current_sign_in_at") do |user|
+        user.current_sign_in_at
+      end
+      row t("active_admin.user.current_sign_in_ip") do |user|
+        user.current_sign_in_ip
+      end
+      row t("active_admin.user.created_at") do |user|
+        user.created_at
+      end
+      row t("active_admin.user.updated_at") do |user|
+        user.updated_at
+      end
+      row t("active_admin.user.status") do |user|
+        if user.status
+          image_tag("../assets/yes.png")
+        else
+          image_tag("../assets/no.png")
+        end
+      end
+      row t("active_admin.user.role") do |user|
+        if user.role == 'customer'
+          t("active_admin.user.customer")
+        else
+          t("active_admin.user.staff")
+        end
+      end
+    end
+  end
+
   form do |f|
     f.inputs "User detail" do
       f.input :first_name
