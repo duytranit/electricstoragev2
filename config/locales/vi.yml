@@ -168,6 +168,7 @@ vi:
   edit_button: "Chỉnh sửa"
   project_category_navigate_button: "Thể loại"
   update_button: "Cập nhật"
+  create_button: Tạo mới
   destroy: "Xóa"
   category: "Thể loại"
 
@@ -381,6 +382,8 @@ vi:
       category: Thể loại
       status: Trạng thái
       share: Chia sẻ
+      details: Thông tin dự án 
+      user: Nhân viên
     user:
       email: THƯ ĐIỆN TỬ
       password: MẬT KHẨU

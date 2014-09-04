@@ -1,0 +1,32 @@
+<%= semantic_form_for [:admin, @project] do |f| %>
+	<% if @project.persisted? %>
+		<%= f.inputs t("active_admin.project.details") do %>
+			<%= f.input :procategory, as: :select%>
+			<%= f.input :title %>
+			<%= f.input :share %>
+			<%= f.input :status %>
+			<%= f.input :description%>
+			<%= f.input :price %>
+		<% end %>
+		<%= f.actions do %>
+			<%= f.action :submit, :as => :button, label: t(:update_button) %>
+      <%= f.action :cancel, :as => :link, label: t(:back_button) %>
+		<% end %>
+	<% else %>
+		<%= f.inputs t("active_admin.project.details") do %>
+			<% admin_staff = User.where("email = ?", 'admin.staff@gmail.com') %>
+			<%= f.input :user_id, label: t("active_admin.project.user"), as: :select, collection: admin_staff.map{|u| [u.first_name + " " + u.last_name, u.id]}, include_blank: false %>
+			<% procategories = Procategory.where(["status = ? and level != ?", true, 0]) %>
+			<%= f.input :procategory, collection: procategories.map{|category| [category.full_name, category.id]}, include_blank: false %>
+			<%= f.input :title %>
+			<%= f.input :description %>
+			<%= f.input :price %>
+			<%= f.input :share %>
+			<%= f.input :status %>
+		<% end %>
+		<%= f.actions do %>
+			<%= f.action :submit, :as => :button, label: t(:create_button) %>
+      <%= f.action :cancel, :as => :link, label: t(:back_button) %>
+		<% end %>
+	<% end %>
+<% end %>

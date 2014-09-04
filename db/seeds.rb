@@ -14,6 +14,24 @@ Project.delete_all
 Procategory.delete_all
 User.delete_all
 
+admin_staff = User.create(
+	email: 'admin.staff@gmail.com',
+	password: '123123123',
+	first_name: 'Le Duy',
+	last_name: 'Admin Staff',
+	role: 'staff',
+	status: true
+	)
+
+admin_customer = User.create(
+	email: 'admin.customer@gmail.com',
+	password: '123123123',
+	first_name: 'Le Duy',
+	last_name:  'Admin Customer',
+	role: 'customer',
+	status: true
+	)
+
 staff = User.create(
 	email: 'nhanvien1@gmail.com',
 	password: '123123123',

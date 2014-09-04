@@ -44,6 +44,8 @@ ActiveAdmin.register Project do
 
   end
 
+  form :partial => "form"
+
   # filter :user, as: :select, :collection => User.all.map(&:email)
   filter :procategory
   filter :attachments
@@ -82,6 +84,12 @@ ActiveAdmin.register Project do
       respond_to do |format|
         format.html { redirect_to "/admin/projects" }
       end
+    end
+
+    def permitted_params
+      params.permit project: [:title, :share, :status, :description, :price, :user_id,
+        :procategory_id, :photo, :photo_file_name, :photo_content_type,
+        :photo_file_size, :photo_updated_at]
     end
   end
 end
