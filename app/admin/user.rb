@@ -30,7 +30,19 @@ ActiveAdmin.register User do
           title: "Click to active " + staff.email, rel: "tooltip")
       end
     end
-    actions
+    
+    column '' do |user|
+      link = ''
+      link += link_to(t("active_admin.view"), admin_user_path(user))
+      link += " | "
+      link += link_to(t("active_admin.edit"), edit_admin_user_path(user))      
+      if user.email != 'admin.customer@gmail.com' && user.email != 'admin.staff@gmail.com' && !user.have_any_relationship 
+        link += " | "    
+        link += link_to(t("active_admin.delete"), admin_user_path(user), method: :delete, data: { confirm: t("active_admin.user.delete_confirmation", email: user.email) })
+      end
+      raw link
+    end 
+
   end
 
   show do
@@ -69,8 +81,8 @@ ActiveAdmin.register User do
         else
           t("active_admin.user.staff")
         end
-      end
-    end
+      end  
+    end    
   end
 
   form :partial => "form"

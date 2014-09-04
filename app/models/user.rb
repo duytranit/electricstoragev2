@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true
   validates :last_name, presence: true
 
+  before_destroy :check_before_delete
+
   def active_for_authentication?
 	  super && status
 	end
@@ -26,4 +28,38 @@ class User < ActiveRecord::Base
 	def is_customer?
 		self.role == 'customer'		
 	end
+
+  def have_any_relationship
+    if self.projects.count > 0
+      errors.add(:base, "User created Project")
+      return true
+    elsif self.procategories.count > 0
+      errors.add(:base, "User created Project Category")
+      return true
+    elsif self.feedbacks.count > 0
+      errors.add(:base, "User sent Feedback")
+      return true
+    elsif self.invoices.count > 0
+      errors.add(:base, "User bouhgt Project")
+      return true
+    else
+      return false                  
+    end
+  end
+
+  def check_before_delete
+    if self.projects.count > 0
+      errors.add(:base, "User created Project")
+      return false
+    elsif self.procategories.count > 0
+      errors.add(:base, "User created Project Category")
+      return false
+    elsif self.feedbacks.count > 0
+      errors.add(:base, "User sent Feedback")
+      return false
+    elsif self.invoices.count > 0
+      errors.add(:base, "User bouhgt Project")
+      return false      
+    end
+  end
 end

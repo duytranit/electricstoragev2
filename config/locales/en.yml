@@ -398,6 +398,7 @@ en:
       customer: customer
       staff: staff
       details: User details
+      delete_confirmation: Are you sure to delete user %{email}
     dashboard: Dashboard
     dashboard_welcome:
       welcome: "Welcome to Active Admin. This is the default dashboard page."

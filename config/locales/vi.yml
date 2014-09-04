@@ -51,9 +51,16 @@ vi:
 
   activerecord:
     models:
+      user: Tài khoản
       project: Dự án
       procategory: Thể loại
     attributes:
+      user:
+        projects: Dự án
+        first_name: Tên
+        last_name: Họ
+        created_at: Ngày tạo
+        status: Trạng thái
       project:
         title: Tựa đề
         price: Giá
@@ -402,6 +409,7 @@ vi:
       customer: khách hàng
       staff: nhân viên
       details: Thông tin tài khoản
+      delete_confirmation: Bạn có chắc múôn xóa tài khoản %{email}
     dashboard: Dashboard
     dashboard_welcome:
       welcome: "Chào mừng bạn đến với Active Admin. Đây là trang Dashboard mặc định."
