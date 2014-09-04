@@ -49,6 +49,23 @@ vi:
       comments: "phản hồi"
       posted: "Đăng ngày"
 
+  activerecord:
+    models:
+      project: Dự án
+      procategory: Thể loại
+    attributes:
+      project:
+        title: Tựa đề
+        price: Giá
+        status: Trạng thái
+        share: Chia sẻ
+        description: Tóm tắt nội dung
+        created_at: Ngày tạo
+        updated_at: Ngày chỉnh sửa
+        procategory: Thể loại
+        attachments: Tệp đính kèm
+
+
   project:
     show:
       buy_button: "Mua dự án"
@@ -360,6 +377,10 @@ vi:
     pm: pm
 
   active_admin:
+    project:
+      category: Thể loại
+      status: Trạng thái
+      share: Chia sẻ
     user:
       email: THƯ ĐIỆN TỬ
       password: MẬT KHẨU

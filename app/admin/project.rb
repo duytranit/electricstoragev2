@@ -17,10 +17,10 @@ ActiveAdmin.register Project do
   index do
     column :title
     column :price
-    column "Category" do |p|
+    column t("active_admin.project.category") do |p|
       p.procategory.name
     end
-    column "Share" do |p|
+    column t("active_admin.project.share") do |p|
       if p.share
         link_to image_tag('../assets/unlock.png'), admin_change_project_share_path(:id => p.id),
           title: "Click to lock " + p.title, rel: 'tooltip'
@@ -30,7 +30,7 @@ ActiveAdmin.register Project do
       end
     end
 
-    column "Status" do |p|
+    column t("active_admin.project.status") do |p|
       if p.status
         link_to image_tag('../assets/yes.png'), admin_change_project_status_path(:id => p.id),
           title: "Click to suspend " + p.title, rel: "tooltip"
@@ -54,7 +54,6 @@ ActiveAdmin.register Project do
   filter :created_at
   filter :updated_at
   filter :photo_file_name
-  filter :photo_updated_at
 
   controller do
     def change_project_share
